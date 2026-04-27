@@ -53,7 +53,14 @@ export const Footer = () => (
           </li>
           <li className="flex items-start gap-2">
             <Linkedin className="h-4 w-4 mt-0.5 text-primary" />
-            <a href="#" className="hover:text-primary">LinkedIn</a>
+            <a
+              href="https://www.linkedin.com/company/ait-soluciones-automaticas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary"
+            >
+              LinkedIn
+            </a>
           </li>
         </ul>
       </div>
