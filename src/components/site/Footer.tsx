@@ -1,22 +1,18 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Linkedin } from "lucide-react";
+import aitLogo from "@/assets/ait-logo.png";
 
 export const Footer = () => (
   <footer className="border-t border-border/60 bg-gradient-steel">
     <div className="container py-16 grid gap-12 md:grid-cols-4">
       <div className="md:col-span-2 space-y-4">
-        <div className="flex items-center gap-3">
-          <div className="h-11 w-11 rounded-sm bg-gradient-amber flex items-center justify-center font-bold text-primary-foreground shadow-amber">
-            AIT
-          </div>
-          <div>
-            <div className="font-semibold tracking-tight">
-              AIT Soluciones Automáticas
-            </div>
-            <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-              Ingeniería · Instrumentación · Control
-            </div>
-          </div>
+        <img
+          src={aitLogo}
+          alt="AIT Soluciones Automáticas"
+          className="h-16 w-auto object-contain"
+        />
+        <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+          Ingeniería · Instrumentación · Control
         </div>
         <p className="text-sm text-muted-foreground max-w-md">
           Especialistas en instrumentación industrial, válvulas de control y

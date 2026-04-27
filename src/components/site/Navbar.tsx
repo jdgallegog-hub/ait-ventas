@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import aitLogo from "@/assets/ait-logo.png";
 
 const links = [
   { to: "/", label: "Inicio" },
@@ -36,18 +37,12 @@ export const Navbar = () => {
       )}
     >
       <div className="container flex h-16 md:h-20 items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="h-10 w-10 rounded-sm bg-gradient-amber flex items-center justify-center font-bold text-primary-foreground text-sm shadow-amber">
-            AIT
-          </div>
-          <div className="hidden sm:block leading-tight">
-            <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-              Soluciones
-            </div>
-            <div className="text-sm font-semibold tracking-tight">
-              Automáticas Industriales
-            </div>
-          </div>
+        <Link to="/" className="flex items-center group" aria-label="AIT Soluciones Automáticas - Inicio">
+          <img
+            src={aitLogo}
+            alt="AIT Soluciones Automáticas"
+            className="h-10 md:h-12 w-auto object-contain"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
