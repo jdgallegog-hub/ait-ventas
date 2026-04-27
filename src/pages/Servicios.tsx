@@ -18,7 +18,7 @@ const services = [
   {
     icon: Settings,
     title: "Instrumentación de Campo",
-    desc: "Selección, suministro y calibración de transmisores de presión, temperatura, nivel y flujo. Trazabilidad completa con patrones NIST.",
+    desc: "Selección, suministro y calibración de transmisores de presión, temperatura, nivel y flujo. Trazabilidad completa con patrones ONAC.",
     items: ["Rosemount", "Endress+Hauser", "Yokogawa", "Calibración acreditada"],
   },
   {

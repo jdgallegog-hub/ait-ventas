@@ -205,8 +205,8 @@ const Index = () => {
             <ul className="space-y-4">
               {[
                 "Ingenieros certificados Siemens, Fisher y Samson",
-                "Calibración con patrones trazables a NIST",
-                "Protocolos HSE conformes a OSHA y ISO 45001",
+                "Calibración con patrones trazables a ONAC",
+                "Protocolos HSE alineados a buenas prácticas OSHA",
                 "Garantía extendida en repuestos OEM",
                 "Reportes técnicos digitales en 24 horas",
               ].map((p) => (
@@ -220,10 +220,10 @@ const Index = () => {
 
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: ShieldCheck, label: "Seguridad", val: "ISO 45001" },
+              { icon: ShieldCheck, label: "Seguridad", val: "HSE+" },
               { icon: Zap, label: "Disponibilidad", val: "24/7" },
-              { icon: Activity, label: "Calibración", val: "NIST" },
-              { icon: Gauge, label: "Precisión", val: "±0.075%" },
+              { icon: Activity, label: "Calibración", val: "ONAC" },
+              { icon: Gauge, label: "Performance", val: "Élite" },
             ].map((b) => (
               <div
                 key={b.label}
