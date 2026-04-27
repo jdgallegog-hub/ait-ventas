@@ -45,7 +45,7 @@ export const Footer = () => (
           </li>
           <li className="flex items-start gap-2">
             <Mail className="h-4 w-4 mt-0.5 text-primary" />
-            <a href="mailto:ventas@aitsoluciones.com" className="hover:text-primary">ventas@aitsoluciones.com</a>
+            <a href="mailto:operaciones@aitsolucionesautomaticas.com" className="hover:text-primary">operaciones@aitsolucionesautomaticas.com</a>
           </li>
           <li className="flex items-start gap-2">
             <MapPin className="h-4 w-4 mt-0.5 text-primary" />
