@@ -130,8 +130,8 @@ const Contacto = () => {
               {
                 icon: Mail,
                 label: "Correo comercial",
-                value: "ventas@aitsoluciones.com",
-                href: "mailto:ventas@aitsoluciones.com",
+                value: "operaciones@aitsolucionesautomaticas.com",
+                href: "mailto:operaciones@aitsolucionesautomaticas.com",
               },
               {
                 icon: MapPin,
