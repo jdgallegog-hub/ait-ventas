@@ -1,84 +1,10 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Search, Package } from "lucide-react";
+import { ArrowRight, Search, Package, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import valveImg from "@/assets/product-valve.jpg";
-import plcImg from "@/assets/product-plc.jpg";
-import transmitterImg from "@/assets/product-transmitter.jpg";
-import sensorImg from "@/assets/product-sensor.jpg";
-import positionerImg from "@/assets/product-positioner.jpg";
-import hmiImg from "@/assets/product-hmi.jpg";
-
-type Product = {
-  id: string;
-  name: string;
-  brand: string;
-  category: string;
-  sku: string;
-  description: string;
-  image: string;
-};
-
-const categories = ["Todos", "Válvulas", "Control", "Instrumentación", "HMI"];
-
-const products: Product[] = [
-  {
-    id: "1",
-    name: "Válvula de Control Fisher",
-    brand: "Fisher",
-    category: "Válvulas",
-    sku: "FSH-DVC6200",
-    description: "Válvula de control con posicionador digital DVC6200 para servicio severo.",
-    image: valveImg,
-  },
-  {
-    id: "2",
-    name: "PLC SIMATIC S7-1500",
-    brand: "Siemens",
-    category: "Control",
-    sku: "SIE-S71500",
-    description: "Controlador lógico programable de alto desempeño con PROFINET integrado.",
-    image: plcImg,
-  },
-  {
-    id: "3",
-    name: "Transmisor de Presión Rosemount",
-    brand: "Rosemount",
-    category: "Instrumentación",
-    sku: "RSM-3051S",
-    description: "Transmisor de presión de alta precisión ±0.025% con protocolo HART.",
-    image: transmitterImg,
-  },
-  {
-    id: "4",
-    name: "Sensor de Nivel Ultrasónico",
-    brand: "Endress+Hauser",
-    category: "Instrumentación",
-    sku: "ENH-FMU90",
-    description: "Sensor ultrasónico para medición de nivel en líquidos y sólidos.",
-    image: sensorImg,
-  },
-  {
-    id: "5",
-    name: "Posicionador Inteligente Samson",
-    brand: "Samson",
-    category: "Válvulas",
-    sku: "SAM-3730",
-    description: "Posicionador electroneumático con diagnóstico avanzado para válvulas.",
-    image: positionerImg,
-  },
-  {
-    id: "6",
-    name: "Panel HMI Touch SIMATIC",
-    brand: "Siemens",
-    category: "HMI",
-    sku: "SIE-TP1200",
-    description: "Panel táctil industrial 12'' para interfaz hombre-máquina.",
-    image: hmiImg,
-  },
-];
+import { products, categories, formatCOP } from "@/data/products";
 
 const Tienda = () => {
   const [active, setActive] = useState("Todos");
@@ -87,11 +13,12 @@ const Tienda = () => {
   const filtered = useMemo(() => {
     return products.filter((p) => {
       const matchCat = active === "Todos" || p.category === active;
+      const q = query.toLowerCase();
       const matchQ =
-        !query ||
-        p.name.toLowerCase().includes(query.toLowerCase()) ||
-        p.brand.toLowerCase().includes(query.toLowerCase()) ||
-        p.sku.toLowerCase().includes(query.toLowerCase());
+        !q ||
+        p.name.toLowerCase().includes(q) ||
+        p.brand.toLowerCase().includes(q) ||
+        p.sku.toLowerCase().includes(q);
       return matchCat && matchQ;
     });
   }, [active, query]);
@@ -104,15 +31,15 @@ const Tienda = () => {
         <div className="absolute inset-0 bg-gradient-glow" />
         <div className="container relative">
           <span className="text-xs font-mono uppercase tracking-widest text-primary">
-            ✽ Catálogo
+            ✽ Catálogo · {products.length} productos
           </span>
           <h1 className="text-5xl lg:text-7xl font-bold mt-4 mb-6 max-w-4xl leading-[1.05]">
             Tienda <span className="text-gradient-amber">técnica industrial</span>.
           </h1>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl">
-            Suministro de instrumentación, válvulas y componentes de control
-            de las marcas líderes del mercado. Solicite cotización con
-            disponibilidad y plazos en menos de 24 horas.
+            Stock disponible de instrumentación, PLC, transmisores, válvulas y
+            componentes de las marcas líderes. Precios en COP, despacho a toda
+            Colombia.
           </p>
         </div>
       </section>
@@ -126,10 +53,10 @@ const Tienda = () => {
                 key={c}
                 onClick={() => setActive(c)}
                 className={cn(
-                  "px-4 py-2 text-sm font-mono uppercase tracking-wider rounded-sm border transition-smooth",
+                  "px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-sm border transition-smooth",
                   active === c
                     ? "border-primary bg-primary/10 text-primary"
-                    : "border-border bg-secondary/50 text-muted-foreground hover:text-foreground hover:border-border"
+                    : "border-border bg-secondary/50 text-muted-foreground hover:text-foreground"
                 )}
               >
                 {c}
@@ -141,7 +68,7 @@ const Tienda = () => {
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar por marca, modelo o SKU..."
+              placeholder="Buscar marca, modelo o SKU..."
               className="pl-10"
             />
           </div>
@@ -151,6 +78,10 @@ const Tienda = () => {
       {/* GRID */}
       <section className="py-16 lg:py-24">
         <div className="container">
+          <div className="mb-8 text-sm font-mono text-muted-foreground">
+            Mostrando <span className="text-foreground font-semibold">{filtered.length}</span> de {products.length} productos
+          </div>
+
           {filtered.length === 0 ? (
             <div className="text-center py-24">
               <Package className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
@@ -159,7 +90,7 @@ const Tienda = () => {
               </p>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filtered.map((p) => (
                 <article
                   key={p.id}
@@ -170,33 +101,47 @@ const Tienda = () => {
                       src={p.image}
                       alt={p.name}
                       loading="lazy"
-                      width={768}
-                      height={768}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-smooth duration-500"
+                      className="w-full h-full object-contain p-4 group-hover:scale-105 transition-smooth duration-500"
                     />
-                    <span className="absolute top-3 left-3 text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-sm bg-background/80 backdrop-blur border border-border text-primary">
+                    <span className="absolute top-3 left-3 text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-sm bg-background/85 backdrop-blur border border-border text-primary">
                       {p.brand}
                     </span>
+                    <span className="absolute top-3 right-3 text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-sm bg-primary text-primary-foreground">
+                      Oferta
+                    </span>
                   </div>
-                  <div className="p-6 flex flex-col flex-1">
+                  <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-baseline justify-between gap-2 mb-2">
                       <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
                         {p.category}
                       </span>
-                      <span className="text-[10px] font-mono text-muted-foreground">
-                        SKU · {p.sku}
+                      <span className="text-[10px] font-mono text-muted-foreground truncate max-w-[60%]" title={p.sku}>
+                        {p.sku}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold mb-2 leading-tight">{p.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-6 flex-1">
-                      {p.description}
-                    </p>
-                    <Button asChild variant="outlineGlow" size="sm" className="w-full">
-                      <Link to={`/contacto?sku=${p.sku}`}>
-                        Solicitar cotización
-                        <ArrowRight />
-                      </Link>
-                    </Button>
+                    <h3 className="text-base font-bold mb-3 leading-snug min-h-[3rem]">
+                      {p.name}
+                    </h3>
+                    <div className="text-xl font-bold font-mono text-gradient-amber mb-4">
+                      {formatCOP(p.price)}
+                    </div>
+                    <div className="mt-auto flex flex-col gap-2">
+                      <Button asChild variant="hero" size="sm" className="w-full">
+                        <Link to={`/contacto?sku=${encodeURIComponent(p.sku)}&name=${encodeURIComponent(p.name)}`}>
+                          Cotizar
+                          <ArrowRight />
+                        </Link>
+                      </Button>
+                      <a
+                        href={p.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-muted-foreground hover:text-primary transition-smooth"
+                      >
+                        Ver detalle
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </div>
                   </div>
                 </article>
               ))}
