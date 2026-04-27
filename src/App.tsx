@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import Index from "./pages/Index.tsx";
 import Servicios from "./pages/Servicios.tsx";
+import Tienda from "./pages/Tienda.tsx";
 import SobreNosotros from "./pages/SobreNosotros.tsx";
 import Contacto from "./pages/Contacto.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -22,6 +23,7 @@ const App = () => (
           <Route element={<SiteLayout />}>
             <Route path="/" element={<Index />} />
             <Route path="/servicios" element={<Servicios />} />
+            <Route path="/tienda" element={<Tienda />} />
             <Route path="/sobre-nosotros" element={<SobreNosotros />} />
             <Route path="/contacto" element={<Contacto />} />
           </Route>
