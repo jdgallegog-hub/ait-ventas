@@ -206,7 +206,7 @@ const Index = () => {
               {[
                 "Ingenieros certificados Siemens, Fisher y Samson",
                 "Calibración con patrones trazables a ONAC",
-                "Protocolos HSE alineados a buenas prácticas OSHA",
+                "Restauración de válvulas con repuestos OEM y pruebas certificadas",
                 "Garantía extendida en repuestos OEM",
                 "Reportes técnicos digitales en 24 horas",
               ].map((p) => (
@@ -220,7 +220,7 @@ const Index = () => {
 
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: ShieldCheck, label: "Seguridad", val: "HSE+" },
+              { icon: ShieldCheck, label: "Restauración de Válvulas", val: "OEM" },
               { icon: Zap, label: "Disponibilidad", val: "24/7" },
               { icon: Activity, label: "Calibración", val: "ONAC" },
               { icon: Gauge, label: "Performance", val: "Élite" },
