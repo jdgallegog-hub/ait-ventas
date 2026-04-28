@@ -206,7 +206,7 @@ const Index = () => {
               {[
                 "Ingenieros certificados Siemens, Fisher y Samson",
                 "Calibración con patrones trazables a ONAC",
-                "Protocolos HSE alineados a buenas prácticas OSHA",
+                "Restauración de válvulas con repuestos OEM y pruebas certificadas",
                 "Garantía extendida en repuestos OEM",
                 "Reportes técnicos digitales en 24 horas",
               ].map((p) => (
