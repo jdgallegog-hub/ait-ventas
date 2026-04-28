@@ -68,7 +68,7 @@ export const Footer = () => (
     <div className="border-t border-border/60">
       <div className="container py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono text-muted-foreground">
         <span>© {new Date().getFullYear()} AIT Soluciones Automáticas. Todos los derechos reservados.</span>
-        <span className="uppercase tracking-widest">ISO 9001 · Calibración trazable ONAC</span>
+        <span className="uppercase tracking-widest">Calibración trazable ONAC</span>
       </div>
     </div>
   </footer>
