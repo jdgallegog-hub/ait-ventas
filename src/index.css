@@ -82,8 +82,9 @@
     font-feature-settings: "ss01", "cv01";
   }
   h1, h2, h3, h4, h5 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Playfair Display', Georgia, serif;
     letter-spacing: -0.02em;
+    font-weight: 700;
   }
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
@@ -93,14 +94,23 @@
 @layer utilities {
   .bg-gradient-hero { background: var(--gradient-hero); }
   .bg-gradient-amber { background: var(--gradient-amber); }
+  .bg-gradient-gold { background: var(--gradient-gold); }
   .bg-gradient-steel { background: var(--gradient-steel); }
+  .bg-gradient-dark { background: var(--gradient-dark); }
   .bg-gradient-glow { background: var(--gradient-glow); }
   .shadow-amber { box-shadow: var(--shadow-amber); }
   .shadow-elegant { box-shadow: var(--shadow-elegant); }
   .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-luxe { box-shadow: var(--shadow-luxe); }
   .transition-smooth { transition: var(--transition-smooth); }
   .text-gradient-amber {
-    background: var(--gradient-amber);
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gradient-gold {
+    background: var(--gradient-gold);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
