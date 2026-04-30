@@ -1,15 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import aitLogo from "@/assets/ait-logo.png";
+import { useQuoteCart } from "@/context/QuoteCartContext";
 
 const links = [
   { to: "/", label: "Inicio" },
-  { to: "/servicios", label: "Servicios" },
   { to: "/tienda", label: "Tienda" },
-  { to: "/sobre-nosotros", label: "Nosotros" },
   { to: "/contacto", label: "Contacto" },
 ];
 
@@ -17,6 +16,7 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
+  const { count, setOpen: openCart } = useQuoteCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -76,18 +76,45 @@ export const Navbar = () => {
             <Phone className="h-4 w-4" />
             +57 300 574 7839
           </a>
+          <button
+            onClick={() => openCart(true)}
+            className="relative h-10 px-3 rounded-sm border border-border hover:border-primary/40 hover:bg-secondary transition-smooth flex items-center gap-2 text-sm font-mono"
+            aria-label="Abrir cotización"
+          >
+            <ShoppingCart className="h-4 w-4" />
+            Cotización
+            {count > 0 && (
+              <span className="min-w-[20px] h-[20px] px-1 rounded-full bg-primary text-primary-foreground text-[11px] font-bold flex items-center justify-center">
+                {count}
+              </span>
+            )}
+          </button>
           <Button asChild variant="hero" size="sm">
-            <Link to="/contacto">Solicitar diagnóstico</Link>
+            <Link to="/contacto">Contáctanos</Link>
           </Button>
         </div>
 
-        <button
-          className="lg:hidden p-2 text-foreground"
-          onClick={() => setOpen(!open)}
-          aria-label="Menú"
-        >
-          {open ? <X /> : <Menu />}
-        </button>
+        <div className="lg:hidden flex items-center gap-2">
+          <button
+            onClick={() => openCart(true)}
+            className="relative p-2 text-foreground"
+            aria-label="Abrir cotización"
+          >
+            <ShoppingCart className="h-5 w-5" />
+            {count > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center">
+                {count}
+              </span>
+            )}
+          </button>
+          <button
+            className="p-2 text-foreground"
+            onClick={() => setOpen(!open)}
+            aria-label="Menú"
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {open && (
