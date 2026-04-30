@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Linkedin, Globe } from "lucide-react";
 import aitLogo from "@/assets/ait-logo.png";
 
 export const Footer = () => (
@@ -19,6 +19,15 @@ export const Footer = () => (
           automatización para industrias de misión crítica en Colombia y
           Latinoamérica.
         </p>
+        <a
+          href="https://aitsolucionesautomaticas.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-mono text-primary hover:text-primary-glow transition-smooth"
+        >
+          <Globe className="h-4 w-4" />
+          aitsolucionesautomaticas.com
+        </a>
       </div>
 
       <div>

@@ -30,7 +30,7 @@ export const Navbar = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-smooth",
+        "fixed top-8 inset-x-0 z-50 transition-smooth",
         scrolled
           ? "bg-background/85 backdrop-blur-xl border-b border-border/60"
           : "bg-transparent"

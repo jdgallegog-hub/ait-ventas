@@ -96,6 +96,17 @@ const Index = () => {
               </Button>
             </div>
 
+            <a
+              href="https://aitsolucionesautomaticas.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-mono text-primary hover:text-primary-glow transition-smooth group"
+            >
+              <span className="h-px w-8 bg-primary group-hover:w-12 transition-all" />
+              Visite nuestro sitio corporativo · aitsolucionesautomaticas.com
+              <ArrowRight className="h-4 w-4" />
+            </a>
+
             <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
               {stats.map((s) => (
                 <div key={s.label}>
@@ -305,6 +316,19 @@ const Index = () => {
                 <Button asChild variant="outlineGlow" size="xl">
                   <a href="tel:+573005747839">Llamar ahora · +57 300 574 7839</a>
                 </Button>
+              </div>
+
+              <div className="mt-8 pt-8 border-t border-border/60">
+                <a
+                  href="https://aitsolucionesautomaticas.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 text-base font-mono text-primary hover:text-primary-glow transition-smooth"
+                >
+                  <span className="h-2 w-2 rounded-full bg-primary animate-pulse-glow" />
+                  Conozca más en aitsolucionesautomaticas.com
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
