@@ -136,11 +136,9 @@ const Tienda = () => {
                       {formatCOP(p.price)}
                     </div>
                     <div className="mt-auto flex flex-col gap-2">
-                      <Button asChild variant="hero" size="sm" className="w-full">
-                        <Link to={`/contacto?sku=${encodeURIComponent(p.sku)}&name=${encodeURIComponent(p.name)}`}>
-                          Cotizar
-                          <ArrowRight />
-                        </Link>
+                      <Button onClick={() => add(p)} variant="hero" size="sm" className="w-full">
+                        <Plus className="h-4 w-4" />
+                        Agregar a cotización
                       </Button>
                       <a
                         href={p.sourceUrl}
