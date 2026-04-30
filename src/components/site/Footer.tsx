@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Linkedin, Globe } from "lucide-react";
 import aitLogo from "@/assets/ait-logo.png";
 
 export const Footer = () => (
