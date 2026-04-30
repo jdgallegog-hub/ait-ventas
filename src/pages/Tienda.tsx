@@ -1,14 +1,24 @@
-import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, Search, Package, ExternalLink } from "lucide-react";
+import { useState, useMemo, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { ArrowRight, Search, Package, ExternalLink, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { products, categories, formatCOP } from "@/data/products";
+import { useQuoteCart } from "@/context/QuoteCartContext";
 
 const Tienda = () => {
-  const [active, setActive] = useState("Todos");
-  const [query, setQuery] = useState("");
+  const [params] = useSearchParams();
+  const [active, setActive] = useState(params.get("cat") || "Todos");
+  const [query, setQuery] = useState(params.get("q") || "");
+  const { add } = useQuoteCart();
+
+  useEffect(() => {
+    const cat = params.get("cat");
+    const q = params.get("q");
+    if (cat) setActive(cat);
+    if (q) setQuery(q);
+  }, [params]);
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
