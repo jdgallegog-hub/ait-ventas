@@ -50,16 +50,16 @@ const Index = () => {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-steel">
         <div className="absolute inset-0">
           <img
             src={heroImg}
             alt="Sala de control industrial con instrumentación Siemens y válvulas de control en planta de procesamiento"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-25"
             width={1920}
             height={1280}
           />
-          <div className="absolute inset-0 bg-gradient-hero" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
           <div className="absolute inset-0 bg-gradient-glow" />
         </div>
 
