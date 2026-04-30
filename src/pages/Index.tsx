@@ -96,6 +96,17 @@ const Index = () => {
               </Button>
             </div>
 
+            <a
+              href="https://aitsolucionesautomaticas.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-mono text-primary hover:text-primary-glow transition-smooth group"
+            >
+              <span className="h-px w-8 bg-primary group-hover:w-12 transition-all" />
+              Visite nuestro sitio corporativo · aitsolucionesautomaticas.com
+              <ArrowRight className="h-4 w-4" />
+            </a>
+
             <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
               {stats.map((s) => (
                 <div key={s.label}>
