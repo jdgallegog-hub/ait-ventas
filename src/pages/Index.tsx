@@ -50,16 +50,16 @@ const Index = () => {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-steel">
         <div className="absolute inset-0">
           <img
             src={heroImg}
             alt="Sala de control industrial con instrumentación Siemens y válvulas de control en planta de procesamiento"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-25"
             width={1920}
             height={1280}
           />
-          <div className="absolute inset-0 bg-gradient-hero" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
           <div className="absolute inset-0 bg-gradient-glow" />
         </div>
 
@@ -293,16 +293,16 @@ const Index = () => {
       {/* CTA */}
       <section className="py-24 lg:py-32">
         <div className="container">
-          <div className="relative overflow-hidden rounded-sm border border-primary/30 bg-gradient-steel p-12 lg:p-20">
+          <div className="relative overflow-hidden rounded-sm border border-primary/40 bg-gradient-dark p-12 lg:p-20 shadow-elegant">
             <div className="absolute inset-0 bg-gradient-glow opacity-60" />
-            <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+            <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
 
             <div className="relative max-w-3xl">
-              <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight text-white">
                 ¿Su planta requiere una{" "}
-                <span className="text-gradient-amber">intervención crítica</span>?
+                <span className="text-gradient-gold">intervención crítica</span>?
               </h2>
-              <p className="text-lg text-muted-foreground mb-10 max-w-2xl">
+              <p className="text-lg text-white/70 mb-10 max-w-2xl">
                 Programe una visita técnica con nuestros ingenieros. Diagnóstico
                 inicial sin costo y propuesta en menos de 48 horas.
               </p>
