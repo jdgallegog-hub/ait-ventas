@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "sdk_version": "0.23.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://bqzhtncdlnjdyjjojxrt.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "ait-ventas-mcp",
+      "version": "0.1.0",
+      "title": "AIT Ventas Industriales"
+    },
+    "tools": [
+      {
+        "name": "list_products",
+        "title": "Listar productos",
+        "description": "Lista todos los productos del catálogo AIT (opcionalmente filtrados por categoría o marca).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "Categoría: PLC, Válvulas, Transmisores, HMI, etc."
+            },
+            "brand": {
+              "type": "string",
+              "description": "Marca: Siemens, Fisher, Rosemount, Allen-Bradley, etc."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "search_products",
+        "title": "Buscar productos",
+        "description": "Busca productos por texto libre (nombre, marca, SKU o descripción).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Texto de búsqueda"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_product",
+        "title": "Detalle de producto",
+        "description": "Obtiene el detalle completo de un producto por ID o SKU.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "idOrSku": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "idOrSku"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_my_quote",
+        "title": "Ver mi cotización",
+        "description": "Lista los ítems actuales del carrito de cotización del usuario autenticado.",
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "add_to_my_quote",
+        "title": "Agregar a mi cotización",
+        "description": "Agrega un producto (por ID o SKU) a la cotización del usuario autenticado.",
+        "annotations": {
+          "readOnlyHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "idOrSku": {
+              "type": "string",
+              "minLength": 1
+            },
+            "qty": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 999,
+              "default": 1
+            }
+          },
+          "required": [
+            "idOrSku"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "remove_from_my_quote",
+        "title": "Quitar de mi cotización",
+        "description": "Elimina un ítem (por SKU) de la cotización draft del usuario.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "sku": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "sku"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "submit_my_quote",
+        "title": "Enviar cotización",
+        "description": "Marca la cotización draft actual como enviada. Un asesor de AIT contactará al usuario.",
+        "annotations": {
+          "readOnlyHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "notes": {
+              "type": "string",
+              "maxLength": 2000
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
