@@ -8,7 +8,244 @@ import { auth, defineMcp } from "npm:@lovable.dev/mcp-js@0.23.0";
 // src/lib/mcp/tools/list-products.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z } from "npm:zod@^3.25.76";
-import { products } from "npm:@/data/products";
+
+// src/data/products.ts
+var IMG = (id, name) => `https://ventasindustrialesait.odoo.com/web/image/product.product/${id}/image_1024/${encodeURIComponent(name)}`;
+var products = [
+  {
+    id: "5",
+    name: "PLC S7-1500 Compacto",
+    brand: "Siemens",
+    category: "PLC",
+    sku: "S7-1500",
+    price: 285e4,
+    description: "Controlador l\xF3gico programable Siemens SIMATIC S7-1500 compacto de alto desempe\xF1o para automatizaci\xF3n industrial.",
+    image: IMG(5, "PLC S7-1500 Compacto"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/plc-s7-1500-compacto-5"
+  },
+  {
+    id: "6",
+    name: "PLC Allen-Bradley 1400",
+    brand: "Allen-Bradley",
+    category: "PLC",
+    sku: "1766-L32BWA",
+    price: 195e4,
+    description: "PLC Allen-Bradley MicroLogix 1400 con E/S integradas para aplicaciones de control medio.",
+    image: IMG(6, "[1766-L32BWA] PLC Allen-Bradley 1400"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/1766-l32bwa-plc-allen-bradley-1400-6"
+  },
+  {
+    id: "7",
+    name: 'HMI Kinco 7" Touch',
+    brand: "Kinco",
+    category: "HMI",
+    sku: "GL070E",
+    price: 6e5,
+    description: 'Pantalla t\xE1ctil HMI Kinco 7" para interfaz hombre-m\xE1quina en aplicaciones industriales.',
+    image: IMG(7, '[GL070E] HMI Kinco 7" Touch'),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/gl070e-hmi-kinco-7-touch-7"
+  },
+  {
+    id: "8",
+    name: "Variador Mitsubishi 1HP",
+    brand: "Mitsubishi",
+    category: "Variadores",
+    sku: "FR-D720-042-NA",
+    price: 55e4,
+    description: "Variador de frecuencia Mitsubishi 1HP serie D720 para control de velocidad de motores.",
+    image: IMG(8, "[1HP	FR-D720-042-NA] Variador Mitsubishi 1HP"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/1hpfr-d720-042-na-variador-mitsubishi-1hp-8"
+  },
+  {
+    id: "9",
+    name: "Gateway Industrial",
+    brand: "Moxa",
+    category: "Comunicaciones",
+    sku: "S2E-100MD",
+    price: 3e5,
+    description: "Gateway industrial Serial-Ethernet para conectividad de equipos legados a redes IP.",
+    image: IMG(9, "[S2E-100MD] Gateway Industrial"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/s2e-100md-gateway-industrial-9"
+  },
+  {
+    id: "10",
+    name: "Siemens SIMATIC IOT2040",
+    brand: "Siemens",
+    category: "PLC",
+    sku: "SIMATIC IOT2040",
+    price: 15e5,
+    description: "Gateway IoT industrial Siemens SIMATIC IOT2040 para conectividad y procesamiento en el borde.",
+    image: IMG(10, "[SIMATIC IOT2040] Siemens SIMATIC"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/simatic-iot2040-siemens-simatic-10"
+  },
+  {
+    id: "11",
+    name: "Arrancador Suave Siemens SIRIUS",
+    brand: "Siemens",
+    category: "Variadores",
+    sku: "3RW3014-1BB14",
+    price: 5e5,
+    description: "Arrancador suave Siemens SIRIUS 3RW30 para arranque controlado de motores trif\xE1sicos.",
+    image: IMG(11, "[SIRIUS 3RW3014-1BB14] Arrancador Suave Siemens"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/sirius-3rw3014-1bb14-arrancador-suave-siemens-11"
+  },
+  {
+    id: "12",
+    name: "M\xF3dulo de Comunicaci\xF3n Siemens",
+    brand: "Siemens",
+    category: "Comunicaciones",
+    sku: "6ES7541-1AB00-0AB0",
+    price: 18e5,
+    description: "M\xF3dulo de comunicaci\xF3n Siemens 6ES7541 PtP para integraci\xF3n con protocolos serie.",
+    image: IMG(12, "[Siemens 6ES7541-1AB00-0AB0] M\xF3dulo Comunicaci\xF3n Siemens"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/siemens-6es7541-1ab00-0ab0-modulo-comunicacion-siemens-12"
+  },
+  {
+    id: "13",
+    name: 'V\xE1lvula Solenoide ASCO 3/4" NPT 24VDC',
+    brand: "ASCO",
+    category: "V\xE1lvulas",
+    sku: "ASCO-3/4-24VDC",
+    price: 4e5,
+    description: 'V\xE1lvula solenoide ASCO 3/4" NPT - 24VDC. Nueva sin caja, lista para servicio.',
+    image: IMG(13, 'V\xE1lvula Solenoide ASCO 3-4" NPT - 24VDC (Nueva sin caja)'),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/valvula-solenoide-asco-34-npt-24vdc-nueva-sin-caja-13"
+  },
+  {
+    id: "14",
+    name: "Motor El\xE9ctrico Techtop 0.75 HP",
+    brand: "Techtop",
+    category: "Motores",
+    sku: "T1A-71-3-4-B5",
+    price: 35e4,
+    description: "Motor el\xE9ctrico Techtop 0.75 HP (0.55 kW) - 1500 RPM - Brida B5 para acoplamiento directo.",
+    image: IMG(14, "[T1A-71-3-4-B5] Motor El\xE9ctrico Techtop 0.75 HP (0.55 kW) - 1500 RPM - Brida B5"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/t1a-71-3-4-b5-motor-electrico-techtop-075-hp-055-kw-1500-rpm-brida-b5-14"
+  },
+  {
+    id: "15",
+    name: "Presostato Industrial CCS Dual-Snap",
+    brand: "CCS",
+    category: "Instrumentaci\xF3n",
+    sku: "646GZE11",
+    price: 1e6,
+    description: "Presostato industrial CCS Dual-Snap 646GZE11 con rango 12-150 PSI para control de presi\xF3n.",
+    image: IMG(15, "Presostato Industrial CCS Dual-Snap 646GZE11 (12-150 PSI)"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/presostato-industrial-ccs-dual-snap-646gze11-12-150-psi-15"
+  },
+  {
+    id: "16",
+    name: "Presostato Baja Presi\xF3n ITT Neo-Dyn",
+    brand: "ITT Neo-Dyn",
+    category: "Instrumentaci\xF3n",
+    sku: "142P",
+    price: 12e5,
+    description: "Presostato de baja presi\xF3n ITT Neo-Dyn 142P con rango 2-40 in H2O para servicios delicados.",
+    image: IMG(16, "Presostato de Baja Presi\xF3n ITT Neo-Dyn 142P (2-40 in H2O)"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/presostato-de-baja-presion-itt-neo-dyn-142p-2-40-in-h2o-16"
+  },
+  {
+    id: "17",
+    name: "Transmisor de Presi\xF3n Siemens SITRANS P DS III",
+    brand: "Siemens",
+    category: "Transmisores",
+    sku: "7MF4033-1DA10-1NC6-Z",
+    price: 26e5,
+    description: "Transmisor de presi\xF3n Siemens SITRANS P DS III modelo 7MF4033 con protocolo HART.",
+    image: IMG(17, "[7MF4033-1DA10-1NC6-Z] Transmisor de Presi\xF3n Siemens SITRANS P DS III - 7MF4033"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/7mf4033-1da10-1nc6-z-transmisor-de-presion-siemens-sitrans-p-ds-iii-7mf4033-17"
+  },
+  {
+    id: "18",
+    name: "Transmisor de Presi\xF3n Siemens SITRANS P220",
+    brand: "Siemens",
+    category: "Transmisores",
+    sku: "7MF1567-3CA00-5BA1",
+    price: 65e4,
+    description: "Transmisor de presi\xF3n Siemens SITRANS P220 rango 0-10 Bar, salida 4-20 mA.",
+    image: IMG(18, "[7MF1567-3CA00-5BA1] Transmisor de Presi\xF3n Siemens SITRANS P220 (0-10 Bar) - 4-20 mA"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/7mf1567-3ca00-5ba1-transmisor-de-presion-siemens-sitrans-p220-0-10-bar-4-20-ma-18"
+  },
+  {
+    id: "19",
+    name: "Transmisor Diferencial Siemens SITRANS P DS III",
+    brand: "Siemens",
+    category: "Transmisores",
+    sku: "7MF44331EY221AC1-Z",
+    price: 5e6,
+    description: "Transmisor de presi\xF3n diferencial Siemens SITRANS P DS III modelo 7MF4433 alta precisi\xF3n.",
+    image: IMG(19, "[7MF44331EY221AC1-Z_] Transmisor de Presi\xF3n Diferencial Siemens SITRANS P DS III - 7MF4433"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/7mf44331ey221ac1-z-transmisor-de-presion-diferencial-siemens-sitrans-p-ds-iii-7mf4433-19"
+  },
+  {
+    id: "20",
+    name: "Transmisor Diferencial Yokogawa EJA110A",
+    brand: "Yokogawa",
+    category: "Transmisores",
+    sku: "91MC27289",
+    price: 3e6,
+    description: "Transmisor de presi\xF3n diferencial Yokogawa EJA110A tecnolog\xEDa DPharp con alt\xEDsima estabilidad.",
+    image: IMG(20, "[91MC27289] Transmisor de Presi\xF3n Diferencial Yokogawa EJA110A (DPharp)"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/91mc27289-transmisor-de-presion-diferencial-yokogawa-eja110a-dpharp-20"
+  },
+  {
+    id: "21",
+    name: "Transmisor de Nivel Ultras\xF3nico Siemens SITRANS",
+    brand: "Siemens",
+    category: "Transmisores",
+    sku: "7ML5881-0AC01-0AD9-Z",
+    price: 6e6,
+    description: "Transmisor de nivel ultras\xF3nico Siemens SITRANS para medici\xF3n sin contacto en tanques y silos.",
+    image: IMG(21, "[7ML5881-0AC01-0AD9-Z] Transmisor de Nivel Ultras\xF3nico Siemens SITRANS"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/7ml5881-0ac01-0ad9-z-transmisor-de-nivel-ultrasonico-siemens-sitrans-21"
+  },
+  {
+    id: "22",
+    name: "Termostato Industrial United Electric",
+    brand: "United Electric",
+    category: "Instrumentaci\xF3n",
+    sku: "E122-2BSB",
+    price: 9e5,
+    description: "Termostato industrial United Electric E122-2BSB con rango 30-250\xB0F para control de temperatura.",
+    image: IMG(22, "[E122-2BSB] Termostato Industrial United Electric E122-2BSB (30-250\xB0F)"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/e122-2bsb-termostato-industrial-united-electric-e122-2bsb-30-250f-22"
+  },
+  {
+    id: "23",
+    name: "Elemento de Presi\xF3n Helicoidal Barton (0-50 PSI)",
+    brand: "Barton",
+    category: "Instrumentaci\xF3n",
+    sku: "B-ELM-050",
+    price: 3e5,
+    description: "Elemento de presi\xF3n helicoidal Barton rango 0-50 PSI repuesto OEM para registradores.",
+    image: IMG(23, "[B-ELM-050] Elemento de Presi\xF3n Helicoidal Barton (0-50 PSI)"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/b-elm-050-elemento-de-presion-helicoidal-barton-0-50-psi-23"
+  },
+  {
+    id: "25",
+    name: "Elemento de Presi\xF3n Helicoidal Barton (0-1000 PSI)",
+    brand: "Barton",
+    category: "Instrumentaci\xF3n",
+    sku: "B-ELM-1000",
+    price: 85e4,
+    description: "Elemento de presi\xF3n helicoidal Barton rango 0-1000 PSI repuesto OEM de alta presi\xF3n.",
+    image: IMG(25, "Elemento de Presi\xF3n Helicoidal Barton (0-1000 PSI)"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/elemento-de-presion-helicoidal-barton-0-1000-psi-25"
+  },
+  {
+    id: "26",
+    name: "Elemento de Presi\xF3n Helicoidal Barton (0-1500 PSI)",
+    brand: "Barton",
+    category: "Instrumentaci\xF3n",
+    sku: "B-ELM-1500",
+    price: 9e5,
+    description: "Elemento de presi\xF3n helicoidal Barton rango 0-1500 PSI repuesto OEM ultra alta presi\xF3n.",
+    image: IMG(26, "[B-ELM-1500] Elemento de Presi\xF3n Helicoidal Barton (0-1500 PSI)"),
+    sourceUrl: "https://ventasindustrialesait.odoo.com/shop/b-elm-1500-elemento-de-presion-helicoidal-barton-0-1500-psi-26"
+  }
+];
+
+// src/lib/mcp/tools/list-products.ts
 var list_products_default = defineTool({
   name: "list_products",
   title: "Listar productos",
@@ -31,7 +268,6 @@ var list_products_default = defineTool({
 // src/lib/mcp/tools/search-products.ts
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z as z2 } from "npm:zod@^3.25.76";
-import { products as products2 } from "npm:@/data/products";
 var search_products_default = defineTool2({
   name: "search_products",
   title: "Buscar productos",
@@ -40,7 +276,7 @@ var search_products_default = defineTool2({
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ query }) => {
     const q = query.toLowerCase();
-    const hits = products2.filter(
+    const hits = products.filter(
       (p) => p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q) || p.description.toLowerCase().includes(q)
     );
     return { content: [{ type: "text", text: JSON.stringify(hits, null, 2) }] };
@@ -50,7 +286,6 @@ var search_products_default = defineTool2({
 // src/lib/mcp/tools/get-product.ts
 import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z as z3 } from "npm:zod@^3.25.76";
-import { products as products3 } from "npm:@/data/products";
 var get_product_default = defineTool3({
   name: "get_product",
   title: "Detalle de producto",
@@ -58,7 +293,7 @@ var get_product_default = defineTool3({
   inputSchema: { idOrSku: z3.string().min(1) },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ idOrSku }) => {
-    const p = products3.find(
+    const p = products.find(
       (x) => x.id === idOrSku || x.sku.toLowerCase() === idOrSku.toLowerCase()
     );
     if (!p) return { content: [{ type: "text", text: "No encontrado" }], isError: true };
@@ -109,7 +344,6 @@ var list_my_quote_default = defineTool4({
 // src/lib/mcp/tools/add-to-quote.ts
 import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z as z4 } from "npm:zod@^3.25.76";
-import { products as products4 } from "npm:@/data/products";
 var add_to_quote_default = defineTool5({
   name: "add_to_my_quote",
   title: "Agregar a mi cotizaci\xF3n",
@@ -122,7 +356,7 @@ var add_to_quote_default = defineTool5({
   handler: async ({ idOrSku, qty }, ctx) => {
     if (!ctx.isAuthenticated())
       return { content: [{ type: "text", text: "No autenticado" }], isError: true };
-    const p = products4.find((x) => x.id === idOrSku || x.sku.toLowerCase() === idOrSku.toLowerCase());
+    const p = products.find((x) => x.id === idOrSku || x.sku.toLowerCase() === idOrSku.toLowerCase());
     if (!p) return { content: [{ type: "text", text: "Producto no encontrado" }], isError: true };
     const { sb, quoteId, userId } = await getOrCreateDraft(ctx);
     const { data: existing } = await sb.from("quote_items").select("id,qty").eq("quote_id", quoteId).eq("sku", p.sku).maybeSingle();
