@@ -1,10 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone, ShoppingCart } from "lucide-react";
+import { Menu, X, Phone, ShoppingCart, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import aitLogo from "@/assets/ait-logo.png";
 import { useQuoteCart } from "@/context/QuoteCartContext";
+import { useAuth } from "@/context/AuthContext";
+
 
 const links = [
   { to: "/", label: "Inicio" },
@@ -17,6 +19,8 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
   const { count, setOpen: openCart } = useQuoteCart();
+  const { user, signOut } = useAuth();
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -89,9 +93,25 @@ export const Navbar = () => {
               </span>
             )}
           </button>
-          <Button asChild variant="hero" size="sm">
-            <Link to="/contacto">Contáctanos</Link>
-          </Button>
+          {user ? (
+            <>
+              <Button asChild variant="outlineGlow" size="sm">
+                <Link to="/mi-cuenta"><User className="h-4 w-4" />Mi cuenta</Link>
+              </Button>
+              <button
+                onClick={() => signOut()}
+                className="h-9 w-9 rounded-sm border border-border hover:border-destructive/50 hover:text-destructive flex items-center justify-center"
+                aria-label="Cerrar sesión"
+              >
+                <LogOut className="h-4 w-4" />
+              </button>
+            </>
+          ) : (
+            <Button asChild variant="hero" size="sm">
+              <Link to="/auth">Iniciar sesión</Link>
+            </Button>
+          )}
+
         </div>
 
         <div className="lg:hidden flex items-center gap-2">
