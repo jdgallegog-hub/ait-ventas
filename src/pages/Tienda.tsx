@@ -96,17 +96,31 @@ const Tienda = () => {
                   key={p.id}
                   className="group rounded-sm border border-border bg-card overflow-hidden hover:border-primary/40 hover:shadow-amber transition-smooth flex flex-col"
                 >
-                  <div className="aspect-square overflow-hidden bg-secondary/40 relative">
+                  <div className="aspect-square overflow-hidden bg-secondary/40 relative flex items-center justify-center">
                     <img
                       src={p.image}
                       alt={p.name}
                       loading="lazy"
+                      onError={(e) => {
+                        const el = e.currentTarget;
+                        el.style.display = "none";
+                        el.parentElement?.querySelector("[data-fallback]")?.classList.remove("hidden");
+                      }}
                       className="w-full h-full object-contain p-4 group-hover:scale-105 transition-smooth duration-500"
                     />
-                    <span className="absolute top-3 left-3 text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-sm bg-background/85 backdrop-blur border border-border text-primary">
+                    <div
+                      data-fallback
+                      className="hidden absolute inset-0 flex-col items-center justify-center gap-3 bg-gradient-to-br from-secondary/60 to-secondary/20"
+                    >
+                      <Package className="h-16 w-16 text-primary/60" strokeWidth={1.2} />
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground px-4 text-center">
+                        {p.category}
+                      </span>
+                    </div>
+                    <span className="absolute top-3 left-3 z-10 text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-sm bg-background/85 backdrop-blur border border-border text-primary">
                       {p.brand}
                     </span>
-                    <span className="absolute top-3 right-3 text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-sm bg-primary text-primary-foreground">
+                    <span className="absolute top-3 right-3 z-10 text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-sm bg-primary text-primary-foreground">
                       Oferta
                     </span>
                   </div>
