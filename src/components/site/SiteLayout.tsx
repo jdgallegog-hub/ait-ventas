@@ -3,11 +3,8 @@ import { Globe } from "lucide-react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { WhatsAppFAB } from "./WhatsAppFAB";
-import { QuoteCartProvider } from "@/context/QuoteCartContext";
-import { QuoteCartDrawer, QuoteCartFAB } from "./QuoteCartDrawer";
 
 export const SiteLayout = () => (
-  <QuoteCartProvider>
   <div className="min-h-screen flex flex-col bg-background">
     {/* Top announcement bar — link to corporate site */}
     <a
@@ -27,9 +24,6 @@ export const SiteLayout = () => (
       <Outlet />
     </main>
     <Footer />
-    <QuoteCartFAB />
     <WhatsAppFAB />
-    <QuoteCartDrawer />
   </div>
-  </QuoteCartProvider>
 );

@@ -1,71 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* AIT Soluciones Automáticas — Corporate Premium: White / Gold / Black */
+/* AIT Soluciones Automáticas — Industrial Premium Dark */
 @layer base {
   :root {
-    /* Core surfaces — pristine white */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    /* Core surfaces — deep steel */
+    --background: 220 18% 7%;
+    --foreground: 40 20% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card: 220 16% 10%;
+    --card-foreground: 40 20% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover: 220 16% 10%;
+    --popover-foreground: 40 20% 96%;
 
-    /* Brand: refined gold */
-    --primary: 42 55% 48%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 44 70% 62%;
+    /* Brand: amber industrial / safety */
+    --primary: 38 95% 55%;
+    --primary-foreground: 220 30% 8%;
+    --primary-glow: 42 100% 65%;
 
-    --secondary: 40 25% 96%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 220 14% 14%;
+    --secondary-foreground: 40 20% 96%;
 
-    --muted: 40 15% 95%;
-    --muted-foreground: 0 0% 38%;
+    --muted: 220 14% 14%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 0 0% 8%; /* deep black accent */
-    --accent-foreground: 0 0% 100%;
+    --accent: 18 90% 55%; /* safety orange */
+    --accent-foreground: 40 20% 98%;
 
-    --destructive: 0 75% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 40 20% 98%;
 
-    --border: 40 15% 88%;
-    --input: 40 15% 92%;
-    --ring: 42 55% 48%;
+    --border: 220 14% 18%;
+    --input: 220 14% 16%;
+    --ring: 38 95% 55%;
 
     --radius: 0.25rem;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100% / 0.92) 0%, hsl(40 25% 96% / 0.85) 50%, hsl(40 15% 92% / 0.7) 100%);
-    --gradient-amber: linear-gradient(135deg, hsl(42 55% 48%), hsl(38 70% 58%));
-    --gradient-gold: linear-gradient(135deg, hsl(45 75% 55%) 0%, hsl(38 60% 45%) 50%, hsl(42 70% 60%) 100%);
-    --gradient-steel: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 20% 97%) 100%);
-    --gradient-dark: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 14%) 100%);
-    --gradient-glow: radial-gradient(ellipse at top, hsl(42 55% 48% / 0.12), transparent 60%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 5% / 0.95) 0%, hsl(220 25% 8% / 0.75) 50%, hsl(220 20% 6% / 0.4) 100%);
+    --gradient-amber: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-steel: linear-gradient(180deg, hsl(220 16% 10%) 0%, hsl(220 18% 7%) 100%);
+    --gradient-glow: radial-gradient(ellipse at top, hsl(var(--primary) / 0.15), transparent 60%);
 
     /* Shadows */
-    --shadow-amber: 0 10px 40px -10px hsl(42 55% 48% / 0.35);
-    --shadow-elegant: 0 20px 60px -20px hsl(0 0% 0% / 0.18);
-    --shadow-card: 0 4px 24px -6px hsl(0 0% 0% / 0.08);
-    --shadow-luxe: 0 1px 0 0 hsl(42 55% 48% / 0.3), 0 12px 40px -12px hsl(0 0% 0% / 0.15);
+    --shadow-amber: 0 10px 40px -10px hsl(var(--primary) / 0.4);
+    --shadow-elegant: 0 20px 60px -20px hsl(0 0% 0% / 0.6);
+    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.5);
 
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 0 0% 8%;
-    --sidebar-primary: 42 55% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 40 25% 96%;
-    --sidebar-accent-foreground: 0 0% 8%;
-    --sidebar-border: 40 15% 88%;
-    --sidebar-ring: 42 55% 48%;
+    --sidebar-background: 220 18% 7%;
+    --sidebar-foreground: 40 20% 96%;
+    --sidebar-primary: 38 95% 55%;
+    --sidebar-primary-foreground: 220 30% 8%;
+    --sidebar-accent: 220 14% 14%;
+    --sidebar-accent-foreground: 40 20% 96%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 38 95% 55%;
   }
 }
 
@@ -82,9 +79,8 @@
     font-feature-settings: "ss01", "cv01";
   }
   h1, h2, h3, h4, h5 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Space Grotesk', sans-serif;
     letter-spacing: -0.02em;
-    font-weight: 700;
   }
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
@@ -94,23 +90,14 @@
 @layer utilities {
   .bg-gradient-hero { background: var(--gradient-hero); }
   .bg-gradient-amber { background: var(--gradient-amber); }
-  .bg-gradient-gold { background: var(--gradient-gold); }
   .bg-gradient-steel { background: var(--gradient-steel); }
-  .bg-gradient-dark { background: var(--gradient-dark); }
   .bg-gradient-glow { background: var(--gradient-glow); }
   .shadow-amber { box-shadow: var(--shadow-amber); }
   .shadow-elegant { box-shadow: var(--shadow-elegant); }
   .shadow-card { box-shadow: var(--shadow-card); }
-  .shadow-luxe { box-shadow: var(--shadow-luxe); }
   .transition-smooth { transition: var(--transition-smooth); }
   .text-gradient-amber {
-    background: var(--gradient-gold);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .text-gradient-gold {
-    background: var(--gradient-gold);
+    background: var(--gradient-amber);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

@@ -1,24 +1,14 @@
-import { useState, useMemo, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { ArrowRight, Search, Package, ExternalLink, Plus } from "lucide-react";
+import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Search, Package, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { products, categories, formatCOP } from "@/data/products";
-import { useQuoteCart } from "@/context/QuoteCartContext";
 
 const Tienda = () => {
-  const [params] = useSearchParams();
-  const [active, setActive] = useState(params.get("cat") || "Todos");
-  const [query, setQuery] = useState(params.get("q") || "");
-  const { add } = useQuoteCart();
-
-  useEffect(() => {
-    const cat = params.get("cat");
-    const q = params.get("q");
-    if (cat) setActive(cat);
-    if (q) setQuery(q);
-  }, [params]);
+  const [active, setActive] = useState("Todos");
+  const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
@@ -136,9 +126,11 @@ const Tienda = () => {
                       {formatCOP(p.price)}
                     </div>
                     <div className="mt-auto flex flex-col gap-2">
-                      <Button onClick={() => add(p)} variant="hero" size="sm" className="w-full">
-                        <Plus className="h-4 w-4" />
-                        Agregar a cotización
+                      <Button asChild variant="hero" size="sm" className="w-full">
+                        <Link to={`/contacto?sku=${encodeURIComponent(p.sku)}&name=${encodeURIComponent(p.name)}`}>
+                          Cotizar
+                          <ArrowRight />
+                        </Link>
                       </Button>
                       <a
                         href={p.sourceUrl}

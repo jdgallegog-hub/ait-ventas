@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Linkedin, Globe } from "lucide-react";
 import aitLogo from "@/assets/ait-logo.png";
 
 export const Footer = () => (
-  <footer className="border-t border-primary/20 bg-gradient-dark text-white [&_.text-muted-foreground]:text-white/60 [&_.text-foreground]:text-white [&_a:hover]:text-primary-glow">
+  <footer className="border-t border-border/60 bg-gradient-steel">
     <div className="container py-16 grid gap-12 md:grid-cols-4">
       <div className="md:col-span-2 space-y-4">
         <img
@@ -36,7 +36,9 @@ export const Footer = () => (
         </h4>
         <ul className="space-y-2 text-sm text-muted-foreground">
           <li><Link to="/" className="hover:text-primary transition-smooth">Inicio</Link></li>
+          <li><Link to="/servicios" className="hover:text-primary transition-smooth">Servicios</Link></li>
           <li><Link to="/tienda" className="hover:text-primary transition-smooth">Tienda</Link></li>
+          <li><Link to="/sobre-nosotros" className="hover:text-primary transition-smooth">Nosotros</Link></li>
           <li><Link to="/contacto" className="hover:text-primary transition-smooth">Contacto</Link></li>
         </ul>
       </div>
