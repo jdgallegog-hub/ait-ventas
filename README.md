@@ -60,7 +60,7 @@ El servidor local queda disponible en `http://localhost:8080`.
 
 El formulario escribe en `public.contact_requests`. Aplique la migración `supabase/migrations/202608240001_contact_requests.sql` desde el SQL Editor del proyecto de Supabase. La política pública sólo permite insertar solicitudes; la lectura, edición y eliminación requieren una sesión autenticada.
 
-Configure estas variables en `.env` durante el desarrollo y en Vercel como variables de entorno de producción:
+Configure estas variables en `.env` durante el desarrollo local y en Vercel como variables de entorno de Production y Preview. El panel Hobby utilizado para este proyecto no permitió marcar Development como entorno adicional; para trabajar en Development local utilice siempre el archivo `.env`, que no se publica en Git.
 
 ```env
 VITE_SUPABASE_PROJECT_ID=your-project-id
@@ -82,7 +82,7 @@ El proyecto incorpora `vercel.json` con salida `dist` y una regla de rewrite hac
 
 ## Publicación en Vercel
 
-Importe el repositorio desde el panel de Vercel, seleccione el framework **Vite** y configure las tres variables `VITE_SUPABASE_*`. El comando de compilación es `npm run build` y el directorio de salida es `dist`; ambos valores ya están declarados en `vercel.json`. Después de aplicar la migración de Supabase, despliegue la rama `main` y pruebe la navegación directa, los filtros de la tienda y el envío del formulario.
+El repositorio ya está conectado al proyecto de Vercel. Si se crea otro proyecto, seleccione el framework **Vite**, configure las tres variables `VITE_SUPABASE_*` en Production y Preview, y use `npm run build` con salida `dist`; ambos valores ya están declarados en `vercel.json`. Después de aplicar la migración de Supabase, publique la rama `main` y pruebe la navegación directa, los filtros de la tienda y el envío del formulario.
 
 ## Estructura relevante
 
