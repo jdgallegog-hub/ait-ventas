@@ -6,6 +6,8 @@ import transmitterImage from "@/assets/product-transmitter.jpg";
 import valveImage from "@/assets/product-valve.jpg";
 import allenBradley1400Image from "@/assets/product-allen-bradley-1400.webp";
 import s71500Image from "@/assets/product-s7-1500.webp";
+import mitsubishiFrD720Image from "@/assets/product-mitsubishi-fr-d720.webp";
+import softStarterSiriusFrontImage from "@/assets/product-soft-starter-sirius-front.webp";
 
 export type Product = {
   id: string;
@@ -42,6 +44,14 @@ const productImages: Partial<Record<string, { image: string; label: string }>> =
   "1766-L32BWA": {
     image: allenBradley1400Image,
     label: "Fotografía del PLC Allen-Bradley MicroLogix 1400",
+  },
+  "3RW3014-1BB14": {
+    image: softStarterSiriusFrontImage,
+    label: "Fotografía del arrancador suave Siemens SIRIUS",
+  },
+  "FR-D720-042-NA": {
+    image: mitsubishiFrD720Image,
+    label: "Fotografía del variador Mitsubishi FR-D720",
   },
 };
 

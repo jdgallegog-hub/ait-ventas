@@ -4,6 +4,9 @@ import allenBradley1400WiredImage from "@/assets/product-allen-bradley-1400-wire
 import s71500Image from "@/assets/product-s7-1500.webp";
 import s71500ModulesImage from "@/assets/product-s7-1500-modules.webp";
 import s71500PairImage from "@/assets/product-s7-1500-pair.webp";
+import softStarterSiriusFrontImage from "@/assets/product-soft-starter-sirius-front.webp";
+import softStarterSiriusAngleImage from "@/assets/product-soft-starter-sirius-angle.webp";
+import mitsubishiFrD720Image from "@/assets/product-mitsubishi-fr-d720.webp";
 import type { Product } from "./products";
 
 export type ProductGalleryImage = {
@@ -40,6 +43,22 @@ export const productGalleries: Record<string, ProductGalleryImage[]> = {
       alt: "PLC Allen-Bradley MicroLogix 1400 con conexiones visibles",
     },
   ],
+  "3RW3014-1BB14": [
+    {
+      src: softStarterSiriusFrontImage,
+      alt: "Arrancador suave Siemens SIRIUS 3RW3014-1BB14 de frente",
+    },
+    {
+      src: softStarterSiriusAngleImage,
+      alt: "Arrancador suave Siemens SIRIUS 3RW3014-1BB14 en vista lateral",
+    },
+  ],
+  "FR-D720-042-NA": [
+    {
+      src: mitsubishiFrD720Image,
+      alt: "Variador Mitsubishi FR-D720 de 1 HP en vista frontal",
+    },
+  ],
 };
 
 export const productCharacteristics: Record<string, string[]> = {
@@ -54,6 +73,18 @@ export const productCharacteristics: Record<string, string[]> = {
     "Entradas y salidas integradas para control medio",
     "Pantalla y teclado frontal para operación y diagnóstico",
     "Referencia: 1766-L32BWA",
+  ],
+  "3RW3014-1BB14": [
+    "Arrancador suave Siemens SIRIUS 3RW30",
+    "Referencia visible: 3RW3014-1BB14",
+    "Entrada de control de 110–230 V",
+    "Ajuste de tiempo de arranque y tensión inicial",
+  ],
+  "FR-D720-042-NA": [
+    "Variador de frecuencia Mitsubishi serie D700",
+    "Referencia de catálogo: FR-D720-042-NA",
+    "Alimentación y potencia final sujetas a validación técnica",
+    "Control de velocidad para aplicaciones con motores eléctricos",
   ],
 };
 
