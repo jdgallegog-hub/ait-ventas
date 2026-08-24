@@ -92,7 +92,7 @@ const Index = () => {
                 </Link>
               </Button>
               <Button asChild variant="outlineGlow" size="xl">
-                <Link to="/servicios">Ver servicios</Link>
+                <a href="#servicios">Ver servicios</a>
               </Button>
             </div>
 
@@ -152,7 +152,7 @@ const Index = () => {
       </section>
 
       {/* SERVICES */}
-      <section className="py-24 lg:py-32 relative">
+      <section id="servicios" className="py-24 lg:py-32 relative">
         <div className="absolute inset-0 grid-pattern opacity-30" />
         <div className="container relative">
           <div className="max-w-2xl mb-16">

@@ -36,7 +36,6 @@ export const Footer = () => (
         </h4>
         <ul className="space-y-2 text-sm text-muted-foreground">
           <li><Link to="/" className="hover:text-primary transition-smooth">Inicio</Link></li>
-          <li><Link to="/servicios" className="hover:text-primary transition-smooth">Servicios</Link></li>
           <li><Link to="/tienda" className="hover:text-primary transition-smooth">Tienda</Link></li>
           <li><Link to="/sobre-nosotros" className="hover:text-primary transition-smooth">Nosotros</Link></li>
           <li><Link to="/contacto" className="hover:text-primary transition-smooth">Contacto</Link></li>

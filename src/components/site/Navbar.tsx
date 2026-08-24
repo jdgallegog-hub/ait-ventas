@@ -7,7 +7,6 @@ import aitLogo from "@/assets/ait-logo.png";
 
 const links = [
   { to: "/", label: "Inicio" },
-  { to: "/servicios", label: "Servicios" },
   { to: "/tienda", label: "Tienda" },
   { to: "/sobre-nosotros", label: "Nosotros" },
   { to: "/contacto", label: "Contacto" },

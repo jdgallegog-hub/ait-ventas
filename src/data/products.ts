@@ -28,6 +28,12 @@ const categoryImages: Record<string, { image: string; label: string }> = {
   Motores: { image: positionerImage, label: "Imagen de referencia de equipo electromecánico" },
 };
 
+/**
+ * Sobrescribe aquí la foto de un SKU específico cuando ya tengas la imagen real.
+ * Ejemplo: "S7-1500": { image: plcImage, label: "Foto real del PLC S7-1500" },
+ */
+const productImages: Partial<Record<string, { image: string; label: string }>> = {};
+
 const product = (
   id: string,
   name: string,
@@ -36,7 +42,10 @@ const product = (
   sku: string,
   price: number,
   description: string,
-): Product => ({
+): Product => {
+  const visual = productImages[sku] ?? categoryImages[category];
+
+  return {
   id,
   name,
   brand,
@@ -44,9 +53,10 @@ const product = (
   sku,
   price,
   description,
-  image: categoryImages[category].image,
-  imageLabel: categoryImages[category].label,
-});
+    image: visual.image,
+    imageLabel: visual.label,
+  };
+};
 
 export const products: Product[] = [
   product("5", "PLC S7-1500 Compacto", "Siemens", "PLC", "S7-1500", 2850000, "Controlador lógico programable Siemens SIMATIC S7-1500 compacto de alto desempeño para automatización industrial."),

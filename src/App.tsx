@@ -7,7 +7,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
 const Index = lazy(() => import("./pages/Index"));
-const Servicios = lazy(() => import("./pages/Servicios"));
 const Tienda = lazy(() => import("./pages/Tienda"));
 const SobreNosotros = lazy(() => import("./pages/SobreNosotros"));
 const Contacto = lazy(() => import("./pages/Contacto"));
@@ -31,7 +30,6 @@ const App = () => (
           <Routes>
             <Route element={<SiteLayout />}>
               <Route path="/" element={<Index />} />
-              <Route path="/servicios" element={<Servicios />} />
               <Route path="/tienda" element={<Tienda />} />
               <Route path="/sobre-nosotros" element={<SobreNosotros />} />
               <Route path="/contacto" element={<Contacto />} />
