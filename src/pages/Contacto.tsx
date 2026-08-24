@@ -47,6 +47,16 @@ const Contacto = () => {
     event.preventDefault();
     setSending(true);
 
+    if (!supabase) {
+      setSending(false);
+      toast({
+        title: "Formulario temporalmente no disponible",
+        description: "La configuración de cotizaciones aún no está activa. Escríbanos directamente por WhatsApp.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     const { error } = await supabase.from("contact_requests").insert({
       name: form.name.trim(),
       company: form.company.trim(),

@@ -1,8 +1,17 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "./types";
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+const SUPABASE_URL = typeof import.meta.env.VITE_SUPABASE_URL === "string" ? import.meta.env.VITE_SUPABASE_URL : "";
+const SUPABASE_PUBLISHABLE_KEY = typeof import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY === "string" ? import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY : "";
+
+function isValidSupabaseUrl(value: string) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && url.hostname.endsWith(".supabase.co");
+  } catch {
+    return false;
+  }
+}
 
 function isNewSupabaseApiKey(value: string) {
   return value.startsWith("sb_publishable_") || value.startsWith("sb_secret_");
@@ -22,11 +31,17 @@ function createSupabaseFetch(supabaseKey: string): typeof fetch {
   };
 }
 
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-  global: { fetch: createSupabaseFetch(SUPABASE_PUBLISHABLE_KEY) },
-  auth: {
-    storage: typeof window !== "undefined" ? window.localStorage : undefined,
-    persistSession: true,
-    autoRefreshToken: true,
-  },
-});
+const hasSupabaseConfig = isValidSupabaseUrl(SUPABASE_URL) && SUPABASE_PUBLISHABLE_KEY.length > 20;
+
+export const supabase = hasSupabaseConfig
+  ? createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+      global: { fetch: createSupabaseFetch(SUPABASE_PUBLISHABLE_KEY) },
+      auth: {
+        storage: typeof window !== "undefined" ? window.localStorage : undefined,
+        persistSession: true,
+        autoRefreshToken: true,
+      },
+    })
+  : null;
+
+export const supabaseConfigReady = hasSupabaseConfig;
