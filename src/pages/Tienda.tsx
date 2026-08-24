@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, PackageCheck, Search, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileText, PackageCheck, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -9,12 +9,14 @@ import { categories, formatCOP, products, type Product } from "@/data/products";
 const ProductCard = ({ product }: { product: Product }) => (
   <article className="group flex flex-col overflow-hidden rounded-2xl border border-border/80 bg-card/85 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-amber">
     <div className="relative aspect-square overflow-hidden bg-[radial-gradient(circle_at_50%_25%,hsl(var(--primary)/.16),transparent_42%),linear-gradient(145deg,hsl(var(--secondary)),hsl(var(--background)))]">
-      <img
-        src={product.image}
-        alt={`${product.imageLabel}: ${product.name}`}
-        loading="lazy"
-        className="h-full w-full object-contain p-8 transition-transform duration-500 group-hover:scale-105"
-      />
+      <Link to={`/tienda/${encodeURIComponent(product.sku)}`} aria-label={`Ver detalles de ${product.name}`} className="block h-full w-full">
+        <img
+          src={product.image}
+          alt={`${product.imageLabel}: ${product.name}`}
+          loading="lazy"
+          className="h-full w-full object-contain p-8 transition-transform duration-500 group-hover:scale-105"
+        />
+      </Link>
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/80 to-transparent" />
       <span className="absolute left-4 top-4 rounded-full border border-border/70 bg-background/80 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-primary backdrop-blur">
         {product.brand}
@@ -23,7 +25,7 @@ const ProductCard = ({ product }: { product: Product }) => (
         Disponible
       </span>
       <span className="absolute bottom-4 left-4 text-[10px] font-mono uppercase tracking-[0.14em] text-foreground/60">
-        Imagen de referencia
+        {product.imageLabel.startsWith("Fotografía") ? "Foto del producto" : "Imagen de referencia"}
       </span>
     </div>
 
@@ -32,7 +34,9 @@ const ProductCard = ({ product }: { product: Product }) => (
         <span>{product.category}</span>
         <span className="max-w-[58%] truncate" title={product.sku}>{product.sku}</span>
       </div>
-      <h2 className="min-h-[3.25rem] text-lg font-semibold leading-tight text-foreground">{product.name}</h2>
+      <h2 className="min-h-[3.25rem] text-lg font-semibold leading-tight text-foreground">
+        <Link to={`/tienda/${encodeURIComponent(product.sku)}`} className="transition-colors hover:text-primary">{product.name}</Link>
+      </h2>
       <p className="mt-3 min-h-[3rem] text-sm leading-relaxed text-muted-foreground">{product.description}</p>
       <div className="mt-5 flex items-end justify-between gap-3 border-t border-border/70 pt-4">
         <div>
@@ -41,7 +45,13 @@ const ProductCard = ({ product }: { product: Product }) => (
         </div>
         <PackageCheck className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
       </div>
-      <Button asChild variant="hero" size="sm" className="mt-5 w-full">
+      <Button asChild variant="outlineGlow" size="sm" className="mt-5 w-full">
+        <Link to={`/tienda/${encodeURIComponent(product.sku)}`}>
+          Ver producto
+          <ArrowUpRight />
+        </Link>
+      </Button>
+      <Button asChild variant="hero" size="sm" className="mt-3 w-full">
         <Link to={`/contacto?sku=${encodeURIComponent(product.sku)}&name=${encodeURIComponent(product.name)}&category=${encodeURIComponent(product.category)}`}>
           Solicitar cotización
           <ArrowRight />

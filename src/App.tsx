@@ -8,6 +8,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 
 const Index = lazy(() => import("./pages/Index"));
 const Tienda = lazy(() => import("./pages/Tienda"));
+const Producto = lazy(() => import("./pages/Producto"));
 const SobreNosotros = lazy(() => import("./pages/SobreNosotros"));
 const Contacto = lazy(() => import("./pages/Contacto"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -31,6 +32,7 @@ const App = () => (
             <Route element={<SiteLayout />}>
               <Route path="/" element={<Index />} />
               <Route path="/tienda" element={<Tienda />} />
+              <Route path="/tienda/:sku" element={<Producto />} />
               <Route path="/sobre-nosotros" element={<SobreNosotros />} />
               <Route path="/contacto" element={<Contacto />} />
             </Route>
