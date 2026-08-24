@@ -1,185 +1,183 @@
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Search, Package, ExternalLink } from "lucide-react";
+import { ArrowRight, FileText, PackageCheck, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { products, categories, formatCOP } from "@/data/products";
+import { categories, formatCOP, products, type Product } from "@/data/products";
+
+const ProductCard = ({ product }: { product: Product }) => (
+  <article className="group flex flex-col overflow-hidden rounded-2xl border border-border/80 bg-card/85 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-amber">
+    <div className="relative aspect-square overflow-hidden bg-[radial-gradient(circle_at_50%_25%,hsl(var(--primary)/.16),transparent_42%),linear-gradient(145deg,hsl(var(--secondary)),hsl(var(--background)))]">
+      <img
+        src={product.image}
+        alt={`${product.imageLabel}: ${product.name}`}
+        loading="lazy"
+        className="h-full w-full object-contain p-8 transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/80 to-transparent" />
+      <span className="absolute left-4 top-4 rounded-full border border-border/70 bg-background/80 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-primary backdrop-blur">
+        {product.brand}
+      </span>
+      <span className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-primary-foreground">
+        Disponible
+      </span>
+      <span className="absolute bottom-4 left-4 text-[10px] font-mono uppercase tracking-[0.14em] text-foreground/60">
+        Imagen de referencia
+      </span>
+    </div>
+
+    <div className="flex flex-1 flex-col p-5">
+      <div className="mb-3 flex items-center justify-between gap-3 text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground">
+        <span>{product.category}</span>
+        <span className="max-w-[58%] truncate" title={product.sku}>{product.sku}</span>
+      </div>
+      <h2 className="min-h-[3.25rem] text-lg font-semibold leading-tight text-foreground">{product.name}</h2>
+      <p className="mt-3 min-h-[3rem] text-sm leading-relaxed text-muted-foreground">{product.description}</p>
+      <div className="mt-5 flex items-end justify-between gap-3 border-t border-border/70 pt-4">
+        <div>
+          <span className="block text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground">Precio de referencia</span>
+          <span className="mt-1 block text-xl font-bold font-mono text-gradient-amber">{formatCOP(product.price)}</span>
+        </div>
+        <PackageCheck className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+      </div>
+      <Button asChild variant="hero" size="sm" className="mt-5 w-full">
+        <Link to={`/contacto?sku=${encodeURIComponent(product.sku)}&name=${encodeURIComponent(product.name)}&category=${encodeURIComponent(product.category)}`}>
+          Solicitar cotización
+          <ArrowRight />
+        </Link>
+      </Button>
+      <div className="mt-3 flex items-center justify-center gap-2 text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
+        <FileText className="h-3.5 w-3.5" />
+        Ficha técnica bajo solicitud
+      </div>
+    </div>
+  </article>
+);
 
 const Tienda = () => {
   const [active, setActive] = useState("Todos");
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
-    return products.filter((p) => {
-      const matchCat = active === "Todos" || p.category === active;
-      const q = query.toLowerCase();
-      const matchQ =
-        !q ||
-        p.name.toLowerCase().includes(q) ||
-        p.brand.toLowerCase().includes(q) ||
-        p.sku.toLowerCase().includes(q);
-      return matchCat && matchQ;
+    const normalizedQuery = query.trim().toLowerCase();
+    return products.filter((product) => {
+      const matchesCategory = active === "Todos" || product.category === active;
+      const matchesQuery = !normalizedQuery || [product.name, product.brand, product.sku, product.category]
+        .some((field) => field.toLowerCase().includes(normalizedQuery));
+      return matchesCategory && matchesQuery;
     });
   }, [active, query]);
 
   return (
     <>
-      {/* HEADER */}
-      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 border-b border-border/60 overflow-hidden">
+      <section className="relative overflow-hidden border-b border-border/70 pb-14 pt-24 lg:pb-20 lg:pt-32">
         <div className="absolute inset-0 grid-pattern opacity-40" />
-        <div className="absolute inset-0 bg-gradient-glow" />
+        <div className="absolute -right-40 -top-44 h-[28rem] w-[28rem] rounded-full bg-primary/10 blur-3xl" />
         <div className="container relative">
-          <span className="text-xs font-mono uppercase tracking-widest text-primary">
-            ✽ Catálogo · {products.length} productos
-          </span>
-          <h1 className="text-5xl lg:text-7xl font-bold mt-4 mb-6 max-w-4xl leading-[1.05]">
-            Tienda <span className="text-gradient-amber">técnica industrial</span>.
-          </h1>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl">
-            Stock disponible de instrumentación, PLC, transmisores, válvulas y
-            componentes de las marcas líderes. Precios en COP, despacho a toda
-            Colombia.
-          </p>
-        </div>
-      </section>
-
-      {/* FILTERS */}
-      <section className="sticky top-16 md:top-20 z-30 border-b border-border/60 bg-background/85 backdrop-blur-xl">
-        <div className="container py-5 flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between">
-          <div className="flex flex-wrap gap-2">
-            {categories.map((c) => (
-              <button
-                key={c}
-                onClick={() => setActive(c)}
-                className={cn(
-                  "px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-sm border transition-smooth",
-                  active === c
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-border bg-secondary/50 text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-          <div className="relative lg:w-80">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar marca, modelo o SKU..."
-              className="pl-10"
-            />
+          <div className="grid items-end gap-10 lg:grid-cols-[1.1fr_.9fr]">
+            <div className="max-w-3xl">
+              <div className="mb-5 flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-primary">
+                <span className="h-px w-10 bg-primary" />
+                Catálogo técnico · Colombia
+              </div>
+              <h1 className="max-w-4xl text-5xl font-bold leading-[0.98] tracking-tight lg:text-7xl">
+                Componentes para que su operación <span className="text-gradient-amber">no se detenga.</span>
+              </h1>
+              <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground lg:text-xl">
+                Instrumentación, control y automatización seleccionados para plantas industriales. Consulte disponibilidad, ficha técnica y acompañamiento de un ingeniero.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-primary/25 bg-card/70 p-6 shadow-card backdrop-blur sm:p-8">
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">Compra consultiva</span>
+                  <p className="mt-3 text-2xl font-semibold">Un equipo. Una respuesta técnica.</p>
+                </div>
+                <PackageCheck className="h-8 w-8 text-primary" aria-hidden="true" />
+              </div>
+              <div className="mt-7 grid grid-cols-3 gap-3 border-t border-border/70 pt-5 text-center">
+                <div><strong className="block text-2xl font-mono text-foreground">{products.length}</strong><span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Productos</span></div>
+                <div><strong className="block text-2xl font-mono text-foreground">{categories.length - 1}</strong><span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Categorías</span></div>
+                <div><strong className="block text-2xl font-mono text-foreground">24h</strong><span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Respuesta</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* GRID */}
-      <section className="py-16 lg:py-24">
+      <section className="sticky top-16 z-30 border-b border-border/70 bg-background/90 backdrop-blur-xl md:top-20">
+        <div className="container py-4">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1" aria-label="Filtrar por categoría">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setActive(category)}
+                  aria-pressed={active === category}
+                  className={cn(
+                    "whitespace-nowrap rounded-full border px-4 py-2 text-[11px] font-mono uppercase tracking-[0.12em] transition-all duration-200",
+                    active === category
+                      ? "border-primary bg-primary text-primary-foreground shadow-amber"
+                      : "border-border bg-secondary/50 text-muted-foreground hover:border-primary/40 hover:text-foreground",
+                  )}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            <div className="relative shrink-0 lg:w-80">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
+              <Input
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Buscar marca, modelo o SKU"
+                aria-label="Buscar productos"
+                className="h-11 rounded-full border-border bg-secondary/50 pl-10 pr-10"
+              />
+              {query && (
+                <button type="button" onClick={() => setQuery("")} aria-label="Limpiar búsqueda" className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-14 lg:py-20">
         <div className="container">
-          <div className="mb-8 text-sm font-mono text-muted-foreground">
-            Mostrando <span className="text-foreground font-semibold">{filtered.length}</span> de {products.length} productos
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
+            <p className="text-sm font-mono text-muted-foreground">
+              Mostrando <span className="font-semibold text-foreground">{filtered.length}</span> de {products.length} referencias
+            </p>
+            <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">Precios de referencia en COP</p>
           </div>
 
           {filtered.length === 0 ? (
-            <div className="text-center py-24">
-              <Package className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <p className="text-muted-foreground">
-                No se encontraron productos. Pruebe otra búsqueda.
-              </p>
+            <div className="rounded-2xl border border-dashed border-border bg-card/40 py-24 text-center">
+              <Search className="mx-auto mb-4 h-10 w-10 text-primary/70" />
+              <h2 className="text-2xl font-semibold">No encontramos esa referencia</h2>
+              <p className="mx-auto mt-3 max-w-md text-muted-foreground">Pruebe con otra marca, categoría o SKU. Si no aparece, podemos buscarla con nuestra red de proveedores.</p>
+              <Button asChild variant="outlineGlow" className="mt-7"><Link to="/contacto">Solicitar búsqueda especial <ArrowRight /></Link></Button>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filtered.map((p) => (
-                <article
-                  key={p.id}
-                  className="group rounded-sm border border-border bg-card overflow-hidden hover:border-primary/40 hover:shadow-amber transition-smooth flex flex-col"
-                >
-                  <div className="aspect-square overflow-hidden bg-secondary/40 relative flex items-center justify-center">
-                    <img
-                      src={p.image}
-                      alt={p.name}
-                      loading="lazy"
-                      onError={(e) => {
-                        const el = e.currentTarget;
-                        el.style.display = "none";
-                        el.parentElement?.querySelector("[data-fallback]")?.classList.remove("hidden");
-                      }}
-                      className="w-full h-full object-contain p-4 group-hover:scale-105 transition-smooth duration-500"
-                    />
-                    <div
-                      data-fallback
-                      className="hidden absolute inset-0 flex-col items-center justify-center gap-3 bg-gradient-to-br from-secondary/60 to-secondary/20"
-                    >
-                      <Package className="h-16 w-16 text-primary/60" strokeWidth={1.2} />
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground px-4 text-center">
-                        {p.category}
-                      </span>
-                    </div>
-                    <span className="absolute top-3 left-3 z-10 text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-sm bg-background/85 backdrop-blur border border-border text-primary">
-                      {p.brand}
-                    </span>
-                    <span className="absolute top-3 right-3 z-10 text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-sm bg-primary text-primary-foreground">
-                      Oferta
-                    </span>
-                  </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <div className="flex items-baseline justify-between gap-2 mb-2">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
-                        {p.category}
-                      </span>
-                      <span className="text-[10px] font-mono text-muted-foreground truncate max-w-[60%]" title={p.sku}>
-                        {p.sku}
-                      </span>
-                    </div>
-                    <h3 className="text-base font-bold mb-3 leading-snug min-h-[3rem]">
-                      {p.name}
-                    </h3>
-                    <div className="text-xl font-bold font-mono text-gradient-amber mb-4">
-                      {formatCOP(p.price)}
-                    </div>
-                    <div className="mt-auto flex flex-col gap-2">
-                      <Button asChild variant="hero" size="sm" className="w-full">
-                        <Link to={`/contacto?sku=${encodeURIComponent(p.sku)}&name=${encodeURIComponent(p.name)}`}>
-                          Cotizar
-                          <ArrowRight />
-                        </Link>
-                      </Button>
-                      <a
-                        href={p.sourceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-muted-foreground hover:text-primary transition-smooth"
-                      >
-                        Ver detalle
-                        <ExternalLink className="h-3 w-3" />
-                      </a>
-                    </div>
-                  </div>
-                </article>
-              ))}
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {filtered.map((product) => <ProductCard key={product.id} product={product} />)}
             </div>
           )}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 border-t border-border/60 bg-secondary/30">
-        <div className="container text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-            ¿Necesita un producto que no está en el catálogo?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Trabajamos con más de 50 marcas del sector. Cuéntenos qué busca y
-            le conseguimos cotización con OEM autorizado.
-          </p>
-          <Button asChild variant="hero" size="xl">
-            <Link to="/contacto">
-              Pedir un equipo específico
-              <ArrowRight />
-            </Link>
-          </Button>
+      <section className="border-t border-border/70 bg-secondary/25 py-16 lg:py-20">
+        <div className="container grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+          <div>
+            <span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">¿No está en el catálogo?</span>
+            <h2 className="mt-3 text-3xl font-bold lg:text-5xl">Encontramos el componente que necesita.</h2>
+            <p className="mt-4 max-w-2xl text-lg text-muted-foreground">Trabajamos con más de 50 marcas y una red de proveedores especializados. Envíenos el modelo o una fotografía y le ayudamos a identificarlo.</p>
+          </div>
+          <Button asChild variant="hero" size="xl"><Link to="/contacto">Pedir una referencia <ArrowRight /></Link></Button>
         </div>
       </section>
     </>

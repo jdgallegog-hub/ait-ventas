@@ -35,6 +35,42 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_requests: {
+        Row: {
+          company: string
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string
+          status: string
+          topic: string
+        }
+        Insert: {
+          company: string
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone: string
+          status?: string
+          topic: string
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string
+          status?: string
+          topic?: string
+        }
+        Relationships: []
+      }
       quote_items: {
         Row: {
           brand: string | null

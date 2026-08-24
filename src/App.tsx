@@ -1,17 +1,25 @@
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import Index from "./pages/Index.tsx";
-import Servicios from "./pages/Servicios.tsx";
-import Tienda from "./pages/Tienda.tsx";
-import SobreNosotros from "./pages/SobreNosotros.tsx";
-import Contacto from "./pages/Contacto.tsx";
-import NotFound from "./pages/NotFound.tsx";
+
+const Index = lazy(() => import("./pages/Index"));
+const Servicios = lazy(() => import("./pages/Servicios"));
+const Tienda = lazy(() => import("./pages/Tienda"));
+const SobreNosotros = lazy(() => import("./pages/SobreNosotros"));
+const Contacto = lazy(() => import("./pages/Contacto"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
+
+const PageFallback = () => (
+  <div className="flex min-h-[45vh] items-center justify-center bg-background text-sm font-mono uppercase tracking-[0.18em] text-primary">
+    Cargando AIT Ventas...
+  </div>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -19,16 +27,18 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route element={<SiteLayout />}>
-            <Route path="/" element={<Index />} />
-            <Route path="/servicios" element={<Servicios />} />
-            <Route path="/tienda" element={<Tienda />} />
-            <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-            <Route path="/contacto" element={<Contacto />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<PageFallback />}>
+          <Routes>
+            <Route element={<SiteLayout />}>
+              <Route path="/" element={<Index />} />
+              <Route path="/servicios" element={<Servicios />} />
+              <Route path="/tienda" element={<Tienda />} />
+              <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+              <Route path="/contacto" element={<Contacto />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
