@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Clock, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
+import { Clock, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -87,7 +87,6 @@ const Contacto = () => {
   const channels = [
     { icon: Phone, label: "Teléfono directo", value: "+57 300 574 7839", href: "tel:+573005747839" },
     { icon: MessageCircle, label: "WhatsApp 24/7", value: "Chat con un ingeniero", href: "https://wa.me/573005747839" },
-    { icon: Mail, label: "Correo comercial", value: "operaciones@aitsolucionesautomaticas.com", href: "mailto:operaciones@aitsolucionesautomaticas.com" },
     { icon: MapPin, label: "Cobertura", value: "Bogotá · Colombia · Atención nacional" },
     { icon: Clock, label: "Horario de atención", value: "Lun – Vie · 7:00 – 18:00 · Emergencias 24/7" },
   ];

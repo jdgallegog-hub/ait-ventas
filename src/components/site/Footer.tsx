@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Linkedin, Globe } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import aitLogo from "@/assets/ait-logo.png";
 
 export const Footer = () => (
@@ -19,15 +19,6 @@ export const Footer = () => (
           automatización para industrias de misión crítica en Colombia y
           Latinoamérica.
         </p>
-        <a
-          href="https://aitsolucionesautomaticas.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-mono text-primary hover:text-primary-glow transition-smooth"
-        >
-          <Globe className="h-4 w-4" />
-          aitsolucionesautomaticas.com
-        </a>
       </div>
 
       <div>
@@ -52,23 +43,8 @@ export const Footer = () => (
             <a href="tel:+573005747839" className="hover:text-primary">+57 300 574 7839</a>
           </li>
           <li className="flex items-start gap-2">
-            <Mail className="h-4 w-4 mt-0.5 text-primary" />
-            <a href="mailto:operaciones@aitsolucionesautomaticas.com" className="hover:text-primary">operaciones@aitsolucionesautomaticas.com</a>
-          </li>
-          <li className="flex items-start gap-2">
             <MapPin className="h-4 w-4 mt-0.5 text-primary" />
             <span>Bogotá, Colombia</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Linkedin className="h-4 w-4 mt-0.5 text-primary" />
-            <a
-              href="https://www.linkedin.com/company/ait-soluciones-automaticas/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary"
-            >
-              LinkedIn
-            </a>
           </li>
         </ul>
       </div>
