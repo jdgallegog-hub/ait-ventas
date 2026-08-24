@@ -4,6 +4,8 @@ import positionerImage from "@/assets/product-positioner.jpg";
 import sensorImage from "@/assets/product-sensor.jpg";
 import transmitterImage from "@/assets/product-transmitter.jpg";
 import valveImage from "@/assets/product-valve.jpg";
+import allenBradley1400Image from "@/assets/product-allen-bradley-1400.webp";
+import s71500Image from "@/assets/product-s7-1500.webp";
 
 export type Product = {
   id: string;
@@ -32,7 +34,16 @@ const categoryImages: Record<string, { image: string; label: string }> = {
  * Sobrescribe aquí la foto de un SKU específico cuando ya tengas la imagen real.
  * Ejemplo: "S7-1500": { image: plcImage, label: "Foto real del PLC S7-1500" },
  */
-const productImages: Partial<Record<string, { image: string; label: string }>> = {};
+const productImages: Partial<Record<string, { image: string; label: string }>> = {
+  "S7-1500": {
+    image: s71500Image,
+    label: "Fotografía del PLC Siemens SIMATIC S7-1500",
+  },
+  "1766-L32BWA": {
+    image: allenBradley1400Image,
+    label: "Fotografía del PLC Allen-Bradley MicroLogix 1400",
+  },
+};
 
 const product = (
   id: string,
