@@ -6,6 +6,18 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { categories, formatCOP, products, type Product } from "@/data/products";
 
+const processVariables = ["Todos", "Presión", "Caudal", "Temperatura", "Nivel", "Control", "Comunicación"];
+
+const getProcessVariable = (product: Product) => {
+  const text = `${product.name} ${product.description}`.toLowerCase();
+  if (product.category === "Comunicaciones") return "Comunicación";
+  if (product.category === "PLC" || product.category === "Variadores" || product.category === "Motores" || product.category === "Válvulas") return "Control";
+  if (text.includes("nivel")) return "Nivel";
+  if (text.includes("temperatura") || text.includes("termostato")) return "Temperatura";
+  if (text.includes("caudal") || text.includes("flujo")) return "Caudal";
+  return "Presión";
+};
+
 const ProductCard = ({ product }: { product: Product }) => (
   <article className="group flex flex-col overflow-hidden rounded-2xl border border-border/80 bg-card/85 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-amber">
     <div className="relative aspect-square overflow-hidden bg-[radial-gradient(circle_at_50%_25%,hsl(var(--primary)/.16),transparent_42%),linear-gradient(145deg,hsl(var(--secondary)),hsl(var(--background)))]">
@@ -22,7 +34,7 @@ const ProductCard = ({ product }: { product: Product }) => (
         {product.brand}
       </span>
       <span className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-primary-foreground">
-        Disponible
+        Consultar disponibilidad
       </span>
       <span className="absolute bottom-4 left-4 text-[10px] font-mono uppercase tracking-[0.14em] text-foreground/60">
         {product.imageLabel.startsWith("Fotografía") ? "Foto del producto" : "Imagen de referencia"}
@@ -67,17 +79,19 @@ const ProductCard = ({ product }: { product: Product }) => (
 
 const Tienda = () => {
   const [active, setActive] = useState("Todos");
+  const [process, setProcess] = useState("Todos");
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return products.filter((product) => {
       const matchesCategory = active === "Todos" || product.category === active;
+      const matchesProcess = process === "Todos" || getProcessVariable(product) === process;
       const matchesQuery = !normalizedQuery || [product.name, product.brand, product.sku, product.category]
         .some((field) => field.toLowerCase().includes(normalizedQuery));
-      return matchesCategory && matchesQuery;
+      return matchesCategory && matchesProcess && matchesQuery;
     });
-  }, [active, query]);
+  }, [active, process, query]);
 
   return (
     <>
@@ -135,6 +149,11 @@ const Tienda = () => {
                 >
                   {category}
                 </button>
+              ))}
+            </div>
+            <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1 lg:order-3" aria-label="Filtrar por variable de proceso">
+              {processVariables.map((variable) => (
+                <button key={variable} type="button" onClick={() => setProcess(variable)} aria-pressed={process === variable} className={cn("whitespace-nowrap rounded-full border px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.12em] transition-all duration-200", process === variable ? "border-primary/70 bg-primary/15 text-primary" : "border-border/70 text-muted-foreground hover:border-primary/40 hover:text-foreground")}>{variable}</button>
               ))}
             </div>
             <div className="relative shrink-0 lg:w-80">
