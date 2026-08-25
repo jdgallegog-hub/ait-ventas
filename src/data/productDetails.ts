@@ -23,6 +23,10 @@ import yokogawaEja110aImage2 from "@/assets/product-yokogawa-eja110a-2.webp";
 import yokogawaEja110aImage3 from "@/assets/product-yokogawa-eja110a-3.webp";
 import yokogawaEja110aImage4 from "@/assets/product-yokogawa-eja110a-4.webp";
 import ascoSolenoidImage from "@/assets/product-asco-solenoid-1.webp";
+import techtopMotorImage1 from "@/assets/product-techtop-motor-1.webp";
+import techtopMotorImage2 from "@/assets/product-techtop-motor-2.webp";
+import techtopMotorImage3 from "@/assets/product-techtop-motor-3.webp";
+import techtopMotorImage4 from "@/assets/product-techtop-motor-4.webp";
 import type { Product } from "./products";
 
 export type ProductGalleryImage = {
@@ -105,6 +109,12 @@ export const productGalleries: Record<string, ProductGalleryImage[]> = {
   "ASCO-3/4-24VDC": [
     { src: ascoSolenoidImage, alt: "Válvula solenoide ASCO de 3/4 de pulgada" },
   ],
+  "T1A-71-3-4-B5": [
+    { src: techtopMotorImage1, alt: "Motor eléctrico TechTop en vista delantera" },
+    { src: techtopMotorImage2, alt: "Motor eléctrico TechTop en vista lateral" },
+    { src: techtopMotorImage3, alt: "Placa del motor eléctrico TechTop" },
+    { src: techtopMotorImage4, alt: "Motor eléctrico TechTop con montaje de brida" },
+  ],
 };
 
 export const productCharacteristics: Record<string, string[]> = {
@@ -173,6 +183,12 @@ export const productCharacteristics: Record<string, string[]> = {
     "Conexión nominal de 3/4 de pulgada según carpeta de producto",
     "Bobina y tensión deben confirmarse con la placa antes de cotizar",
     "Equipo fotografiado en condición usada o de inventario",
+  ],
+  "T1A-71-3-4-B5": [
+    "Motor eléctrico TechTop, frame 71",
+    "Potencia confirmada en placa: 0,75 HP / 0,55 kW",
+    "Velocidad nominal aproximada: 1.650 rpm a 60 Hz",
+    "Montaje con brida B5 según referencia del catálogo",
   ],
 };
 
