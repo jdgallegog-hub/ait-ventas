@@ -14,6 +14,7 @@ import ittNeodynImage from "@/assets/product-itt-neodyn-142p-2.webp";
 import ccsDualSnapImage from "@/assets/product-ccs-dual-snap-646gze11-2.webp";
 import yokogawaEja110aImage from "@/assets/product-yokogawa-eja110a-1.webp";
 import ascoSolenoidImage from "@/assets/product-asco-solenoid-1.webp";
+import techtopMotorImage from "@/assets/product-techtop-motor-1.webp";
 
 export type Product = {
   id: string;
@@ -85,6 +86,10 @@ const productImages: Partial<Record<string, { image: string; label: string }>> =
   "ASCO-3/4-24VDC": {
     image: ascoSolenoidImage,
     label: "Fotografía de válvula solenoide ASCO",
+  },
+  "T1A-71-3-4-B5": {
+    image: techtopMotorImage,
+    label: "Fotografía del motor eléctrico TechTop 0,75 HP",
   },
 };
 
