@@ -8,6 +8,13 @@ import allenBradley1400Image from "@/assets/product-allen-bradley-1400.webp";
 import s71500Image from "@/assets/product-s7-1500.webp";
 import mitsubishiFrD720Image from "@/assets/product-mitsubishi-fr-d720.webp";
 import softStarterSiriusFrontImage from "@/assets/product-soft-starter-sirius-front.webp";
+import comm6es7541Image from "@/assets/product-comm-6es7541-1.webp";
+import iot2040Image from "@/assets/product-iot2040-1.webp";
+import gatewayS2eImage from "@/assets/product-gateway-s2e-100md-1.webp";
+import ittNeodynImage from "@/assets/product-itt-neodyn-142p-2.webp";
+import ccsDualSnapImage from "@/assets/product-ccs-dual-snap-646gze11-2.webp";
+import yokogawaEja110aImage from "@/assets/product-yokogawa-eja110a-1.webp";
+import ascoSolenoidImage from "@/assets/product-asco-solenoid-1.webp";
 
 export type Product = {
   id: string;
@@ -52,6 +59,34 @@ const productImages: Partial<Record<string, { image: string; label: string }>> =
   "FR-D720-042-NA": {
     image: mitsubishiFrD720Image,
     label: "Fotografía del variador Mitsubishi FR-D720",
+  },
+  "6ES7541-1AB00-0AB0": {
+    image: comm6es7541Image,
+    label: "Fotografía del módulo de comunicación Siemens 6ES7541",
+  },
+  "SIMATIC IOT2040": {
+    image: iot2040Image,
+    label: "Fotografía del Siemens SIMATIC IOT2040",
+  },
+  "S2E-100MD": {
+    image: gatewayS2eImage,
+    label: "Fotografía del Gateway Industrial S2E-100MD",
+  },
+  "142P": {
+    image: ittNeodynImage,
+    label: "Fotografía del presostato ITT Neo-Dyn",
+  },
+  "646GZE11": {
+    image: ccsDualSnapImage,
+    label: "Fotografía del presostato CCS Dual-Snap 646GZE11",
+  },
+  "91MC27289": {
+    image: yokogawaEja110aImage,
+    label: "Fotografía del transmisor diferencial Yokogawa EJA110A",
+  },
+  "ASCO-3/4-24VDC": {
+    image: ascoSolenoidImage,
+    label: "Fotografía de válvula solenoide ASCO",
   },
 };
 
