@@ -207,3 +207,45 @@ export const getProductCharacteristics = (product: Product): string[] =>
     `Referencia: ${product.sku}`,
     "Disponibilidad y ficha técnica bajo solicitud",
   ];
+
+export type ProductTechnicalSpecs = {
+  variable: string;
+  range: string;
+  output: string;
+  power: string;
+  protection: string;
+  certifications: string;
+};
+
+const categoryTechnicalSpecs: Record<string, ProductTechnicalSpecs> = {
+  PLC: { variable: "Control lógico y automatización", range: "Según configuración del equipo", output: "E/S y protocolo según referencia", power: "Por confirmar según placa", protection: "Por confirmar según gabinete", certifications: "Por confirmar según referencia" },
+  Variadores: { variable: "Control de velocidad y arranque", range: "Según potencia y configuración", output: "Frecuencia y control según referencia", power: "Por confirmar según placa", protection: "Por confirmar según instalación", certifications: "Por confirmar según referencia" },
+  Transmisores: { variable: "Presión, nivel o temperatura", range: "Según modelo y elemento sensor", output: "4–20 mA / protocolo según referencia", power: "Por confirmar según placa", protection: "Por confirmar según modelo", certifications: "Por confirmar según aplicación" },
+  Instrumentación: { variable: "Presión, temperatura o calidad de proceso", range: "Según referencia del instrumento", output: "Contacto, señal o indicador según modelo", power: "Por confirmar según placa", protection: "Por confirmar según instalación", certifications: "Por confirmar según aplicación" },
+  Válvulas: { variable: "Control y aislamiento de fluidos", range: "Diámetro y presión según referencia", output: "Accionamiento según configuración", power: "Por confirmar según actuador o bobina", protection: "Por confirmar según instalación", certifications: "Por confirmar según servicio" },
+  Motores: { variable: "Conversión electromecánica de potencia", range: "Potencia y velocidad según placa", output: "Eje y montaje según referencia", power: "Por confirmar según placa", protection: "Por confirmar según motor", certifications: "Por confirmar según placa" },
+  Comunicaciones: { variable: "Conectividad y transmisión industrial", range: "Según protocolo y distancia", output: "Ethernet, serial o protocolo según referencia", power: "Por confirmar según placa", protection: "Por confirmar según gabinete", certifications: "Por confirmar según referencia" },
+};
+
+export const getProductTechnicalSpecs = (product: Product): ProductTechnicalSpecs =>
+  categoryTechnicalSpecs[product.category] ?? {
+    variable: "Por confirmar con el asesor técnico",
+    range: "Por confirmar con la referencia",
+    output: "Por confirmar con la placa",
+    power: "Por confirmar con la placa",
+    protection: "Por confirmar con la ficha técnica",
+    certifications: "Por confirmar según aplicación",
+  };
+
+const categoryApplications: Record<string, string[]> = {
+  PLC: ["Líneas de producción", "Máquinas y celdas automatizadas", "Control de procesos industriales"],
+  Variadores: ["Motores y bombas", "Transportadores y ventiladores", "Arranque controlado de maquinaria"],
+  Transmisores: ["Plantas de proceso", "Tanques y líneas de servicios", "Monitoreo y control de variables"],
+  Instrumentación: ["Sistemas de presión y temperatura", "Servicios industriales", "Protección y monitoreo de equipos"],
+  Válvulas: ["Líneas de proceso", "Control de fluidos", "Sistemas neumáticos e hidráulicos"],
+  Motores: ["Bombas y ventiladores", "Transportadores", "Maquinaria industrial"],
+  Comunicaciones: ["Integración de equipos legados", "Redes industriales", "Monitoreo remoto y edge computing"],
+};
+
+export const getProductApplications = (product: Product): string[] =>
+  categoryApplications[product.category] ?? ["Procesos industriales", "Mantenimiento y operación", "Integración técnica bajo solicitud"];

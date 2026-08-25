@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Check, FileText, PackageCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, FileText, PackageCheck, Settings2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatCOP, products } from "@/data/products";
-import { getProductCharacteristics, getProductGallery } from "@/data/productDetails";
+import { getProductApplications, getProductCharacteristics, getProductGallery, getProductTechnicalSpecs } from "@/data/productDetails";
 
 const ProductNotFound = () => (
   <section className="container flex min-h-[55vh] flex-col items-center justify-center py-20 text-center">
@@ -22,6 +22,8 @@ const Producto = () => {
   const product = products.find((item) => item.sku === sku);
   const gallery = product ? getProductGallery(product) : [];
   const characteristics = product ? getProductCharacteristics(product) : [];
+  const technicalSpecs = product ? getProductTechnicalSpecs(product) : null;
+  const applications = product ? getProductApplications(product) : [];
   const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
@@ -31,6 +33,7 @@ const Producto = () => {
   if (!product) return <ProductNotFound />;
 
   const quoteUrl = `/contacto?sku=${encodeURIComponent(product.sku)}&name=${encodeURIComponent(product.name)}&category=${encodeURIComponent(product.category)}`;
+  const whatsappUrl = `https://wa.me/573005747839?text=${encodeURIComponent(`Hola, quiero cotizar el producto: ${product.name}`)}`;
   const selectedImage = gallery[activeImage] ?? gallery[0];
 
   return (
@@ -101,7 +104,7 @@ const Producto = () => {
                   <Link to={quoteUrl}>Solicitar cotización <ArrowRight /></Link>
                 </Button>
                 <Button asChild variant="outlineGlow" size="xl">
-                  <a href="https://wa.me/573005747839" target="_blank" rel="noopener noreferrer">Hablar con un ingeniero</a>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
                 </Button>
               </div>
 
@@ -121,6 +124,23 @@ const Producto = () => {
                 <p className="mt-6 border-t border-border/70 pt-5 text-xs leading-relaxed text-muted-foreground">
                   La ficha técnica completa, disponibilidad y compatibilidad se validan con un ingeniero antes de cotizar.
                 </p>
+              </div>
+
+              {technicalSpecs && (
+                <div className="mt-6 rounded-2xl border border-border/80 bg-card/70 p-6 shadow-card sm:p-7">
+                  <div className="flex items-center gap-3"><Settings2 className="h-5 w-5 text-primary" /><h2 className="text-xl font-semibold">Especificaciones técnicas</h2></div>
+                  <dl className="mt-5 grid gap-4 sm:grid-cols-2">
+                    {[["Variable medida / control", technicalSpecs.variable], ["Rango", technicalSpecs.range], ["Señal de salida", technicalSpecs.output], ["Alimentación", technicalSpecs.power], ["Protección", technicalSpecs.protection], ["Certificaciones", technicalSpecs.certifications]].map(([label, value]) => <div key={label} className="border-t border-border/60 pt-3"><dt className="text-[10px] font-mono uppercase tracking-[0.12em] text-muted-foreground">{label}</dt><dd className="mt-1 text-sm leading-relaxed text-foreground/85">{value}</dd></div>)}
+                  </dl>
+                </div>
+              )}
+
+              <div className="mt-6 rounded-2xl border border-border/80 bg-card/70 p-6 shadow-card sm:p-7">
+                <h2 className="text-xl font-semibold">Aplicaciones típicas</h2>
+                <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {applications.map((application) => <li key={application} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{application}</li>)}
+                </ul>
+                <p className="mt-5 border-t border-border/70 pt-4 text-xs leading-relaxed text-muted-foreground">Ficha técnica PDF disponible bajo solicitud al equipo comercial.</p>
               </div>
             </div>
           </div>

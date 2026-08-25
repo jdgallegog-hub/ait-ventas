@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 
 const PHONE = "573005747839";
 const MESSAGE =
-  "Hola AIT, me interesa recibir asesoría sobre sus soluciones de instrumentación y control.";
+  "Hola, necesito asesoría con instrumentación industrial.";
 
 export const WhatsAppFAB = () => {
   const href = `https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`;
@@ -20,7 +20,7 @@ export const WhatsAppFAB = () => {
         <MessageCircle className="h-7 w-7" fill="currentColor" strokeWidth={0} />
       </span>
       <span className="pointer-events-none absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-sm bg-foreground px-3 py-1.5 text-xs font-mono uppercase tracking-widest text-background opacity-0 shadow-md transition-opacity duration-200 group-hover:opacity-100 hidden md:block">
-        Chatea con nosotros
+        Consultar por WhatsApp
       </span>
     </a>
   );

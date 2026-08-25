@@ -1,5 +1,24 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Gauge, Wrench, Cpu, ShieldCheck, Zap, Activity, CheckCircle2 } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Clock3,
+  Droplets,
+  Factory,
+  FlaskConical,
+  Gauge,
+  Hammer,
+  MapPin,
+  MessageCircle,
+  RefreshCw,
+  Settings2,
+  ShieldCheck,
+  Star,
+  Thermometer,
+  Truck,
+  Wrench,
+  Zap,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-industrial.jpg";
 import valvesImg from "@/assets/service-valves.jpg";
@@ -7,313 +26,118 @@ import supportImg from "@/assets/service-support.jpg";
 import automationImg from "@/assets/service-automation.jpg";
 import sectorsBg from "@/assets/sectors-bg.jpg";
 
-const brands = ["SIEMENS", "FISHER", "SAMSON", "KIMRAY", "EMERSON", "ROSEMOUNT", "ENDRESS+HAUSER", "YOKOGAWA"];
-
-const services = [
-  {
-    icon: Gauge,
-    title: "Válvulas de Control",
-    desc: "Suministro, intervención y calibración de válvulas Fisher, Samson y Kimray con trazabilidad completa.",
-    img: valvesImg,
-  },
-  {
-    icon: Wrench,
-    title: "Soporte Técnico en Sitio",
-    desc: "Asistencia especializada en campo 24/7. Diagnóstico rápido para minimizar paradas no programadas.",
-    img: supportImg,
-  },
-  {
-    icon: Cpu,
-    title: "Automatización Industrial",
-    desc: "Integración y programación de PLC, DCS y SCADA con tecnología Siemens y arquitecturas redundantes.",
-    img: automationImg,
-  },
+const solutionCategories = [
+  { icon: Gauge, title: "Medición de presión", items: ["Transmisores de presión", "Manómetros industriales", "Presostatos"] },
+  { icon: Droplets, title: "Medición de caudal", items: ["Flujómetros electromagnéticos", "Medidores ultrasonido", "Rotámetros"] },
+  { icon: Thermometer, title: "Medición de temperatura", items: ["Termómetros industriales", "Termopares y RTD", "Transmisores de temperatura"] },
+  { icon: FlaskConical, title: "Análisis y calidad", items: ["Analizadores de pH", "Conductivímetros", "Turbidímetros"] },
+  { icon: Settings2, title: "Control y automatización", items: ["PLCs y HMIs", "Variadores de frecuencia", "Relés de protección"] },
+  { icon: Wrench, title: "Válvulas de control", items: ["Válvulas de control neumáticas", "Válvulas solenoides", "Actuadores"] },
 ];
 
-const stats = [
-  { value: "15+", label: "Años de experiencia" },
-  { value: "200+", label: "Plantas atendidas" },
-  { value: "<4h", label: "Tiempo de respuesta" },
-  { value: "99.7%", label: "Disponibilidad operativa" },
+const benefits = [
+  { icon: Wrench, title: "Soporte técnico real", text: "Nuestro equipo de ingenieros te asesora antes, durante y después de la compra. No vendemos solo un producto: resolvemos el problema de proceso." },
+  { icon: Truck, title: "Disponibilidad y entrega", text: "Inventario disponible en Bogotá. Cotización en menos de 2 horas y despacho a toda Colombia con transportadora especializada." },
+  { icon: Star, title: "Marcas líderes", text: "Distribuimos e integramos equipos de las marcas más reconocidas del sector, con validación técnica para cada aplicación." },
+  { icon: RefreshCw, title: "Respaldo técnico post-venta", text: "Ofrecemos calibración, puesta en marcha, mantenimiento y capacitación. Tu inversión está respaldada." },
 ];
 
 const sectors = [
-  { name: "Petróleo y Gas", desc: "Upstream, midstream y downstream." },
-  { name: "Petroquímica", desc: "Refinerías y plantas de procesamiento." },
-  { name: "Energía Eléctrica", desc: "Generación térmica e hidroeléctrica." },
-  { name: "Alimentos y Bebidas", desc: "Procesos sanitarios FDA / 3-A." },
-  { name: "Cemento y Minería", desc: "Procesos de alta exigencia." },
-  { name: "Tratamiento de Agua", desc: "PTAP y PTAR municipales e industriales." },
+  { icon: FlaskConical, name: "Petroquímica y refinación" },
+  { icon: Droplets, name: "Agua y saneamiento" },
+  { icon: Factory, name: "Manufactura y metalmecánica" },
+  { icon: Hammer, name: "Alimentos y bebidas" },
+  { icon: Zap, name: "Energía y utilities" },
+  { icon: Settings2, name: "Construcción e infraestructura" },
 ];
 
-const Index = () => {
-  return (
-    <>
-      {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="Sala de control industrial con instrumentación Siemens y válvulas de control en planta de procesamiento"
-            className="w-full h-full object-cover"
-            width={1920}
-            height={1280}
-          />
-          <div className="absolute inset-0 bg-gradient-hero" />
-          <div className="absolute inset-0 bg-gradient-glow" />
-        </div>
+const services = [
+  { title: "Calibración de instrumentos", text: "Calibración en sitio y en laboratorio de transmisores, manómetros, termómetros y equipos de análisis. Certificados de calibración incluidos.", image: supportImg, icon: Gauge },
+  { title: "Puesta en marcha", text: "Instalación, configuración y arranque supervisado de instrumentos, PLCs, variadores y sistemas SCADA.", image: automationImg, icon: Settings2 },
+  { title: "Automatización de procesos", text: "Diseño e implementación de sistemas de control, HMI y comunicación industrial: Profibus, HART, Modbus y Ethernet Industrial.", image: valvesImg, icon: Wrench },
+  { title: "Mantenimiento preventivo", text: "Planes de mantenimiento periódico para instrumentación crítica y reducción de paros no programados.", image: supportImg, icon: ShieldCheck },
+];
 
-        <div className="container relative z-10 py-24">
-          <div className="max-w-3xl animate-fade-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-primary/30 bg-primary/5 backdrop-blur-sm mb-8">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-              <span className="text-xs font-mono uppercase tracking-widest text-primary">
-                Operación · Continuidad · Confiabilidad
-              </span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
-              Ingeniería crítica para la{" "}
-              <span className="text-gradient-amber">continuidad</span> de su planta.
-            </h1>
-
-            <p className="text-lg lg:text-xl text-foreground/80 max-w-2xl mb-10 leading-relaxed">
-              Especialistas en instrumentación, válvulas de control y automatización
-              industrial. Representamos las marcas líderes del sector —{" "}
-              <span className="text-foreground font-medium">Siemens, Fisher y Samson</span> —
-              con servicio técnico certificado en sitio.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild variant="hero" size="xl">
-                <Link to="/contacto">
-                  Solicitar diagnóstico
-                  <ArrowRight />
-                </Link>
-              </Button>
-              <Button asChild variant="outlineGlow" size="xl">
-                <a href="#servicios">Ver servicios</a>
-              </Button>
-            </div>
-
-
-            <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="text-3xl lg:text-4xl font-bold text-gradient-amber font-mono">
-                    {s.value}
-                  </div>
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground mt-1">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+const Index = () => (
+  <>
+    <section className="relative flex min-h-[calc(100vh-5rem)] items-center overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={heroImg} alt="Planta industrial con tableros e instrumentación de control" className="h-full w-full object-cover" width={1920} height={1280} />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--background)/.96),hsl(var(--background)/.78)_45%,hsl(var(--background)/.52))]" />
+        <div className="absolute inset-0 bg-gradient-glow opacity-60" />
+      </div>
+      <div className="container relative z-10 py-20 lg:py-28">
+        <div className="max-w-4xl animate-fade-up">
+          <div className="mb-7 inline-flex items-center gap-2 rounded-sm border border-primary/30 bg-background/40 px-3 py-1.5 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+            <span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">Instrumentación · Automatización · Colombia</span>
+          </div>
+          <h1 className="max-w-4xl text-4xl font-bold leading-[1.03] tracking-tight sm:text-5xl lg:text-7xl">Instrumentación y automatización industrial <span className="text-gradient-amber">con soporte técnico en Colombia</span></h1>
+          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground/80 lg:text-xl">Transmisores, válvulas, PLCs, sensores y variadores con respaldo técnico local. Cotización en menos de 2 horas. Entrega en toda Colombia.</p>
+          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+            <Button asChild variant="hero" size="xl"><Link to="/contacto">Solicitar cotización <ArrowRight /></Link></Button>
+            <Button asChild variant="outlineGlow" size="xl"><Link to="/tienda">Ver catálogo completo <ArrowRight /></Link></Button>
+          </div>
+          <div className="mt-10 flex flex-col gap-4 border-t border-border/50 pt-6 text-sm text-foreground/80 sm:flex-row sm:items-center sm:gap-7">
+            <span className="inline-flex items-center gap-2"><Clock3 className="h-4 w-4 text-primary" /> Respuesta en &lt; 2 horas</span>
+            <span className="inline-flex items-center gap-2"><Truck className="h-4 w-4 text-primary" /> Envío a toda Colombia</span>
+            <span className="inline-flex items-center gap-2"><Wrench className="h-4 w-4 text-primary" /> Soporte técnico incluido</span>
           </div>
         </div>
+      </div>
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-background to-transparent" />
+    </section>
 
-        {/* bottom fade */}
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-background to-transparent" />
-      </section>
-
-      {/* BRAND MARQUEE */}
-      <section className="border-y border-border/60 bg-secondary/40 py-8 overflow-hidden">
-        <div className="container mb-6 flex items-center justify-between gap-4">
-          <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-            Marcas que representamos
-          </span>
-          <span className="hidden sm:block h-px flex-1 bg-border" />
-          <span className="text-xs font-mono text-muted-foreground">
-            Distribuidor autorizado
-          </span>
+    <section id="soluciones" className="relative py-20 lg:py-28">
+      <div className="absolute inset-0 grid-pattern opacity-25" />
+      <div className="container relative">
+        <div className="mx-auto mb-14 max-w-3xl text-center">
+          <span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">Catálogo técnico</span>
+          <h2 className="mt-4 text-4xl font-bold tracking-tight lg:text-5xl">Soluciones para cada proceso industrial</h2>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">Instrumentación, control y automatización seleccionados para medir mejor, controlar con precisión y mantener la operación disponible.</p>
         </div>
-        <div className="relative">
-          <div className="flex gap-16 animate-marquee whitespace-nowrap">
-            {[...brands, ...brands].map((b, i) => (
-              <span
-                key={i}
-                className="text-2xl lg:text-3xl font-bold tracking-widest text-muted-foreground/60 hover:text-primary transition-smooth"
-              >
-                {b}
-              </span>
-            ))}
-          </div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {solutionCategories.map(({ icon: Icon, title, items }) => (
+            <article key={title} className="group rounded-2xl border border-border/80 bg-card/80 p-6 shadow-card transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-amber">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary"><Icon className="h-6 w-6" /></div>
+              <h3 className="text-xl font-semibold">{title}</h3>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                {items.map((item) => <li key={item} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{item}</li>)}
+              </ul>
+              <Link to="/tienda" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-foreground">Ver productos <ArrowRight className="h-4 w-4" /></Link>
+            </article>
+          ))}
         </div>
-      </section>
-
-      {/* SERVICES */}
-      <section id="servicios" className="py-24 lg:py-32 relative">
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="container relative">
-          <div className="max-w-2xl mb-16">
-            <span className="text-xs font-mono uppercase tracking-widest text-primary">
-              ✽ Qué hacemos
-            </span>
-            <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6">
-              Tres pilares para mantener su planta operando.
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Combinamos ingeniería de campo, suministro técnico y soporte 24/7
-              para garantizar la confiabilidad de sus procesos críticos.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-6">
-            {services.map((s, i) => (
-              <article
-                key={s.title}
-                className="group relative overflow-hidden rounded-sm border border-border bg-card shadow-card hover:shadow-amber transition-smooth"
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={s.img}
-                    alt={s.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
-                </div>
-                <div className="p-8 -mt-20 relative">
-                  <div className="h-12 w-12 rounded-sm bg-gradient-amber flex items-center justify-center mb-5 shadow-amber">
-                    <s.icon className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">{s.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {s.desc}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
+        <div className="mt-10 rounded-2xl border border-primary/25 bg-secondary/40 p-7 text-center">
+          <p className="text-lg font-semibold">¿No encuentras lo que necesitas?</p>
+          <p className="mt-2 text-muted-foreground">Consulta nuestro catálogo completo o escríbenos directamente.</p>
+          <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row"><Button asChild variant="hero"><Link to="/tienda">Ir al catálogo <ArrowRight /></Link></Button><Button asChild variant="outlineGlow"><Link to="/contacto">Contactar asesor <MessageCircle /></Link></Button></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* WHY US */}
-      <section className="py-24 lg:py-32 bg-secondary/30 border-y border-border/60">
-        <div className="container grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-primary">
-              ✽ Por qué AIT
-            </span>
-            <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6">
-              Compromiso con la eficiencia y la seguridad industrial.
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Cada intervención se ejecuta bajo estándares internacionales,
-              con trazabilidad completa y respaldo documental para auditorías.
-            </p>
-            <ul className="space-y-4">
-              {[
-                "Ingenieros certificados Siemens, Fisher y Samson",
-                "Calibración con patrones trazables a ONAC",
-                "Restauración de válvulas con repuestos OEM y pruebas certificadas",
-                "Garantía extendida en repuestos OEM",
-                "Reportes técnicos digitales en 24 horas",
-              ].map((p) => (
-                <li key={p} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                  <span className="text-foreground/90">{p}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { icon: ShieldCheck, label: "Restauración de Válvulas", val: "OEM" },
-              { icon: Zap, label: "Disponibilidad", val: "24/7" },
-              { icon: Activity, label: "Calibración", val: "ONAC" },
-              { icon: Gauge, label: "Performance", val: "Élite" },
-            ].map((b) => (
-              <div
-                key={b.label}
-                className="p-8 rounded-sm border border-border bg-card hover:border-primary/40 transition-smooth"
-              >
-                <b.icon className="h-8 w-8 text-primary mb-4" />
-                <div className="text-2xl font-bold font-mono text-gradient-amber">
-                  {b.val}
-                </div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wider mt-1">
-                  {b.label}
-                </div>
-              </div>
-            ))}
-          </div>
+    <section className="border-y border-border/60 bg-secondary/30 py-20 lg:py-28">
+      <div className="container">
+        <div className="mx-auto mb-12 max-w-3xl text-center"><span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">Nuestra diferencia</span><h2 className="mt-4 text-4xl font-bold tracking-tight lg:text-5xl">¿Por qué elegir AIT Soluciones Automáticas?</h2></div>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {benefits.map(({ icon: Icon, title, text }) => <article key={title} className="rounded-2xl border border-border/80 bg-card/75 p-7"><div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary"><Icon className="h-5 w-5" /></div><h3 className="text-xl font-semibold">{title}</h3><p className="mt-3 leading-relaxed text-muted-foreground">{text}</p></article>)}
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* SECTORS */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={sectorsBg}
-            alt=""
-            loading="lazy"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-        </div>
-        <div className="container relative">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-mono uppercase tracking-widest text-primary">
-              ✽ Sectores que atendemos
-            </span>
-            <h2 className="text-4xl lg:text-5xl font-bold mt-4">
-              Donde la operación no puede detenerse.
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-sm overflow-hidden">
-            {sectors.map((s) => (
-              <div
-                key={s.name}
-                className="bg-background p-8 hover:bg-card transition-smooth group"
-              >
-                <div className="flex items-baseline justify-between mb-3">
-                  <h3 className="text-xl font-bold">{s.name}</h3>
-                  <ArrowRight className="h-4 w-4 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-smooth" />
-                </div>
-                <p className="text-sm text-muted-foreground">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <section className="relative overflow-hidden bg-foreground py-16 text-background lg:py-20">
+      <div className="absolute inset-0 opacity-20"><img src={sectorsBg} alt="" className="h-full w-full object-cover" loading="lazy" /></div>
+      <div className="container relative"><div className="mx-auto mb-10 max-w-2xl text-center"><span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">Cobertura nacional</span><h2 className="mt-4 text-4xl font-bold">Industrias que atendemos</h2></div><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{sectors.map(({ icon: Icon, name }) => <div key={name} className="flex items-center gap-3 rounded-xl border border-background/15 bg-background/5 p-5"><Icon className="h-6 w-6 shrink-0 text-primary" /><span className="font-medium">{name}</span></div>)}</div></div>
+    </section>
 
-      {/* CTA */}
-      <section className="py-24 lg:py-32">
-        <div className="container">
-          <div className="relative overflow-hidden rounded-sm border border-primary/30 bg-gradient-steel p-12 lg:p-20">
-            <div className="absolute inset-0 bg-gradient-glow opacity-60" />
-            <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+    <section id="servicios" className="py-20 lg:py-28">
+      <div className="container"><div className="mx-auto mb-14 max-w-3xl text-center"><span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">Ingeniería aplicada</span><h2 className="mt-4 text-4xl font-bold tracking-tight lg:text-5xl">Servicios técnicos especializados</h2><p className="mt-5 text-lg leading-relaxed text-muted-foreground">Acompañamiento técnico para que sus equipos funcionen con precisión, seguridad y continuidad.</p></div><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{services.map(({ title, text, image, icon: Icon }) => <article key={title} className="overflow-hidden rounded-2xl border border-border/80 bg-card shadow-card"><div className="aspect-[4/3] overflow-hidden"><img src={image} alt={title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" /></div><div className="p-6"><div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary"><Icon className="h-5 w-5" /></div><h3 className="text-lg font-semibold">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></div></article>)}</div></div>
+    </section>
 
-            <div className="relative max-w-3xl">
-              <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                ¿Su planta requiere una{" "}
-                <span className="text-gradient-amber">intervención crítica</span>?
-              </h2>
-              <p className="text-lg text-muted-foreground mb-10 max-w-2xl">
-                Programe una visita técnica con nuestros ingenieros. Diagnóstico
-                inicial sin costo y propuesta en menos de 48 horas.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild variant="hero" size="xl">
-                  <Link to="/contacto">
-                    Solicitar diagnóstico
-                    <ArrowRight />
-                  </Link>
-                </Button>
-                <Button asChild variant="outlineGlow" size="xl">
-                  <a href="tel:+573005747839">Llamar ahora · +57 300 574 7839</a>
-                </Button>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-};
+    <section className="border-t border-border/60 bg-primary py-12 text-primary-foreground lg:py-14">
+      <div className="container flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between"><div><h2 className="text-3xl font-bold lg:text-4xl">¿Listo para cotizar o tienes una duda técnica?</h2><p className="mt-2 text-primary-foreground/80">Nuestro equipo responde en menos de 2 horas.</p><p className="mt-3 inline-flex items-center gap-2 text-sm text-primary-foreground/75"><MapPin className="h-4 w-4" /> Bogotá, Colombia · Atención lun-vie 7am-6pm</p></div><div className="flex flex-col gap-3 sm:flex-row"><Button asChild size="lg" className="bg-white text-foreground hover:bg-white/90"><Link to="/contacto">Solicitar cotización <ArrowRight /></Link></Button><Button asChild size="lg" variant="outline" className="border-primary-foreground/60 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"><a href="https://wa.me/573005747839?text=Hola%2C%20necesito%20asesor%C3%ADa%20con%20instrumentaci%C3%B3n%20industrial" target="_blank" rel="noopener noreferrer"><MessageCircle /> Escribir por WhatsApp</a></Button></div></div>
+    </section>
+  </>
+);
 
 export default Index;

@@ -29,9 +29,9 @@ export const Navbar = () => {
   return (
     <header
       className={cn(
-        "fixed top-8 inset-x-0 z-50 transition-smooth",
+        "fixed top-0 inset-x-0 z-50 transition-smooth",
         scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border/60"
+          ? "bg-background/95 backdrop-blur-xl border-b border-border/60 shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -76,7 +76,7 @@ export const Navbar = () => {
             +57 300 574 7839
           </a>
           <Button asChild variant="hero" size="sm">
-            <Link to="/contacto">Solicitar diagnóstico</Link>
+            <Link to="/contacto">Cotizar ahora</Link>
           </Button>
         </div>
 
@@ -107,7 +107,7 @@ export const Navbar = () => {
               </Link>
             ))}
             <Button asChild variant="hero" className="mt-4">
-              <Link to="/contacto">Solicitar diagnóstico</Link>
+              <Link to="/contacto">Cotizar ahora</Link>
             </Button>
           </div>
         </div>
