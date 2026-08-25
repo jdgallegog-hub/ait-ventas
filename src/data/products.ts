@@ -1,5 +1,4 @@
 import plcImage from "@/assets/product-plc.jpg";
-import hmiImage from "@/assets/product-hmi.jpg";
 import positionerImage from "@/assets/product-positioner.jpg";
 import sensorImage from "@/assets/product-sensor.jpg";
 import transmitterImage from "@/assets/product-transmitter.jpg";
@@ -30,7 +29,6 @@ export type Product = {
 
 const categoryImages: Record<string, { image: string; label: string }> = {
   PLC: { image: plcImage, label: "Imagen de referencia de PLC" },
-  HMI: { image: hmiImage, label: "Imagen de referencia de interfaz HMI" },
   Variadores: { image: positionerImage, label: "Imagen de referencia de equipo de control" },
   Comunicaciones: { image: sensorImage, label: "Imagen de referencia de comunicación industrial" },
   Transmisores: { image: transmitterImage, label: "Imagen de referencia de transmisor" },
@@ -117,7 +115,6 @@ const product = (
 export const products: Product[] = [
   product("5", "PLC S7-1500 Compacto", "Siemens", "PLC", "S7-1500", 2850000, "Controlador lógico programable Siemens SIMATIC S7-1500 compacto de alto desempeño para automatización industrial."),
   product("6", "PLC Allen-Bradley 1400", "Allen-Bradley", "PLC", "1766-L32BWA", 1950000, "PLC Allen-Bradley MicroLogix 1400 con E/S integradas para aplicaciones de control medio."),
-  product("7", "HMI Kinco 7\" Touch", "Kinco", "HMI", "GL070E", 600000, "Pantalla táctil HMI Kinco 7\" para interfaz hombre-máquina en aplicaciones industriales."),
   product("8", "Variador Mitsubishi 1HP", "Mitsubishi", "Variadores", "FR-D720-042-NA", 550000, "Variador de frecuencia Mitsubishi 1HP serie D720 para control de velocidad de motores."),
   product("9", "Gateway Industrial", "Moxa", "Comunicaciones", "S2E-100MD", 300000, "Gateway industrial Serial-Ethernet para conectar equipos legados a redes IP."),
   product("10", "Siemens SIMATIC IOT2040", "Siemens", "Comunicaciones", "SIMATIC IOT2040", 1500000, "Gateway IoT industrial Siemens SIMATIC IOT2040 para conectividad y procesamiento en el borde."),
@@ -141,7 +138,6 @@ export const products: Product[] = [
 export const categories = [
   "Todos",
   "PLC",
-  "HMI",
   "Variadores",
   "Transmisores",
   "Instrumentación",

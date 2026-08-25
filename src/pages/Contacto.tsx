@@ -133,7 +133,6 @@ const Contacto = () => {
               <select id="topic" name="topic" value={form.topic} onChange={(event) => updateField("topic", event.target.value)} className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" required>
                 <option value="" disabled>Seleccione una categoría</option>
                 <option value="PLC">PLC y control</option>
-                <option value="HMI">HMI y visualización</option>
                 <option value="Variadores">Variadores y arranque</option>
                 <option value="Transmisores">Transmisores</option>
                 <option value="Instrumentación">Instrumentación de campo</option>
