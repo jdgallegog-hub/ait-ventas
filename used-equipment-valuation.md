@@ -102,3 +102,8 @@ La tienda pública `https://ait-ventas.vercel.app/tienda?version=ed31853` cargó
 ## Revisión específica posterior
 
 El commit `9b56a8a` ya está en GitHub y el build local pasa, pero durante la primera comprobación pública Vercel todavía servía la versión anterior de la ficha: nombre `PLC S7-1500 Compacto`, características antiguas y precio de $2.400.000 COP. Se requiere esperar o activar la propagación del despliegue antes de confirmar el precio final público.
+
+
+## Corrección final del S7-1500
+
+Después de revisar la configuración visual y los comparables específicos, el precio de publicación del conjunto se actualizó de **$2.400.000 a $5.800.000 COP**. La ficha pública fue verificada en `https://ait-ventas.vercel.app/tienda/S7-1500?version=2871f7f`: muestra el nombre `PLC S7-1500 Compacto con módulos`, el precio de $5.800.000 COP, tres imágenes y la advertencia de que CPU, módulos, configuración y prueba funcional deben confirmarse antes de cotizar.
