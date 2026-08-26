@@ -19,6 +19,7 @@ import unitedElectricImage1 from "@/assets/product-united-electric-01.jpeg";
 import siemensLevelImage1 from "@/assets/product-siemens-level-01.jpeg";
 import siemensTemperatureImage1 from "@/assets/product-siemens-temperature-01.jpeg";
 import siemensDifferentialImage1 from "@/assets/product-siemens-differential-01.jpeg";
+import siemensP220Image1 from "@/assets/product-siemens-p220-01.jpeg";
 
 export type Product = {
   id: string;
@@ -62,6 +63,10 @@ const productImages: Partial<Record<string, { image: string; label: string }>> =
   "7MF44331EY221AC1-Z": {
     image: siemensDifferentialImage1,
     label: "Fotografía del transmisor diferencial Siemens SITRANS P DS III",
+  },
+  "7MF1567-3CA00-5BA1": {
+    image: siemensP220Image1,
+    label: "Fotografía del transmisor Siemens SITRANS P220",
   },
   "S7-1500": {
     image: s71500Image,
