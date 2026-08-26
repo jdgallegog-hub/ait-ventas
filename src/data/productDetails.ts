@@ -45,6 +45,12 @@ import siemensTemperatureImage6 from "@/assets/product-siemens-temperature-06.jp
 import siemensP220Image1 from "@/assets/product-siemens-p220-01.jpeg";
 import siemensP220Image2 from "@/assets/product-siemens-p220-02.jpeg";
 import siemensP220Image3 from "@/assets/product-siemens-p220-03.jpeg";
+import siemensDifferentialImage1 from "@/assets/product-siemens-differential-01.jpeg";
+import siemensDifferentialImage2 from "@/assets/product-siemens-differential-02.jpeg";
+import siemensDifferentialImage3 from "@/assets/product-siemens-differential-03.jpeg";
+import siemensDifferentialImage4 from "@/assets/product-siemens-differential-04.jpeg";
+import siemensDifferentialImage5 from "@/assets/product-siemens-differential-05.jpeg";
+import siemensDifferentialImage6 from "@/assets/product-siemens-differential-06.jpeg";
 import type { Product } from "./products";
 
 export type ProductGalleryImage = {
@@ -78,6 +84,14 @@ export const productGalleries: Record<string, ProductGalleryImage[]> = {
     { src: siemensP220Image1, alt: "Transmisor Siemens SITRANS P220 en vista frontal" },
     { src: siemensP220Image2, alt: "Transmisor Siemens SITRANS P220 en vista frontal alternativa" },
     { src: siemensP220Image3, alt: "Transmisor Siemens SITRANS P220 en vista lateral" },
+  ],
+  "7MF44331EY221AC1-Z": [
+    { src: siemensDifferentialImage1, alt: "Transmisor diferencial Siemens SITRANS P DS III en vista de placa" },
+    { src: siemensDifferentialImage2, alt: "Transmisor diferencial Siemens SITRANS P DS III en vista frontal" },
+    { src: siemensDifferentialImage3, alt: "Transmisor diferencial Siemens SITRANS P DS III con conexiones" },
+    { src: siemensDifferentialImage4, alt: "Transmisor diferencial Siemens SITRANS P DS III en vista lateral" },
+    { src: siemensDifferentialImage5, alt: "Transmisor diferencial Siemens SITRANS P DS III en su empaque" },
+    { src: siemensDifferentialImage6, alt: "Transmisor diferencial Siemens SITRANS P DS III en vista adicional" },
   ],
   "S7-1500": [
     {

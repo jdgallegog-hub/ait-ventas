@@ -18,6 +18,7 @@ import techtopMotorImage from "@/assets/product-techtop-motor-1.webp";
 import unitedElectricImage1 from "@/assets/product-united-electric-01.jpeg";
 import siemensLevelImage1 from "@/assets/product-siemens-level-01.jpeg";
 import siemensTemperatureImage1 from "@/assets/product-siemens-temperature-01.jpeg";
+import siemensDifferentialImage1 from "@/assets/product-siemens-differential-01.jpeg";
 
 export type Product = {
   id: string;
@@ -57,6 +58,10 @@ const productImages: Partial<Record<string, { image: string; label: string }>> =
   "7NG3136-0AC11": {
     image: siemensTemperatureImage1,
     label: "Fotografía del transmisor de temperatura Siemens SITRANS TF",
+  },
+  "7MF44331EY221AC1-Z": {
+    image: siemensDifferentialImage1,
+    label: "Fotografía del transmisor diferencial Siemens SITRANS P DS III",
   },
   "S7-1500": {
     image: s71500Image,
