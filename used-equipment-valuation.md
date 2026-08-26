@@ -98,3 +98,7 @@ La tienda pública `https://ait-ventas.vercel.app/tienda` cargó correctamente d
 ## Resultado de producción
 
 La tienda pública `https://ait-ventas.vercel.app/tienda?version=ed31853` cargó correctamente después de la publicación. Se verificó que muestra 18 referencias, la etiqueta `Precios orientativos de segunda mano en COP · validar estado`, la nota de consulta en el catálogo y valores actualizados como $5.800.000 para el conjunto S7-1500, $1.650.000 para el MicroLogix 1400, $650.000 para el variador Mitsubishi, $1.500.000 para el SITRANS P DS III, $1.200.000 para el Yokogawa EJA110A y $3.800.000 para el transmisor de nivel Siemens.
+
+## Revisión específica posterior
+
+El commit `9b56a8a` ya está en GitHub y el build local pasa, pero durante la primera comprobación pública Vercel todavía servía la versión anterior de la ficha: nombre `PLC S7-1500 Compacto`, características antiguas y precio de $2.400.000 COP. Se requiere esperar o activar la propagación del despliegue antes de confirmar el precio final público.
