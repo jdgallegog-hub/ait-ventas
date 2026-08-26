@@ -53,7 +53,7 @@ const ProductCard = ({ product }: { product: Product }) => (
       <div className="mt-5 flex items-end justify-between gap-3 border-t border-border/70 pt-4">
         <div>
           <span className="block text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground">Precio de referencia</span>
-          <span className="mt-1 block text-xl font-bold font-mono text-gradient-amber">{formatCOP(product.price)}</span>
+          <span className="mt-1 block text-xl font-bold font-mono text-gradient-amber">{product.price === null ? "Consultar" : formatCOP(product.price)}</span>
         </div>
         <PackageCheck className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
       </div>

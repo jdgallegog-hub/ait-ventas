@@ -92,7 +92,7 @@ const Producto = () => {
               <div className="mt-8 flex flex-wrap items-end justify-between gap-5 border-y border-border/70 py-6">
                 <div>
                   <span className="block text-[10px] font-mono uppercase tracking-[0.16em] text-muted-foreground">Precio de referencia</span>
-                  <span className="mt-2 block text-3xl font-bold font-mono text-gradient-amber">{formatCOP(product.price)}</span>
+                  <span className="mt-2 block text-3xl font-bold font-mono text-gradient-amber">{product.price === null ? "Consultar" : formatCOP(product.price)}</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.12em] text-primary">
                   <PackageCheck className="h-5 w-5" /> Disponibilidad por confirmar

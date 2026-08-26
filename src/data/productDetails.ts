@@ -27,6 +27,24 @@ import techtopMotorImage1 from "@/assets/product-techtop-motor-1.webp";
 import techtopMotorImage2 from "@/assets/product-techtop-motor-2.webp";
 import techtopMotorImage3 from "@/assets/product-techtop-motor-3.webp";
 import techtopMotorImage4 from "@/assets/product-techtop-motor-4.webp";
+import unitedElectricImage1 from "@/assets/product-united-electric-01.jpeg";
+import unitedElectricImage2 from "@/assets/product-united-electric-02.jpeg";
+import unitedElectricImage3 from "@/assets/product-united-electric-03.jpeg";
+import siemensLevelImage1 from "@/assets/product-siemens-level-01.jpeg";
+import siemensLevelImage2 from "@/assets/product-siemens-level-02.jpeg";
+import siemensLevelImage3 from "@/assets/product-siemens-level-03.jpeg";
+import siemensLevelImage4 from "@/assets/product-siemens-level-04.jpeg";
+import siemensLevelImage5 from "@/assets/product-siemens-level-05.jpeg";
+import siemensLevelImage6 from "@/assets/product-siemens-level-06.jpeg";
+import siemensTemperatureImage1 from "@/assets/product-siemens-temperature-01.jpeg";
+import siemensTemperatureImage2 from "@/assets/product-siemens-temperature-02.jpeg";
+import siemensTemperatureImage3 from "@/assets/product-siemens-temperature-03.jpeg";
+import siemensTemperatureImage4 from "@/assets/product-siemens-temperature-04.jpeg";
+import siemensTemperatureImage5 from "@/assets/product-siemens-temperature-05.jpeg";
+import siemensTemperatureImage6 from "@/assets/product-siemens-temperature-06.jpeg";
+import siemensP220Image1 from "@/assets/product-siemens-p220-01.jpeg";
+import siemensP220Image2 from "@/assets/product-siemens-p220-02.jpeg";
+import siemensP220Image3 from "@/assets/product-siemens-p220-03.jpeg";
 import type { Product } from "./products";
 
 export type ProductGalleryImage = {
@@ -35,6 +53,32 @@ export type ProductGalleryImage = {
 };
 
 export const productGalleries: Record<string, ProductGalleryImage[]> = {
+  "E122-2BSB": [
+    { src: unitedElectricImage1, alt: "Termostato United Electric con sensor y capilar" },
+    { src: unitedElectricImage2, alt: "Placa frontal del termostato United Electric" },
+    { src: unitedElectricImage3, alt: "Termostato United Electric en vista adicional" },
+  ],
+  "7ML5881-0AC01-0AD9-Z": [
+    { src: siemensLevelImage1, alt: "Transmisor de nivel Siemens SITRANS en vista frontal" },
+    { src: siemensLevelImage2, alt: "Transmisor de nivel Siemens SITRANS en vista frontal alternativa" },
+    { src: siemensLevelImage3, alt: "Sensor del transmisor de nivel Siemens SITRANS" },
+    { src: siemensLevelImage4, alt: "Transmisor de nivel Siemens SITRANS con sensor" },
+    { src: siemensLevelImage5, alt: "Placa del transmisor de nivel Siemens SITRANS" },
+    { src: siemensLevelImage6, alt: "Transmisor de nivel Siemens SITRANS con empaque" },
+  ],
+  "7NG3136-0AC11": [
+    { src: siemensTemperatureImage1, alt: "Transmisor de temperatura Siemens SITRANS TF en vista diagonal" },
+    { src: siemensTemperatureImage2, alt: "Transmisor de temperatura Siemens SITRANS TF en su empaque" },
+    { src: siemensTemperatureImage3, alt: "Transmisor de temperatura Siemens SITRANS TF en vista lateral" },
+    { src: siemensTemperatureImage4, alt: "Transmisor de temperatura Siemens SITRANS TF en vista frontal" },
+    { src: siemensTemperatureImage5, alt: "Transmisor de temperatura Siemens SITRANS TF en vista posterior" },
+    { src: siemensTemperatureImage6, alt: "Transmisor de temperatura Siemens SITRANS TF en vista adicional" },
+  ],
+  "7MF1567-3CA00-5BA1": [
+    { src: siemensP220Image1, alt: "Transmisor Siemens SITRANS P220 en vista frontal" },
+    { src: siemensP220Image2, alt: "Transmisor Siemens SITRANS P220 en vista frontal alternativa" },
+    { src: siemensP220Image3, alt: "Transmisor Siemens SITRANS P220 en vista lateral" },
+  ],
   "S7-1500": [
     {
       src: s71500Image,
@@ -118,6 +162,18 @@ export const productGalleries: Record<string, ProductGalleryImage[]> = {
 };
 
 export const productCharacteristics: Record<string, string[]> = {
+  "E122-2BSB": [
+    "Termostato industrial United Electric Controls",
+    "Referencia de catálogo: E122-2BSB",
+    "Rango indicado en el catálogo: 30–250 °F",
+    "Estado, conexión y configuración deben confirmarse antes de cotizar",
+  ],
+  "7NG3136-0AC11": [
+    "Transmisor de temperatura Siemens SITRANS TF",
+    "Referencia de catálogo: 7NG3136-0AC11",
+    "Equipo fotografiado con cuerpo y conexión de proceso visibles",
+    "Rango, salida, alimentación y configuración deben confirmarse con la placa y la ficha técnica",
+  ],
   "S7-1500": [
     "Controlador Siemens SIMATIC S7-1500 compacto",
     "Pantalla frontal para diagnóstico local",

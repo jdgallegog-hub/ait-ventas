@@ -15,6 +15,9 @@ import ccsDualSnapImage from "@/assets/product-ccs-dual-snap-646gze11-2.webp";
 import yokogawaEja110aImage from "@/assets/product-yokogawa-eja110a-1.webp";
 import ascoSolenoidImage from "@/assets/product-asco-solenoid-1.webp";
 import techtopMotorImage from "@/assets/product-techtop-motor-1.webp";
+import unitedElectricImage1 from "@/assets/product-united-electric-01.jpeg";
+import siemensLevelImage1 from "@/assets/product-siemens-level-01.jpeg";
+import siemensTemperatureImage1 from "@/assets/product-siemens-temperature-01.jpeg";
 
 export type Product = {
   id: string;
@@ -22,7 +25,7 @@ export type Product = {
   brand: string;
   category: string;
   sku: string;
-  price: number;
+  price: number | null;
   description: string;
   image: string;
   imageLabel: string;
@@ -43,6 +46,18 @@ const categoryImages: Record<string, { image: string; label: string }> = {
  * Ejemplo: "S7-1500": { image: plcImage, label: "Foto real del PLC S7-1500" },
  */
 const productImages: Partial<Record<string, { image: string; label: string }>> = {
+  "E122-2BSB": {
+    image: unitedElectricImage1,
+    label: "Fotografía del termostato industrial United Electric",
+  },
+  "7ML5881-0AC01-0AD9-Z": {
+    image: siemensLevelImage1,
+    label: "Fotografía del transmisor de nivel Siemens SITRANS",
+  },
+  "7NG3136-0AC11": {
+    image: siemensTemperatureImage1,
+    label: "Fotografía del transmisor de temperatura Siemens SITRANS TF",
+  },
   "S7-1500": {
     image: s71500Image,
     label: "Fotografía del PLC Siemens SIMATIC S7-1500",
@@ -99,7 +114,7 @@ const product = (
   brand: string,
   category: string,
   sku: string,
-  price: number,
+  price: number | null,
   description: string,
 ): Product => {
   const visual = productImages[sku] ?? categoryImages[category];
@@ -135,6 +150,7 @@ export const products: Product[] = [
   product("20", "Transmisor Diferencial Yokogawa EJA110A", "Yokogawa", "Transmisores", "91MC27289", 3000000, "Transmisor de presión diferencial Yokogawa EJA110A con tecnología DPharp y alta estabilidad."),
   product("21", "Transmisor de Nivel Ultrasónico Siemens SITRANS", "Siemens", "Transmisores", "7ML5881-0AC01-0AD9-Z", 6000000, "Transmisor de nivel ultrasónico Siemens SITRANS para medición sin contacto en tanques y silos."),
   product("22", "Termostato Industrial United Electric", "United Electric", "Instrumentación", "E122-2BSB", 900000, "Termostato industrial United Electric E122-2BSB con rango 30-250°F para control de temperatura."),
+  product("24", "Transmisor de Temperatura Siemens SITRANS TF", "Siemens", "Transmisores", "7NG3136-0AC11", null, "Transmisor de temperatura Siemens SITRANS TF. Referencia, configuración y disponibilidad técnica bajo solicitud."),
   product("23", "Elemento de Presión Helicoidal Barton (0-50 PSI)", "Barton", "Instrumentación", "B-ELM-050", 300000, "Elemento de presión helicoidal Barton rango 0-50 PSI, repuesto OEM para registradores."),
   product("25", "Elemento de Presión Helicoidal Barton (0-1000 PSI)", "Barton", "Instrumentación", "B-ELM-1000", 850000, "Elemento de presión helicoidal Barton rango 0-1000 PSI, repuesto OEM de alta presión."),
   product("26", "Elemento de Presión Helicoidal Barton (0-1500 PSI)", "Barton", "Instrumentación", "B-ELM-1500", 900000, "Elemento de presión helicoidal Barton rango 0-1500 PSI, repuesto OEM para alta presión."),
@@ -151,8 +167,10 @@ export const categories = [
   "Comunicaciones",
 ];
 
-export const formatCOP = (value: number) =>
-  new Intl.NumberFormat("es-CO", {
+export const formatCOP = (value: number | null) =>
+  value === null
+    ? "Consultar"
+    : new Intl.NumberFormat("es-CO", {
     style: "currency",
     currency: "COP",
     maximumFractionDigits: 0,
