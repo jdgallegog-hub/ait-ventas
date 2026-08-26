@@ -20,6 +20,7 @@ import siemensLevelImage1 from "@/assets/product-siemens-level-01.jpeg";
 import siemensTemperatureImage1 from "@/assets/product-siemens-temperature-01.jpeg";
 import siemensDifferentialImage1 from "@/assets/product-siemens-differential-01.jpeg";
 import siemensP220Image1 from "@/assets/product-siemens-p220-01.jpeg";
+import rosemount3300Image1 from "@/assets/product-rosemount-3300-01.jpeg";
 
 export type Product = {
   id: string;
@@ -67,6 +68,10 @@ const productImages: Partial<Record<string, { image: string; label: string }>> =
   "7MF1567-3CA00-5BA1": {
     image: siemensP220Image1,
     label: "Fotografía del transmisor Siemens SITRANS P220",
+  },
+  "3300": {
+    image: rosemount3300Image1,
+    label: "Fotografía del transmisor de nivel Rosemount 3300",
   },
   "S7-1500": {
     image: s71500Image,
@@ -154,16 +159,13 @@ export const products: Product[] = [
   product("14", "Motor Eléctrico Techtop 0.75 HP", "Techtop", "Motores", "T1A-71-3-4-B5", 350000, "Motor eléctrico Techtop 0.75 HP (0.55 kW) - 1500 RPM - Brida B5 para acoplamiento directo."),
   product("15", "Presostato Industrial CCS Dual-Snap", "CCS", "Instrumentación", "646GZE11", 1000000, "Presostato industrial CCS Dual-Snap 646GZE11 con rango 12-150 PSI para control de presión."),
   product("16", "Presostato Baja Presión ITT Neo-Dyn", "ITT Neo-Dyn", "Instrumentación", "142P", 1200000, "Presostato de baja presión ITT Neo-Dyn 142P con rango 2-40 in H2O para servicios delicados."),
-  product("17", "Transmisor de Presión Siemens SITRANS P DS III", "Siemens", "Transmisores", "7MF4033-1DA10-1NC6-Z", 2600000, "Transmisor de presión Siemens SITRANS P DS III modelo 7MF4033 con protocolo HART."),
   product("18", "Transmisor de Presión Siemens SITRANS P220", "Siemens", "Transmisores", "7MF1567-3CA00-5BA1", 650000, "Transmisor de presión Siemens SITRANS P220 rango 0-10 Bar, salida 4-20 mA."),
   product("19", "Transmisor Diferencial Siemens SITRANS P DS III", "Siemens", "Transmisores", "7MF44331EY221AC1-Z", 5000000, "Transmisor de presión diferencial Siemens SITRANS P DS III modelo 7MF4433 de alta precisión."),
   product("20", "Transmisor Diferencial Yokogawa EJA110A", "Yokogawa", "Transmisores", "91MC27289", 3000000, "Transmisor de presión diferencial Yokogawa EJA110A con tecnología DPharp y alta estabilidad."),
   product("21", "Transmisor de Nivel Ultrasónico Siemens SITRANS", "Siemens", "Transmisores", "7ML5881-0AC01-0AD9-Z", 6000000, "Transmisor de nivel ultrasónico Siemens SITRANS para medición sin contacto en tanques y silos."),
   product("22", "Termostato Industrial United Electric", "United Electric", "Instrumentación", "E122-2BSB", 900000, "Termostato industrial United Electric E122-2BSB con rango 30-250°F para control de temperatura."),
   product("24", "Transmisor de Temperatura Siemens SITRANS TF", "Siemens", "Transmisores", "7NG3136-0AC11", null, "Transmisor de temperatura Siemens SITRANS TF. Referencia, configuración y disponibilidad técnica bajo solicitud."),
-  product("23", "Elemento de Presión Helicoidal Barton (0-50 PSI)", "Barton", "Instrumentación", "B-ELM-050", 300000, "Elemento de presión helicoidal Barton rango 0-50 PSI, repuesto OEM para registradores."),
-  product("25", "Elemento de Presión Helicoidal Barton (0-1000 PSI)", "Barton", "Instrumentación", "B-ELM-1000", 850000, "Elemento de presión helicoidal Barton rango 0-1000 PSI, repuesto OEM de alta presión."),
-  product("26", "Elemento de Presión Helicoidal Barton (0-1500 PSI)", "Barton", "Instrumentación", "B-ELM-1500", 900000, "Elemento de presión helicoidal Barton rango 0-1500 PSI, repuesto OEM para alta presión."),
+  product("27", "Transmisor de Nivel Rosemount 3300", "Rosemount", "Transmisores", "3300", null, "Transmisor de nivel Rosemount 3300 con sonda y electrónica visibles en las fotografías del inventario. Configuración, longitud de sonda y disponibilidad bajo solicitud."),
 ];
 
 export const categories = [

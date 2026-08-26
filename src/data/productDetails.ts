@@ -51,6 +51,10 @@ import siemensDifferentialImage3 from "@/assets/product-siemens-differential-03.
 import siemensDifferentialImage4 from "@/assets/product-siemens-differential-04.jpeg";
 import siemensDifferentialImage5 from "@/assets/product-siemens-differential-05.jpeg";
 import siemensDifferentialImage6 from "@/assets/product-siemens-differential-06.jpeg";
+import rosemount3300Image1 from "@/assets/product-rosemount-3300-01.jpeg";
+import rosemount3300Image2 from "@/assets/product-rosemount-3300-02.jpeg";
+import rosemount3300Image3 from "@/assets/product-rosemount-3300-03.jpeg";
+import rosemount3300Image4 from "@/assets/product-rosemount-3300-04.jpeg";
 import type { Product } from "./products";
 
 export type ProductGalleryImage = {
@@ -92,6 +96,12 @@ export const productGalleries: Record<string, ProductGalleryImage[]> = {
     { src: siemensDifferentialImage4, alt: "Transmisor diferencial Siemens SITRANS P DS III en vista lateral" },
     { src: siemensDifferentialImage5, alt: "Transmisor diferencial Siemens SITRANS P DS III en su empaque" },
     { src: siemensDifferentialImage6, alt: "Transmisor diferencial Siemens SITRANS P DS III en vista adicional" },
+  ],
+  "3300": [
+    { src: rosemount3300Image1, alt: "Transmisor de nivel Rosemount 3300 con sonda" },
+    { src: rosemount3300Image2, alt: "Transmisor de nivel Rosemount 3300 en vista lateral" },
+    { src: rosemount3300Image3, alt: "Placa del transmisor de nivel Rosemount 3300" },
+    { src: rosemount3300Image4, alt: "Transmisor de nivel Rosemount 3300 en vista adicional" },
   ],
   "S7-1500": [
     {
@@ -187,6 +197,12 @@ export const productCharacteristics: Record<string, string[]> = {
     "Referencia de catálogo: 7NG3136-0AC11",
     "Equipo fotografiado con cuerpo y conexión de proceso visibles",
     "Rango, salida, alimentación y configuración deben confirmarse con la placa y la ficha técnica",
+  ],
+  "3300": [
+    "Transmisor de nivel Rosemount 3300",
+    "Referencia comercial: 3300",
+    "Fotografías del inventario muestran electrónica Rosemount, sonda y cableado",
+    "Longitud de sonda, conexión, salida, alimentación y estado deben confirmarse antes de cotizar",
   ],
   "S7-1500": [
     "Controlador Siemens SIMATIC S7-1500 compacto",
