@@ -82,3 +82,11 @@ La página fue actualizada con los valores de publicación recomendados y con un
 [11]: https://www.telematic.com/Inventory/LYLaJZ/646GZE11-7065 "Telematic — CCS 646GZE11-7065"
 
 [12]: https://dealerselectric.com/Techtop.asp?SortBy "Dealers Electric — motores TechTop"
+
+## Validación de producción
+
+La respuesta HTML de `https://ait-ventas.vercel.app/tienda` llegó correctamente después del despliegue, pero la vista automatizada mostró una pantalla negra sin elementos interactivos. Antes de cerrar la publicación se revisará la consola del navegador para confirmar si se trata de una carga temporal, un error de JavaScript o una propagación incompleta de los activos.
+
+## Resultado de producción
+
+La tienda pública `https://ait-ventas.vercel.app/tienda?version=ed31853` cargó correctamente después de la publicación. Se verificó que muestra 18 referencias, la etiqueta `Precios orientativos de segunda mano en COP · validar estado`, la nota de consulta en el catálogo y valores actualizados como $2.400.000 para el S7-1500, $1.650.000 para el MicroLogix 1400, $650.000 para el variador Mitsubishi, $1.500.000 para el SITRANS P DS III, $1.200.000 para el Yokogawa EJA110A y $3.800.000 para el transmisor de nivel Siemens.
