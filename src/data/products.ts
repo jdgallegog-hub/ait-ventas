@@ -148,7 +148,7 @@ const product = (
 };
 
 export const products: Product[] = [
-  product("5", "PLC S7-1500 Compacto", "Siemens", "PLC", "S7-1500", 2400000, "Controlador lógico programable Siemens SIMATIC S7-1500 compacto de alto desempeño para automatización industrial."),
+  product("5", "PLC S7-1500 Compacto con módulos", "Siemens", "PLC", "S7-1500", 5800000, "Controlador lógico programable Siemens SIMATIC S7-1500 compacto de alto desempeño para automatización industrial."),
   product("6", "PLC Allen-Bradley 1400", "Allen-Bradley", "PLC", "1766-L32BWA", 1650000, "PLC Allen-Bradley MicroLogix 1400 con E/S integradas para aplicaciones de control medio."),
   product("8", "Variador Mitsubishi 1HP", "Mitsubishi", "Variadores", "FR-D720-042-NA", 650000, "Variador de frecuencia Mitsubishi 1HP serie D720 para control de velocidad de motores."),
   product("9", "Gateway Industrial", "Moxa", "Comunicaciones", "S2E-100MD", 350000, "Gateway industrial Serial-Ethernet para conectar equipos legados a redes IP."),

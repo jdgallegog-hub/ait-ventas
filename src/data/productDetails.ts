@@ -205,10 +205,10 @@ export const productCharacteristics: Record<string, string[]> = {
     "Longitud de sonda, conexión, salida, alimentación y estado deben confirmarse antes de cotizar",
   ],
   "S7-1500": [
-    "Controlador Siemens SIMATIC S7-1500 compacto",
+    "Conjunto Siemens SIMATIC S7-1500 compacto con CPU y módulos visibles",
     "Pantalla frontal para diagnóstico local",
-    "Arquitectura modular con entradas y salidas visibles",
-    "Referencia comercial: S7-1500",
+    "El valor publicado considera el conjunto fotografiado, no una CPU aislada",
+    "Referencias exactas de CPU, módulos, memoria y fuente deben confirmarse antes de cotizar",
   ],
   "1766-L32BWA": [
     "PLC Allen-Bradley MicroLogix 1400",

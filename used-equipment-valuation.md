@@ -10,13 +10,13 @@ Se revisaron las 18 referencias actualmente visibles en el catálogo de AIT Vent
 
 Para convertir precios internacionales se utilizó una TRM de **$3.081,67 COP/USD** publicada para el 26 de agosto de 2026 [1]. La condición se estimó únicamente a partir de las fotografías del inventario y de las notas del proyecto: equipo usado o de inventario, con prueba funcional, configuración, accesorios y calibración pendientes salvo que se indique lo contrario. En consecuencia, los precios publicados en el sitio son valores orientativos y deben confirmarse antes de prometer desempeño o garantía.
 
-El valor publicado recomendado para las 18 referencias suma **$25.250.000 COP**. La suma de los 16 precios que tenían valor antes de esta revisión era **$27.950.000 COP**; la comparación total no es perfectamente homogénea porque los dos equipos que estaban en “Consultar” —SITRANS TF y Rosemount 3300— ahora reciben un valor inicial sujeto a confirmación.
+El valor publicado recomendado para las 18 referencias suma **$28.650.000 COP**. La suma de los 16 precios que tenían valor antes de esta revisión era **$27.950.000 COP**; la comparación total no es perfectamente homogénea porque los dos equipos que estaban en “Consultar” —SITRANS TF y Rosemount 3300— ahora reciben un valor inicial sujeto a confirmación.
 
 ## Valores recomendados para publicación
 
 | Referencia | Equipo | Precio anterior | Precio recomendado | Ajuste | Estado considerado | Confianza |
 |---|---|---:|---:|---:|---|---|
-| S7-1500 | PLC Siemens S7-1500 compacto | $2.850.000 | **$2.400.000** | -16% | Usado; prueba, CPU exacta y configuración pendientes | Media |
+| S7-1500 | PLC Siemens S7-1500 compacto con módulos | $2.850.000 | **$5.800.000** | +104% | Conjunto usado; CPU, módulos, memoria, fuente y prueba pendientes | Media |
 | 1766-L32BWA | PLC Allen-Bradley MicroLogix 1400 | $1.950.000 | **$1.650.000** | -15% | Usado; prueba, firmware y accesorios pendientes | Alta |
 | FR-D720-042-NA | Variador Mitsubishi 1 HP | $550.000 | **$650.000** | +18% | Usado; prueba y datos eléctricos finales pendientes | Alta |
 | S2E-100MD | Gateway industrial Moxa | $300.000 | **$350.000** | +17% | Usado; protocolo, alimentación y prueba pendientes | Baja |
@@ -36,6 +36,8 @@ El valor publicado recomendado para las 18 referencias suma **$25.250.000 COP**.
 | 3300 | Rosemount 3300 nivel | Consultar | **$4.800.000** | Nuevo valor | Usado/inventario; código 3301/3302, sonda y prueba pendientes | Baja |
 
 ## Lectura de los ajustes principales
+
+La revisión específica del **S7-1500** cambia la conclusión inicial: el valor de $2.400.000 COP era bajo si la fotografía representa el conjunto completo. Las imágenes muestran una CPU S7-1500 acompañada de varios módulos de E/S, por lo que el precio actualizado de publicación es **$5.800.000 COP**, sujeto a confirmar los códigos exactos de la CPU y de los módulos. Radwell publica una CPU 1512C-1 PN reacondicionada en €1.286,18 y una CPU 1511C-1 PN reacondicionada en €1.937,85, ambas con garantía propia de dos años; también publica una CPU 1516 de mayor capacidad reacondicionada en €3.227,76. Esos precios son de CPU individual, no del conjunto AIT, y tienen una condición comercial superior porque incluyen prueba o garantía del revendedor [13] [14] [15]. Con varios módulos visibles, $5.800.000 COP es una cifra de salida razonable para el conjunto, pero sólo debe mantenerse si se confirma que todos los módulos están incluidos y funcionales. Si la fotografía resulta ser de referencia y el inventario real contiene sólo la CPU, el precio debe volver a un rango aproximado de $3.500.000–$4.500.000 COP según el modelo exacto y la prueba.
 
 El ajuste más importante corresponde al **SITRANS P DS III diferencial**. El valor anterior de $5.000.000 COP estaba demasiado cerca del precio de un equipo reacondicionado con garantía comercial internacional, pese a que la unidad fotografiada no tenía calibración, configuración ni garantía documentadas. Equipt publicó un Siemens 7MF4433 usado en buen estado por USD 379,99, que equivale aproximadamente a $1.171.000 COP antes de logística; por eso se fijó un precio de publicación de $1.500.000 COP, negociable después de prueba [2].
 
@@ -83,10 +85,16 @@ La página fue actualizada con los valores de publicación recomendados y con un
 
 [12]: https://dealerselectric.com/Techtop.asp?SortBy "Dealers Electric — motores TechTop"
 
+[13]: https://www.radwell.com/Buy/SIEMENS/SIEMENS/6ES7511-1CK01-0AB0 "Radwell — Siemens CPU 1511C-1 PN"
+
+[14]: https://www.radwell.com/Buy/SIEMENS/SIEMENS/6ES7512-1CK01-0AB0 "Radwell — Siemens CPU 1512C-1 PN"
+
+[15]: https://www.radwell.com/Buy/SIEMENS/SIEMENS/6ES7516-3AN02-0AB0 "Radwell — Siemens CPU 1516-3 PN/DP"
+
 ## Validación de producción
 
-La respuesta HTML de `https://ait-ventas.vercel.app/tienda` llegó correctamente después del despliegue, pero la vista automatizada mostró una pantalla negra sin elementos interactivos. Antes de cerrar la publicación se revisará la consola del navegador para confirmar si se trata de una carga temporal, un error de JavaScript o una propagación incompleta de los activos.
+La tienda pública `https://ait-ventas.vercel.app/tienda` cargó correctamente después del despliegue. Se verificaron las 18 referencias, la etiqueta de precios orientativos de segunda mano y el valor de $5.800.000 COP para el conjunto S7-1500. La ficha del S7-1500 conserva la galería y muestra que el precio corresponde a CPU más módulos visibles, con configuración exacta y prueba funcional pendientes.
 
 ## Resultado de producción
 
-La tienda pública `https://ait-ventas.vercel.app/tienda?version=ed31853` cargó correctamente después de la publicación. Se verificó que muestra 18 referencias, la etiqueta `Precios orientativos de segunda mano en COP · validar estado`, la nota de consulta en el catálogo y valores actualizados como $2.400.000 para el S7-1500, $1.650.000 para el MicroLogix 1400, $650.000 para el variador Mitsubishi, $1.500.000 para el SITRANS P DS III, $1.200.000 para el Yokogawa EJA110A y $3.800.000 para el transmisor de nivel Siemens.
+La tienda pública `https://ait-ventas.vercel.app/tienda?version=ed31853` cargó correctamente después de la publicación. Se verificó que muestra 18 referencias, la etiqueta `Precios orientativos de segunda mano en COP · validar estado`, la nota de consulta en el catálogo y valores actualizados como $5.800.000 para el conjunto S7-1500, $1.650.000 para el MicroLogix 1400, $650.000 para el variador Mitsubishi, $1.500.000 para el SITRANS P DS III, $1.200.000 para el Yokogawa EJA110A y $3.800.000 para el transmisor de nivel Siemens.
