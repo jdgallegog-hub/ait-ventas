@@ -93,6 +93,7 @@ const Producto = () => {
                 <div>
                   <span className="block text-[10px] font-mono uppercase tracking-[0.16em] text-muted-foreground">Precio de referencia</span>
                   <span className="mt-2 block text-3xl font-bold font-mono text-gradient-amber">{product.price === null ? "Consultar" : formatCOP(product.price)}</span>
+                  <p className="mt-2 max-w-xs text-xs leading-relaxed text-muted-foreground">Valor orientativo para equipo usado; se confirma según prueba funcional, configuración, accesorios y calibración.</p>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.12em] text-primary">
                   <PackageCheck className="h-5 w-5" /> Disponibilidad por confirmar

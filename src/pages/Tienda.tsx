@@ -181,7 +181,7 @@ const Tienda = () => {
             <p className="text-sm font-mono text-muted-foreground">
               Mostrando <span className="font-semibold text-foreground">{filtered.length}</span> de {products.length} referencias
             </p>
-            <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">Precios de referencia en COP</p>
+            <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">Precios orientativos de segunda mano en COP · validar estado</p>
           </div>
 
           {filtered.length === 0 ? (
