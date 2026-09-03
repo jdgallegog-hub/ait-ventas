@@ -10,7 +10,7 @@ Se revisaron las 18 referencias actualmente visibles en el catálogo de AIT Vent
 
 Para convertir precios internacionales se utilizó una TRM de **$3.081,67 COP/USD** publicada para el 26 de agosto de 2026 [1]. La condición se estimó únicamente a partir de las fotografías del inventario y de las notas del proyecto: equipo usado o de inventario, con prueba funcional, configuración, accesorios y calibración pendientes salvo que se indique lo contrario. En consecuencia, los precios publicados en el sitio son valores orientativos y deben confirmarse antes de prometer desempeño o garantía.
 
-El valor publicado recomendado para las 18 referencias era **$28.650.000 COP** antes de la actualización comercial posterior indicada por el usuario. Con los ocho precios actualmente solicitados para publicación, el valor aritmético vigente del catálogo era **$53.100.000 COP**; con el ajuste posterior del Rosemount 3300, asciende a **$53.300.000 COP**. Esta cifra es un total de precios de salida, no una tasación certificada ni una garantía de venta; la condición, configuración, prueba, accesorios y calibración deben confirmarse antes de cotizar.
+El valor publicado recomendado para las 18 referencias era **$28.650.000 COP** antes de la actualización comercial posterior indicada por el usuario. Con los ocho precios actualmente solicitados para publicación, el valor aritmético vigente del catálogo era **$53.100.000 COP**; con los ajustes posteriores del Rosemount 3300 y del SITRANS P DS III, asciende a **$58.500.000 COP**. Esta cifra es un total de precios de salida, no una tasación certificada ni una garantía de venta; la condición, configuración, prueba, accesorios y calibración deben confirmarse antes de cotizar.
 
 ## Valores recomendados para publicación
 
@@ -28,7 +28,7 @@ El valor publicado recomendado para las 18 referencias era **$28.650.000 COP** a
 | 646GZE11 | Presostato CCS Dual-Snap | $1.000.000 | **$1.100.000** | +10% | Usado; rango, código completo y prueba pendientes | Media |
 | 142P | Presostato de Baja Presión Nega-Rate ITT Neo-Dyn | $700.000 | **$1.600.000** | Actualización comercial | Usado; rango, código completo y prueba pendientes | Media |
 | 7MF1567-3CA00-5BA1 | Transmisor de Presión SITRANS P220 (0–10 Bar) | $700.000 | **$1.350.000** | Actualización comercial | Usado; calibración y lazo 4–20 mA pendientes | Media |
-| 7MF44331EY221AC1-Z | Transmisor Diferencial SITRANS P DS III HART | $1.500.000 | **$4.800.000** | Actualización comercial | Usado; configuración, manifold y calibración pendientes | Baja |
+| 7MF44331EY221AC1-Z | Transmisor Diferencial SITRANS P DS III HART | $4.800.000 | **$10.000.000** | Ajuste posterior | Usado; configuración, manifold y calibración pendientes | Baja |
 | 91MC27289 | Transmisor Diferencial Yokogawa EJA110A | $1.200.000 | **$4.200.000** | Actualización comercial | Usado; configuración y calibración pendientes | Baja |
 | 7ML5881-0AC01-0AD9-Z | Radar de Onda Guiada Siemens SITRANS LG250 | $3.800.000 | **$11.500.000** | Actualización comercial | Usado; sonda, configuración y prueba pendientes | Baja |
 | E122-2BSB | Termostato Industrial Heavy-Duty United Electric | $750.000 | **$1.650.000** | Actualización comercial | Usado; rango, serie y prueba pendientes | Baja |
@@ -43,20 +43,20 @@ Por instrucción del usuario, se actualizaron ocho nombres, descripciones y prec
 |---|---:|
 | `142P` | $1.600.000 |
 | `7MF1567-3CA00-5BA1` | $1.350.000 |
-| `7MF44331EY221AC1-Z` | $4.800.000 |
+| `7MF44331EY221AC1-Z` | $10.000.000 |
 | `7NG3136-0AC11` | $4.800.000 |
 | `7ML5881-0AC01-0AD9-Z` | $11.500.000 |
 | `91MC27289` | $4.200.000 |
 | `E122-2BSB` | $1.650.000 |
 | `3300` | $10.000.000 |
 
-El total aritmético actualizado de las 18 referencias era **$53.100.000 COP** antes del ajuste final del Rosemount 3300. Con el nuevo precio, el total asciende a **$53.300.000 COP**. Los valores solicitados deben tratarse como precios de publicación sujetos a confirmación, no como precios de transacción cerrada. En particular, las denominaciones **SITRANS LG250**, **transmisor de temperatura de campo**, **HART**, **a prueba de explosión**, **Clase I Div 1**, **display local**, **IP67** y **radar de onda guiada** deben coincidir con la placa, el modelo completo y la documentación del equipo antes de comunicarse como especificaciones garantizadas.
+El total aritmético actualizado de las 18 referencias era **$53.100.000 COP** antes de los ajustes finales del Rosemount 3300 y del SITRANS P DS III. Con ambos nuevos precios, el total asciende a **$58.500.000 COP**. Los valores solicitados deben tratarse como precios de publicación sujetos a confirmación, no como precios de transacción cerrada. En particular, las denominaciones **SITRANS LG250**, **transmisor de temperatura de campo**, **HART**, **a prueba de explosión**, **Clase I Div 1**, **display local**, **IP67** y **radar de onda guiada** deben coincidir con la placa, el modelo completo y la documentación del equipo antes de comunicarse como especificaciones garantizadas.
 
 ## Lectura de los ajustes principales
 
 La revisión específica del **S7-1500** cambia la conclusión inicial: el valor de $2.400.000 COP era bajo si la fotografía representa el conjunto completo. Las imágenes muestran una CPU S7-1500 acompañada de varios módulos de E/S, por lo que el precio actualizado de publicación es **$5.800.000 COP**, sujeto a confirmar los códigos exactos de la CPU y de los módulos. Radwell publica una CPU 1512C-1 PN reacondicionada en €1.286,18 y una CPU 1511C-1 PN reacondicionada en €1.937,85, ambas con garantía propia de dos años; también publica una CPU 1516 de mayor capacidad reacondicionada en €3.227,76. Esos precios son de CPU individual, no del conjunto AIT, y tienen una condición comercial superior porque incluyen prueba o garantía del revendedor [13] [14] [15]. Con varios módulos visibles, $5.800.000 COP es una cifra de salida razonable para el conjunto, pero sólo debe mantenerse si se confirma que todos los módulos están incluidos y funcionales. Si la fotografía resulta ser de referencia y el inventario real contiene sólo la CPU, el precio debe volver a un rango aproximado de $3.500.000–$4.500.000 COP según el modelo exacto y la prueba. Para convertir los comparables europeos se utilizó 1 EUR = $3.610,17 COP para el 26 de agosto de 2026; así, las CPU 1512C y 1511C reacondicionadas observadas equivalen a $4.643.000 y $6.997.000 COP, respectivamente, antes de flete, impuestos y margen [16].
 
-El ajuste más importante corresponde al **SITRANS P DS III diferencial**. El valor anterior de $5.000.000 COP estaba demasiado cerca del precio de un equipo reacondicionado con garantía comercial internacional, pese a que la unidad fotografiada no tenía calibración, configuración ni garantía documentadas. Equipt publicó un Siemens 7MF4433 usado en buen estado por USD 379,99, que equivale aproximadamente a $1.171.000 COP antes de logística; por eso se fijó un precio de publicación de $1.500.000 COP, negociable después de prueba [2].
+El ajuste de mercado anterior del **SITRANS P DS III diferencial** había fijado $1.500.000 COP debido a la falta de calibración, configuración y garantía documentadas. Equipt publicó un Siemens 7MF4433 usado en buen estado por USD 379,99, equivalente aproximadamente a $1.171.000 COP antes de logística [2]. Posteriormente, por instrucción comercial del usuario, el precio de publicación de esta unidad se actualizó a **$10.000.000 COP**. Debe confirmarse que la referencia, el estado, la configuración HART, el manifold y la documentación técnica respalden ese valor antes de cotizarlo como precio firme.
 
 El **Yokogawa EJA110A** también estaba alto para la condición documentada. eBay mostró una unidad usada a USD 479,99, mientras Radwell publicó una configuración distinta reacondicionada a USD 1.484,70 con garantía propia de dos años; la unidad AIT no tiene calibración ni configuración completa documentada. El valor de $1.200.000 COP busca dejar margen para negociación sin presentarlo como equipo calibrado [3] [4].
 

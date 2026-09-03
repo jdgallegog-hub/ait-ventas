@@ -118,7 +118,7 @@ El buscador permite localizar productos por **marca, modelo, SKU o categoría**.
 
 ## 5. Inventario publicado
 
-Los precios son valores de referencia para equipos usados o de inventario y no constituyen una garantía de funcionamiento. El total aritmético actualizado de los 18 precios publicados es **$53.300.000 COP**, antes de considerar descuentos, transporte, impuestos, pruebas, calibración, comisiones o servicios adicionales.
+Los precios son valores de referencia para equipos usados o de inventario y no constituyen una garantía de funcionamiento. El total aritmético actualizado de los 18 precios publicados es **$58.500.000 COP**, antes de considerar descuentos, transporte, impuestos, pruebas, calibración, comisiones o servicios adicionales.
 
 | No. | Equipo | Marca | Categoría | SKU / referencia | Precio de referencia |
 |---:|---|---|---|---|---:|
@@ -134,7 +134,7 @@ Los precios son valores de referencia para equipos usados o de inventario y no c
 | 10 | Presostato Industrial CCS Dual-Snap | CCS | Instrumentación | `646GZE11` | $1.100.000 |
 | 11 | Presostato de Baja Presión Nega-Rate | ITT Neo-Dyn | Instrumentación | `142P` | $1.600.000 |
 | 12 | Transmisor de Presión SITRANS P220 (0–10 Bar) | Siemens | Transmisores | `7MF1567-3CA00-5BA1` | $1.350.000 |
-| 13 | Transmisor Diferencial SITRANS P DS III HART | Siemens | Transmisores | `7MF44331EY221AC1-Z` | $4.800.000 |
+| 13 | Transmisor Diferencial SITRANS P DS III HART | Siemens | Transmisores | `7MF44331EY221AC1-Z` | $10.000.000 |
 | 14 | Transmisor Diferencial Yokogawa EJA110A | Yokogawa | Transmisores | `91MC27289` | $4.200.000 |
 | 15 | Radar de Onda Guiada SITRANS LG250 | Siemens | Transmisores | `7ML5881-0AC01-0AD9-Z` | $11.500.000 |
 | 16 | Termostato Industrial Heavy-Duty (30–250°F) | United Electric | Instrumentación | `E122-2BSB` | $1.650.000 |
