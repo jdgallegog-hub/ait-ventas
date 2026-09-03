@@ -165,7 +165,7 @@ export const products: Product[] = [
   product("21", "Radar de Onda Guiada SITRANS LG250", "Siemens", "Transmisores", "7ML5881-0AC01-0AD9-Z", 11500000, "Tecnología GWR de alta gama para nivel e interfaz en tanques."),
   product("22", "Termostato Industrial Heavy-Duty (30-250°F)", "United Electric", "Instrumentación", "E122-2BSB", 1650000, "Control de temperatura hermético a prueba de explosión (Clase I Div 1)."),
   product("24", "Transmisor de Temperatura de Campo SITRANS TF", "Siemens", "Transmisores", "7NG3136-0AC11", 4800000, "Cabezal IP67 de aluminio con display digital e integración HART."),
-  product("27", "Transmisor de Nivel por Radar de Onda Guiada", "Rosemount", "Transmisores", "3300", 9800000, "Instrumentación de proceso de nivel continuo para líquidos severos."),
+  product("27", "Transmisor de Nivel por Radar de Onda Guiada", "Rosemount", "Transmisores", "3300", 10000000, "Instrumentación de proceso de nivel continuo para líquidos severos."),
 ];
 
 export const categories = [

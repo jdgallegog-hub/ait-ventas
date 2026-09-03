@@ -118,7 +118,7 @@ El buscador permite localizar productos por **marca, modelo, SKU o categoría**.
 
 ## 5. Inventario publicado
 
-Los precios son valores de referencia para equipos usados o de inventario y no constituyen una garantía de funcionamiento. El total aritmético actualizado de los 18 precios publicados es **$53.100.000 COP**, antes de considerar descuentos, transporte, impuestos, pruebas, calibración, comisiones o servicios adicionales.
+Los precios son valores de referencia para equipos usados o de inventario y no constituyen una garantía de funcionamiento. El total aritmético actualizado de los 18 precios publicados es **$53.300.000 COP**, antes de considerar descuentos, transporte, impuestos, pruebas, calibración, comisiones o servicios adicionales.
 
 | No. | Equipo | Marca | Categoría | SKU / referencia | Precio de referencia |
 |---:|---|---|---|---|---:|
@@ -139,7 +139,7 @@ Los precios son valores de referencia para equipos usados o de inventario y no c
 | 15 | Radar de Onda Guiada SITRANS LG250 | Siemens | Transmisores | `7ML5881-0AC01-0AD9-Z` | $11.500.000 |
 | 16 | Termostato Industrial Heavy-Duty (30–250°F) | United Electric | Instrumentación | `E122-2BSB` | $1.650.000 |
 | 17 | Transmisor de Temperatura de Campo SITRANS TF | Siemens | Transmisores | `7NG3136-0AC11` | $4.800.000 |
-| 18 | Transmisor de Nivel por Radar de Onda Guiada | Rosemount | Transmisores | `3300` | $9.800.000 |
+| 18 | Transmisor de Nivel por Radar de Onda Guiada | Rosemount | Transmisores | `3300` | $10.000.000 |
 
 ## 6. Fichas individuales de producto
 

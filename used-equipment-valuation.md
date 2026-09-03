@@ -10,7 +10,7 @@ Se revisaron las 18 referencias actualmente visibles en el catálogo de AIT Vent
 
 Para convertir precios internacionales se utilizó una TRM de **$3.081,67 COP/USD** publicada para el 26 de agosto de 2026 [1]. La condición se estimó únicamente a partir de las fotografías del inventario y de las notas del proyecto: equipo usado o de inventario, con prueba funcional, configuración, accesorios y calibración pendientes salvo que se indique lo contrario. En consecuencia, los precios publicados en el sitio son valores orientativos y deben confirmarse antes de prometer desempeño o garantía.
 
-El valor publicado recomendado para las 18 referencias era **$28.650.000 COP** antes de la actualización comercial posterior indicada por el usuario. Con los ocho precios actualmente solicitados para publicación, el valor aritmético vigente del catálogo asciende a **$53.100.000 COP**. Esta cifra es un total de precios de salida, no una tasación certificada ni una garantía de venta; la condición, configuración, prueba, accesorios y calibración deben confirmarse antes de cotizar.
+El valor publicado recomendado para las 18 referencias era **$28.650.000 COP** antes de la actualización comercial posterior indicada por el usuario. Con los ocho precios actualmente solicitados para publicación, el valor aritmético vigente del catálogo era **$53.100.000 COP**; con el ajuste posterior del Rosemount 3300, asciende a **$53.300.000 COP**. Esta cifra es un total de precios de salida, no una tasación certificada ni una garantía de venta; la condición, configuración, prueba, accesorios y calibración deben confirmarse antes de cotizar.
 
 ## Valores recomendados para publicación
 
@@ -33,7 +33,7 @@ El valor publicado recomendado para las 18 referencias era **$28.650.000 COP** a
 | 7ML5881-0AC01-0AD9-Z | Radar de Onda Guiada Siemens SITRANS LG250 | $3.800.000 | **$11.500.000** | Actualización comercial | Usado; sonda, configuración y prueba pendientes | Baja |
 | E122-2BSB | Termostato Industrial Heavy-Duty United Electric | $750.000 | **$1.650.000** | Actualización comercial | Usado; rango, serie y prueba pendientes | Baja |
 | 7NG3136-0AC11 | Transmisor de Temperatura de Campo SITRANS TF | $1.800.000 | **$4.800.000** | Actualización comercial | Usado; configuración y calibración pendientes | Baja |
-| 3300 | Transmisor de Nivel por Radar de Onda Guiada Rosemount | $4.800.000 | **$9.800.000** | Actualización comercial | Usado/inventario; código 3301/3302, sonda y prueba pendientes | Baja |
+| 3300 | Transmisor de Nivel por Radar de Onda Guiada Rosemount | $9.800.000 | **$10.000.000** | Ajuste posterior | Usado/inventario; código 3301/3302, sonda y prueba pendientes | Baja |
 
 ## Actualización comercial posterior
 
@@ -48,9 +48,9 @@ Por instrucción del usuario, se actualizaron ocho nombres, descripciones y prec
 | `7ML5881-0AC01-0AD9-Z` | $11.500.000 |
 | `91MC27289` | $4.200.000 |
 | `E122-2BSB` | $1.650.000 |
-| `3300` | $9.800.000 |
+| `3300` | $10.000.000 |
 
-El total aritmético actualizado de las 18 referencias es **$53.100.000 COP**. Los valores solicitados deben tratarse como precios de publicación sujetos a confirmación, no como precios de transacción cerrada. En particular, las denominaciones **SITRANS LG250**, **transmisor de temperatura de campo**, **HART**, **a prueba de explosión**, **Clase I Div 1**, **display local**, **IP67** y **radar de onda guiada** deben coincidir con la placa, el modelo completo y la documentación del equipo antes de comunicarse como especificaciones garantizadas.
+El total aritmético actualizado de las 18 referencias era **$53.100.000 COP** antes del ajuste final del Rosemount 3300. Con el nuevo precio, el total asciende a **$53.300.000 COP**. Los valores solicitados deben tratarse como precios de publicación sujetos a confirmación, no como precios de transacción cerrada. En particular, las denominaciones **SITRANS LG250**, **transmisor de temperatura de campo**, **HART**, **a prueba de explosión**, **Clase I Div 1**, **display local**, **IP67** y **radar de onda guiada** deben coincidir con la placa, el modelo completo y la documentación del equipo antes de comunicarse como especificaciones garantizadas.
 
 ## Lectura de los ajustes principales
 
@@ -62,7 +62,7 @@ El **Yokogawa EJA110A** también estaba alto para la condición documentada. eBa
 
 El **Siemens SITRANS LG250** se fijó en $3.800.000 COP, pero con confianza media porque el comparable nuevo publicado por Antlets es de baja confianza y contiene inconsistencias de modelo/configuración. La cifra sólo debe mantenerse si la sonda, longitud, conexión, electrónica y configuración coinciden con la ficha comercial; de lo contrario debe volver a “Consultar” [5].
 
-Para el **Rosemount 3300**, Instrumart muestra la serie nueva desde USD 5.685,05 y eBay una unidad 3300/3301 abierta pero sin uso a USD 3.950. Sin embargo, la referencia de AIT no contiene el código completo y la configuración de una serie 3300 depende de la electrónica y de la sonda. Por eso se publicó $4.800.000 COP como precio inicial negociable, no como valor definitivo; se debe confirmar el modelo 3301/3302, longitud de sonda, conexión y prueba de señal antes de cotizar [6] [7].
+Para el **Rosemount 3300**, Instrumart muestra la serie nueva desde USD 5.685,05 y eBay una unidad 3300/3301 abierta pero sin uso a USD 3.950. Sin embargo, la referencia de AIT no contiene el código completo y la configuración de una serie 3300 depende de la electrónica y de la sonda. El precio de publicación se actualizó finalmente a **$10.000.000 COP**, sujeto a confirmación del modelo 3301/3302, longitud de sonda, conexión y prueba de señal antes de cotizar [6] [7].
 
 En automatización, el **MicroLogix 1400** queda en $1.650.000 COP. DO Supply publica variantes reacondicionadas y surplus del 1766-L32BWA entre USD 555 y USD 1.255, con diferencias por empaque, garantía y condición; la unidad AIT debe venderse como usada hasta verificar encendido, firmware, E/S y comunicación [8]. El **SITRANS P220** queda en $700.000 COP, cercano a los comparables locales e internacionales observados, pero sin afirmar calibración. RS publica una variante nueva de la familia P220 a USD 931,08 [9].
 
