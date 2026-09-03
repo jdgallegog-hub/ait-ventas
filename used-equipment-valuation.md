@@ -10,7 +10,7 @@ Se revisaron las 18 referencias actualmente visibles en el catálogo de AIT Vent
 
 Para convertir precios internacionales se utilizó una TRM de **$3.081,67 COP/USD** publicada para el 26 de agosto de 2026 [1]. La condición se estimó únicamente a partir de las fotografías del inventario y de las notas del proyecto: equipo usado o de inventario, con prueba funcional, configuración, accesorios y calibración pendientes salvo que se indique lo contrario. En consecuencia, los precios publicados en el sitio son valores orientativos y deben confirmarse antes de prometer desempeño o garantía.
 
-El valor publicado recomendado para las 18 referencias suma **$28.650.000 COP**. La suma de los 16 precios que tenían valor antes de esta revisión era **$27.950.000 COP**; la comparación total no es perfectamente homogénea porque los dos equipos que estaban en “Consultar” —SITRANS TF y Rosemount 3300— ahora reciben un valor inicial sujeto a confirmación.
+El valor publicado recomendado para las 18 referencias era **$28.650.000 COP** antes de la actualización comercial posterior indicada por el usuario. Con los ocho precios actualmente solicitados para publicación, el valor aritmético vigente del catálogo asciende a **$53.100.000 COP**. Esta cifra es un total de precios de salida, no una tasación certificada ni una garantía de venta; la condición, configuración, prueba, accesorios y calibración deben confirmarse antes de cotizar.
 
 ## Valores recomendados para publicación
 
@@ -26,14 +26,31 @@ El valor publicado recomendado para las 18 referencias suma **$28.650.000 COP**.
 | ASCO-3/4-24VDC | Válvula solenoide ASCO 3/4 in, 24 VDC | $400.000 | **$500.000** | +25% | Nueva sin caja; código, tensión y prueba pendientes | Media |
 | T1A-71-3-4-B5 | Motor TechTop 0,75 HP, brida B5 | $350.000 | **$450.000** | +29% | Inventario usado o sobrante; prueba eléctrica y rodamientos pendientes | Media |
 | 646GZE11 | Presostato CCS Dual-Snap | $1.000.000 | **$1.100.000** | +10% | Usado; rango, código completo y prueba pendientes | Media |
-| 142P | Presostato ITT Neo-Dyn 142P | $1.200.000 | **$700.000** | -42% | Usado; rango, código completo y prueba pendientes | Baja |
-| 7MF1567-3CA00-5BA1 | Siemens SITRANS P220 | $650.000 | **$700.000** | +8% | Usado; calibración y lazo 4–20 mA pendientes | Alta |
-| 7MF44331EY221AC1-Z | Siemens SITRANS P DS III diferencial | $5.000.000 | **$1.500.000** | -70% | Usado; configuración, manifold y calibración pendientes | Alta |
-| 91MC27289 | Yokogawa EJA110A diferencial | $3.000.000 | **$1.200.000** | -60% | Usado; configuración y calibración pendientes | Media |
-| 7ML5881-0AC01-0AD9-Z | Siemens SITRANS LG250 / nivel | $6.000.000 | **$3.800.000** | -37% | Usado; sonda, configuración y prueba pendientes | Media |
-| E122-2BSB | Termostato United Electric | $900.000 | **$750.000** | -17% | Usado; rango, serie y prueba pendientes | Alta |
-| 7NG3136-0AC11 | Siemens SITRANS TF temperatura | Consultar | **$1.800.000** | Nuevo valor | Usado; configuración y calibración pendientes | Media |
-| 3300 | Rosemount 3300 nivel | Consultar | **$4.800.000** | Nuevo valor | Usado/inventario; código 3301/3302, sonda y prueba pendientes | Baja |
+| 142P | Presostato de Baja Presión Nega-Rate ITT Neo-Dyn | $700.000 | **$1.600.000** | Actualización comercial | Usado; rango, código completo y prueba pendientes | Media |
+| 7MF1567-3CA00-5BA1 | Transmisor de Presión SITRANS P220 (0–10 Bar) | $700.000 | **$1.350.000** | Actualización comercial | Usado; calibración y lazo 4–20 mA pendientes | Media |
+| 7MF44331EY221AC1-Z | Transmisor Diferencial SITRANS P DS III HART | $1.500.000 | **$4.800.000** | Actualización comercial | Usado; configuración, manifold y calibración pendientes | Baja |
+| 91MC27289 | Transmisor Diferencial Yokogawa EJA110A | $1.200.000 | **$4.200.000** | Actualización comercial | Usado; configuración y calibración pendientes | Baja |
+| 7ML5881-0AC01-0AD9-Z | Radar de Onda Guiada Siemens SITRANS LG250 | $3.800.000 | **$11.500.000** | Actualización comercial | Usado; sonda, configuración y prueba pendientes | Baja |
+| E122-2BSB | Termostato Industrial Heavy-Duty United Electric | $750.000 | **$1.650.000** | Actualización comercial | Usado; rango, serie y prueba pendientes | Baja |
+| 7NG3136-0AC11 | Transmisor de Temperatura de Campo SITRANS TF | $1.800.000 | **$4.800.000** | Actualización comercial | Usado; configuración y calibración pendientes | Baja |
+| 3300 | Transmisor de Nivel por Radar de Onda Guiada Rosemount | $4.800.000 | **$9.800.000** | Actualización comercial | Usado/inventario; código 3301/3302, sonda y prueba pendientes | Baja |
+
+## Actualización comercial posterior
+
+Por instrucción del usuario, se actualizaron ocho nombres, descripciones y precios de publicación con base en la información comercial actualmente disponible para el inventario. Estos valores sustituyen los precios recomendados de la revisión anterior para las referencias afectadas:
+
+| SKU | Precio actualmente solicitado |
+|---|---:|
+| `142P` | $1.600.000 |
+| `7MF1567-3CA00-5BA1` | $1.350.000 |
+| `7MF44331EY221AC1-Z` | $4.800.000 |
+| `7NG3136-0AC11` | $4.800.000 |
+| `7ML5881-0AC01-0AD9-Z` | $11.500.000 |
+| `91MC27289` | $4.200.000 |
+| `E122-2BSB` | $1.650.000 |
+| `3300` | $9.800.000 |
+
+El total aritmético actualizado de las 18 referencias es **$53.100.000 COP**. Los valores solicitados deben tratarse como precios de publicación sujetos a confirmación, no como precios de transacción cerrada. En particular, las denominaciones **SITRANS LG250**, **transmisor de temperatura de campo**, **HART**, **a prueba de explosión**, **Clase I Div 1**, **display local**, **IP67** y **radar de onda guiada** deben coincidir con la placa, el modelo completo y la documentación del equipo antes de comunicarse como especificaciones garantizadas.
 
 ## Lectura de los ajustes principales
 

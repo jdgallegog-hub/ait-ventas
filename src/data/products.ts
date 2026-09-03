@@ -158,14 +158,14 @@ export const products: Product[] = [
   product("13", "Válvula Solenoide ASCO 3/4\" NPT 24VDC", "ASCO", "Válvulas", "ASCO-3/4-24VDC", 500000, "Válvula solenoide ASCO 3/4\" NPT - 24VDC. Nueva sin caja, lista para servicio."),
   product("14", "Motor Eléctrico Techtop 0.75 HP", "Techtop", "Motores", "T1A-71-3-4-B5", 450000, "Motor eléctrico Techtop 0.75 HP (0.55 kW) - 1500 RPM - Brida B5 para acoplamiento directo."),
   product("15", "Presostato Industrial CCS Dual-Snap", "CCS", "Instrumentación", "646GZE11", 1100000, "Presostato industrial CCS Dual-Snap 646GZE11 con rango 12-150 PSI para control de presión."),
-  product("16", "Presostato Baja Presión ITT Neo-Dyn", "ITT Neo-Dyn", "Instrumentación", "142P", 700000, "Presostato de baja presión ITT Neo-Dyn 142P con rango 2-40 in H2O para servicios delicados."),
-  product("18", "Transmisor de Presión Siemens SITRANS P220", "Siemens", "Transmisores", "7MF1567-3CA00-5BA1", 700000, "Transmisor de presión Siemens SITRANS P220 rango 0-10 Bar, salida 4-20 mA."),
-  product("19", "Transmisor Diferencial Siemens SITRANS P DS III", "Siemens", "Transmisores", "7MF44331EY221AC1-Z", 1500000, "Transmisor de presión diferencial Siemens SITRANS P DS III modelo 7MF4433 de alta precisión."),
-  product("20", "Transmisor Diferencial Yokogawa EJA110A", "Yokogawa", "Transmisores", "91MC27289", 1200000, "Transmisor de presión diferencial Yokogawa EJA110A con tecnología DPharp y alta estabilidad."),
-  product("21", "Transmisor de Nivel Ultrasónico Siemens SITRANS", "Siemens", "Transmisores", "7ML5881-0AC01-0AD9-Z", 3800000, "Transmisor de nivel ultrasónico Siemens SITRANS para medición sin contacto en tanques y silos."),
-  product("22", "Termostato Industrial United Electric", "United Electric", "Instrumentación", "E122-2BSB", 750000, "Termostato industrial United Electric E122-2BSB con rango 30-250°F para control de temperatura."),
-  product("24", "Transmisor de Temperatura Siemens SITRANS TF", "Siemens", "Transmisores", "7NG3136-0AC11", 1800000, "Transmisor de temperatura Siemens SITRANS TF. Referencia, configuración y disponibilidad técnica bajo solicitud."),
-  product("27", "Transmisor de Nivel Rosemount 3300", "Rosemount", "Transmisores", "3300", 4800000, "Transmisor de nivel Rosemount 3300 con sonda y electrónica visibles en las fotografías del inventario. Configuración, longitud de sonda y disponibilidad bajo solicitud."),
+  product("16", "Presostato de Baja Presión Nega-Rate", "ITT Neo-Dyn", "Instrumentación", "142P", 1600000, "Equipo a prueba de explosión para rangos críticos (2-40 inH2O)."),
+  product("18", "Transmisor de Presión SITRANS P220 (0-10 Bar)", "Siemens", "Transmisores", "7MF1567-3CA00-5BA1", 1350000, "Transmisor compacto piezorresistivo de acero inoxidable 4-20 mA."),
+  product("19", "Transmisor Diferencial SITRANS P DS III HART", "Siemens", "Transmisores", "7MF44331EY221AC1-Z", 4800000, "Transmisor inteligente con celda de alta precisión y display local."),
+  product("20", "Transmisor Diferencial Yokogawa EJA110A", "Yokogawa", "Transmisores", "91MC27289", 4200000, "Sensor monocristalino DPharp de alta estabilidad a largo plazo."),
+  product("21", "Radar de Onda Guiada SITRANS LG250", "Siemens", "Transmisores", "7ML5881-0AC01-0AD9-Z", 11500000, "Tecnología GWR de alta gama para nivel e interfaz en tanques."),
+  product("22", "Termostato Industrial Heavy-Duty (30-250°F)", "United Electric", "Instrumentación", "E122-2BSB", 1650000, "Control de temperatura hermético a prueba de explosión (Clase I Div 1)."),
+  product("24", "Transmisor de Temperatura de Campo SITRANS TF", "Siemens", "Transmisores", "7NG3136-0AC11", 4800000, "Cabezal IP67 de aluminio con display digital e integración HART."),
+  product("27", "Transmisor de Nivel por Radar de Onda Guiada", "Rosemount", "Transmisores", "3300", 9800000, "Instrumentación de proceso de nivel continuo para líquidos severos."),
 ];
 
 export const categories = [
