@@ -45,6 +45,37 @@ const Contacto = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const honeypot = event.currentTarget.elements.namedItem("website") as HTMLInputElement | null;
+    if (honeypot?.value) {
+      return;
+    }
+
+    const normalizedForm = {
+      name: form.name.trim(),
+      company: form.company.trim(),
+      email: form.email.trim().toLowerCase(),
+      phone: form.phone.trim(),
+      topic: form.topic.trim(),
+      message: form.message.trim(),
+    };
+
+    if (
+      normalizedForm.name.length < 2 ||
+      normalizedForm.company.length < 2 ||
+      normalizedForm.email.length < 5 ||
+      normalizedForm.phone.length < 7 ||
+      normalizedForm.topic.length < 2 ||
+      normalizedForm.message.length < 10
+    ) {
+      toast({
+        title: "Revisa la información",
+        description: "Completa todos los campos con información válida antes de enviar la solicitud.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setSending(true);
 
     if (!supabase) {
@@ -57,14 +88,7 @@ const Contacto = () => {
       return;
     }
 
-    const { error } = await supabase.from("contact_requests").insert({
-      name: form.name.trim(),
-      company: form.company.trim(),
-      email: form.email.trim().toLowerCase(),
-      phone: form.phone.trim(),
-      topic: form.topic,
-      message: form.message.trim(),
-    });
+    const { error } = await supabase.from("contact_requests").insert(normalizedForm);
 
     setSending(false);
 
@@ -121,11 +145,16 @@ const Contacto = () => {
               <Send className="h-6 w-6 text-primary" aria-hidden="true" />
             </div>
 
+            <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+              <label htmlFor="website">Website</label>
+              <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+            </div>
+
             <div className="grid gap-5 sm:grid-cols-2">
-              <div className="space-y-2"><Label htmlFor="name">Nombre</Label><Input id="name" name="name" required autoComplete="name" value={form.name} onChange={(event) => updateField("name", event.target.value)} placeholder="Juan Pérez" /></div>
-              <div className="space-y-2"><Label htmlFor="company">Empresa</Label><Input id="company" name="company" required autoComplete="organization" value={form.company} onChange={(event) => updateField("company", event.target.value)} placeholder="Su compañía" /></div>
-              <div className="space-y-2"><Label htmlFor="email">Correo corporativo</Label><Input id="email" name="email" type="email" required autoComplete="email" value={form.email} onChange={(event) => updateField("email", event.target.value)} placeholder="ingenieria@empresa.com" /></div>
-              <div className="space-y-2"><Label htmlFor="phone">Teléfono</Label><Input id="phone" name="phone" type="tel" required autoComplete="tel" value={form.phone} onChange={(event) => updateField("phone", event.target.value)} placeholder="+57 300 000 0000" /></div>
+              <div className="space-y-2"><Label htmlFor="name">Nombre</Label><Input id="name" name="name" required maxLength={120} autoComplete="name" value={form.name} onChange={(event) => updateField("name", event.target.value)} placeholder="Juan Pérez" /></div>
+              <div className="space-y-2"><Label htmlFor="company">Empresa</Label><Input id="company" name="company" required maxLength={160} autoComplete="organization" value={form.company} onChange={(event) => updateField("company", event.target.value)} placeholder="Su compañía" /></div>
+              <div className="space-y-2"><Label htmlFor="email">Correo corporativo</Label><Input id="email" name="email" type="email" required maxLength={254} autoComplete="email" value={form.email} onChange={(event) => updateField("email", event.target.value)} placeholder="ingenieria@empresa.com" /></div>
+              <div className="space-y-2"><Label htmlFor="phone">Teléfono</Label><Input id="phone" name="phone" type="tel" required maxLength={40} autoComplete="tel" value={form.phone} onChange={(event) => updateField("phone", event.target.value)} placeholder="+57 300 000 0000" /></div>
             </div>
 
             <div className="mt-5 space-y-2">
@@ -143,7 +172,7 @@ const Contacto = () => {
               </select>
             </div>
 
-            <div className="mt-5 space-y-2"><Label htmlFor="message">Describa su requerimiento</Label><Textarea id="message" name="message" rows={6} required value={form.message} onChange={(event) => updateField("message", event.target.value)} placeholder="Tipo de planta, marca/modelo, cantidad, criticidad y fecha requerida..." /></div>
+            <div className="mt-5 space-y-2"><Label htmlFor="message">Describa su requerimiento</Label><Textarea id="message" name="message" rows={6} required minLength={10} maxLength={4000} value={form.message} onChange={(event) => updateField("message", event.target.value)} placeholder="Tipo de planta, marca/modelo, cantidad, criticidad y fecha requerida..." /></div>
 
             <Button type="submit" variant="hero" size="lg" className="mt-7 w-full" disabled={sending}>
               {sending ? "Registrando solicitud..." : <>Enviar solicitud <Send /></>}
