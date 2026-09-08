@@ -5,11 +5,13 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { SEO } from "@/components/SEO";
 
 const Index = lazy(() => import("./pages/Index"));
 const Tienda = lazy(() => import("./pages/Tienda"));
 const Producto = lazy(() => import("./pages/Producto"));
 const SobreNosotros = lazy(() => import("./pages/SobreNosotros"));
+const Servicios = lazy(() => import("./pages/Servicios"));
 const Contacto = lazy(() => import("./pages/Contacto"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -27,12 +29,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <SEO />
         <Suspense fallback={<PageFallback />}>
           <Routes>
             <Route element={<SiteLayout />}>
               <Route path="/" element={<Index />} />
               <Route path="/tienda" element={<Tienda />} />
               <Route path="/tienda/:sku" element={<Producto />} />
+              <Route path="/servicios" element={<Servicios />} />
               <Route path="/sobre-nosotros" element={<SobreNosotros />} />
               <Route path="/contacto" element={<Contacto />} />
             </Route>
