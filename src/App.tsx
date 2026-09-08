@@ -6,8 +6,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { SEO } from "@/components/SEO";
+import Index from "./pages/Index";
 
-const Index = lazy(() => import("./pages/Index"));
 const Tienda = lazy(() => import("./pages/Tienda"));
 const Producto = lazy(() => import("./pages/Producto"));
 const SobreNosotros = lazy(() => import("./pages/SobreNosotros"));
