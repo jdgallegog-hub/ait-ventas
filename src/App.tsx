@@ -13,21 +13,18 @@ const Producto = lazy(() => import("./pages/Producto"));
 const SobreNosotros = lazy(() => import("./pages/SobreNosotros"));
 const Servicios = lazy(() => import("./pages/Servicios"));
 const Contacto = lazy(() => import("./pages/Contacto"));
+const Privacidad = lazy(() => import("./pages/Privacidad"));
+const Terminos = lazy(() => import("./pages/Terminos"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-const PageFallback = () => (
-  <div className="flex min-h-[45vh] items-center justify-center bg-background text-sm font-mono uppercase tracking-[0.18em] text-primary">
-    Cargando AIT Ventas...
-  </div>
-);
+const PageFallback = () => <div className="flex min-h-[45vh] items-center justify-center bg-background text-sm font-mono uppercase tracking-[0.18em] text-primary">Cargando AIT Ventas...</div>;
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
+      <Toaster /><Sonner />
       <BrowserRouter>
         <SEO />
         <Suspense fallback={<PageFallback />}>
@@ -39,6 +36,8 @@ const App = () => (
               <Route path="/servicios" element={<Servicios />} />
               <Route path="/sobre-nosotros" element={<SobreNosotros />} />
               <Route path="/contacto" element={<Contacto />} />
+              <Route path="/privacidad" element={<Privacidad />} />
+              <Route path="/terminos" element={<Terminos />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
