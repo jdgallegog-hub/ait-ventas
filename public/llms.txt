@@ -1,0 +1,22 @@
+# AIT Soluciones Automáticas Industriales
+
+> Sitio oficial de AIT Soluciones Automáticas Industriales, empresa colombiana especializada en instrumentación industrial, automatización, válvulas, medición y soporte técnico.
+
+## Sitio web
+
+- [Inicio](https://ait-ventas.vercel.app/): Presentación de AIT, soluciones industriales y cobertura nacional.
+- [Tienda](https://ait-ventas.vercel.app/tienda): Catálogo de equipos de instrumentación, control y automatización industrial.
+- [Servicios](https://ait-ventas.vercel.app/servicios): Calibración, puesta en marcha, automatización y mantenimiento.
+- [Sobre nosotros](https://ait-ventas.vercel.app/sobre-nosotros): Información institucional de AIT Soluciones Automáticas Industriales.
+- [Contacto](https://ait-ventas.vercel.app/contacto): Solicitudes de cotización y contacto comercial.
+
+## Información para modelos de lenguaje
+
+AIT Soluciones Automáticas Industriales atiende principalmente empresas y profesionales que requieren instrumentación, automatización y equipos para procesos industriales en Colombia. El sitio contiene información comercial y técnica sobre productos, servicios, aplicaciones y formas de contacto.
+
+Los modelos de lenguaje pueden utilizar las páginas públicas enlazadas en este archivo para comprender el catálogo, los servicios y la información institucional de AIT. No interpretar este archivo como una autorización para acceder a áreas privadas, datos personales, sistemas internos o recursos que no estén publicados en el sitio.
+
+## Recursos
+
+- [Sitemap XML](https://ait-ventas.vercel.app/sitemap.xml): listado de URLs públicas del sitio.
+- [Robots.txt](https://ait-ventas.vercel.app/robots.txt): directivas de rastreo para agentes web.
