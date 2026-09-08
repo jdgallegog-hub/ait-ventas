@@ -1,117 +1,23 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Gauge, Wrench, Cpu, Settings, ShieldCheck, BarChart3 } from "lucide-react";
+import { ArrowRight, Gauge, Wrench, Cpu, Settings, ShieldCheck, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
-  {
-    icon: Gauge,
-    title: "Válvulas de Control",
-    desc: "Suministro, montaje, calibración y mantenimiento de válvulas Fisher, Samson y Kimray. Diagnóstico de actuadores neumáticos y posicionadores inteligentes.",
-    items: ["Fisher DVC6200", "Samson 3730", "Kimray Back Pressure", "Reparación in situ"],
-  },
-  {
-    icon: Cpu,
-    title: "Automatización y Control",
-    desc: "Diseño, integración y puesta en marcha de sistemas PLC y DCS Siemens. Migraciones tecnológicas y arquitecturas redundantes para procesos críticos.",
-    items: ["Siemens SIMATIC S7-1500", "PCS 7", "WinCC SCADA", "PROFINET / PROFIBUS"],
-  },
-  {
-    icon: Settings,
-    title: "Instrumentación de Campo",
-    desc: "Selección, suministro y calibración de transmisores de presión, temperatura, nivel y flujo. Trazabilidad completa con patrones ONAC.",
-    items: ["Rosemount", "Endress+Hauser", "Yokogawa", "Calibración acreditada"],
-  },
-  {
-    icon: Wrench,
-    title: "Mantenimiento Preventivo",
-    desc: "Planes de mantenimiento basados en criticidad y confiabilidad (RCM). Reducimos paradas no programadas y extendemos la vida útil de sus activos.",
-    items: ["RCM / FMEA", "Termografía", "Análisis de vibraciones", "Reportes digitales"],
-  },
-  {
-    icon: ShieldCheck,
-    title: "Sistemas Instrumentados de Seguridad",
-    desc: "Implementación de SIS conforme a IEC 61511. Estudios SIL, validación funcional y mantenimiento de funciones de seguridad.",
-    items: ["IEC 61508 / 61511", "Estudios SIL", "Pruebas Proof Test", "F&G Systems"],
-  },
-  {
-    icon: BarChart3,
-    title: "Optimización de Procesos",
-    desc: "Sintonización avanzada de lazos de control, auditorías de desempeño y consultoría para maximizar OEE y reducir consumo energético.",
-    items: ["Loop Tuning", "APC", "KPI Industrial", "Eficiencia energética"],
-  },
+  { icon: Gauge, title: "Calibración y diagnóstico de instrumentación", desc: "Revisión, calibración y diagnóstico de instrumentos de presión, temperatura, nivel, flujo y otras variables, de acuerdo con el alcance y las condiciones del servicio.", items: ["Transmisores", "Manómetros", "Temperatura", "Diagnóstico"] },
+  { icon: Cpu, title: "Automatización y control", desc: "Soporte para PLC, HMI, variadores y sistemas de comunicación industrial, incluyendo configuración, diagnóstico y puesta en marcha según el proyecto.", items: ["PLC", "HMI / SCADA", "HART", "Modbus"] },
+  { icon: Settings, title: "Instrumentación de campo", desc: "Selección, suministro e identificación de transmisores y equipos de medición para presión, temperatura, nivel y flujo.", items: ["Presión", "Temperatura", "Nivel", "Flujo"] },
+  { icon: Wrench, title: "Válvulas de control y actuadores", desc: "Inspección, diagnóstico, mantenimiento y soporte de válvulas de control, actuadores, posicionadores y accesorios de acuerdo con la aplicación.", items: ["Válvulas", "Actuadores", "Posicionadores", "Diagnóstico"] },
+  { icon: ShieldCheck, title: "Mantenimiento de instrumentación", desc: "Mantenimiento preventivo y correctivo orientado a mantener la disponibilidad y confiabilidad de equipos de medición y control.", items: ["Preventivo", "Correctivo", "Inspección", "Reportes"] },
+  { icon: Search, title: "Identificación y búsqueda de equipos", desc: "Si tiene una referencia difícil de conseguir, una placa de datos o una fotografía, revisamos la información para ayudarle a identificar el equipo y buscar disponibilidad o alternativa.", items: ["Referencia", "Placa de datos", "Repuestos", "Alternativas"] },
 ];
 
 const Servicios = () => (
   <>
-    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-border/60 overflow-hidden">
-      <div className="absolute inset-0 grid-pattern opacity-40" />
-      <div className="absolute inset-0 bg-gradient-glow" />
-      <div className="container relative">
-        <span className="text-xs font-mono uppercase tracking-widest text-primary">
-          ✽ Servicios
-        </span>
-        <h1 className="text-5xl lg:text-7xl font-bold mt-4 mb-6 max-w-4xl leading-[1.05]">
-          Soluciones de ingeniería para la{" "}
-          <span className="text-gradient-amber">industria de procesos</span>.
-        </h1>
-        <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl">
-          Del suministro técnico al servicio de campo: cubrimos todo el ciclo
-          de vida de la instrumentación y el control en su planta.
-        </p>
-      </div>
-    </section>
+    <section className="relative overflow-hidden border-b border-border/60 pb-16 pt-24 lg:pb-24 lg:pt-32"><div className="absolute inset-0 grid-pattern opacity-40" /><div className="absolute inset-0 bg-gradient-glow" /><div className="container relative"><span className="text-xs font-mono uppercase tracking-widest text-primary">✽ Servicios técnicos</span><h1 className="mt-4 max-w-4xl text-5xl font-bold leading-[1.05] lg:text-7xl">Soporte para instrumentación, <span className="text-gradient-amber">control y automatización</span>.</h1><p className="mt-7 max-w-3xl text-lg leading-relaxed text-muted-foreground lg:text-xl">Desde la identificación de un instrumento hasta el diagnóstico, calibración, configuración o mantenimiento. El alcance se define según el equipo, la aplicación y las condiciones del servicio.</p></div></section>
 
-    <section className="py-24 lg:py-32">
-      <div className="container">
-        <div className="grid md:grid-cols-2 gap-px bg-border rounded-sm overflow-hidden">
-          {services.map((s) => (
-            <article
-              key={s.title}
-              className="bg-background p-10 lg:p-12 hover:bg-card transition-smooth group"
-            >
-              <div className="flex items-start gap-5 mb-6">
-                <div className="h-14 w-14 rounded-sm bg-secondary border border-border flex items-center justify-center group-hover:bg-gradient-amber group-hover:border-transparent transition-smooth shrink-0">
-                  <s.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-smooth" />
-                </div>
-                <h2 className="text-2xl lg:text-3xl font-bold leading-tight">
-                  {s.title}
-                </h2>
-              </div>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                {s.desc}
-              </p>
-              <ul className="flex flex-wrap gap-2">
-                {s.items.map((i) => (
-                  <li
-                    key={i}
-                    className="text-xs font-mono uppercase tracking-wider px-3 py-1.5 rounded-sm border border-border bg-secondary/50 text-muted-foreground"
-                  >
-                    {i}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
+    <section className="py-20 lg:py-28"><div className="container"><div className="mb-12 max-w-3xl"><span className="text-xs font-mono uppercase tracking-widest text-primary">Capacidades</span><h2 className="mt-4 text-4xl font-bold lg:text-5xl">Servicios que puede cotizar</h2><p className="mt-5 text-lg leading-relaxed text-muted-foreground">Comparta el equipo, la aplicación, cantidad, ubicación y fecha requerida para validar el alcance.</p></div><div className="grid gap-px overflow-hidden rounded-2xl bg-border md:grid-cols-2">{services.map((s) => <article key={s.title} className="group bg-background p-8 transition-smooth hover:bg-card lg:p-10"><div className="mb-6 flex items-start gap-5"><div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border border-border bg-secondary group-hover:border-primary/40 group-hover:bg-primary/10"><s.icon className="h-7 w-7 text-primary" /></div><h2 className="text-2xl font-bold leading-tight lg:text-3xl">{s.title}</h2></div><p className="mb-6 leading-relaxed text-muted-foreground">{s.desc}</p><ul className="flex flex-wrap gap-2">{s.items.map((i) => <li key={i} className="rounded-sm border border-border bg-secondary/50 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-muted-foreground">{i}</li>)}</ul></article>)}</div></div></section>
 
-    <section className="py-24 border-t border-border/60 bg-secondary/30">
-      <div className="container text-center">
-        <h2 className="text-3xl lg:text-5xl font-bold mb-6 max-w-3xl mx-auto">
-          ¿No encuentra el servicio que necesita?
-        </h2>
-        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Diseñamos soluciones a la medida de sus procesos críticos.
-        </p>
-        <Button asChild variant="hero" size="xl">
-          <Link to="/contacto">
-            Hablar con un ingeniero
-            <ArrowRight />
-          </Link>
-        </Button>
-      </div>
-    </section>
+    <section className="border-t border-border/60 bg-secondary/30 py-20"><div className="container text-center"><h2 className="mx-auto mb-6 max-w-3xl text-3xl font-bold lg:text-5xl">¿No sabe exactamente qué servicio necesita?</h2><p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">Cuéntenos qué está fallando, qué equipo tiene instalado o qué necesita poner en marcha. Le ayudamos a definir el siguiente paso.</p><Button asChild variant="hero" size="xl"><Link to="/contacto">Consultar requerimiento <ArrowRight /></Link></Button></div></section>
   </>
 );
 
