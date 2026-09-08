@@ -20,13 +20,28 @@
     <meta property="og:url" content="https://ait-ventas.vercel.app/" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AIT Soluciones Automáticas Industriales","url":"https://ait-ventas.vercel.app/","logo":"https://ait-ventas.vercel.app/favicon.png","areaServed":{"@type":"Country","name":"Colombia"},"contactPoint":{"@type":"ContactPoint","telephone":"+57-300-574-7839","contactType":"sales","availableLanguage":"es"}}</script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMS1QXZCGS"></script>
+    <!-- Google Analytics: carga después de que la página sea interactiva para no competir con el LCP -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-DMS1QXZCGS');
+      (function () {
+        function loadAnalytics() {
+          if (window.__aitAnalyticsLoaded) return;
+          window.__aitAnalyticsLoaded = true;
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-DMS1QXZCGS');
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-DMS1QXZCGS';
+          document.head.appendChild(script);
+        }
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadAnalytics, { timeout: 3000 });
+        } else {
+          window.setTimeout(loadAnalytics, 1500);
+        }
+      })();
     </script>
   </head>
   <body>
