@@ -82,7 +82,7 @@ const product = (
 
 export const products: Product[] = [
   product("5", "PLC S7-1500 Compacto con módulos", "Siemens", "PLC", "S7-1500", 4000000, "Controlador lógico programable Siemens SIMATIC S7-1500 compacto de alto desempeño para automatización industrial. Unidad de liquidación, usada y probada funcionalmente, sin caja original.", 5800000),
-  product("6", "PLC Allen-Bradley 1400", "Allen-Bradley", "PLC", "1766-L32BWA", 1650000, "PLC Allen-Bradley MicroLogix 1400 con E/S integradas para aplicaciones de control medio."),
+  product("6", "PLC Allen-Bradley 1400", "Allen-Bradley", "PLC", "1766-L32BWA", null, "🔥 ¡Equipo vendido! Esta unidad ya fue vendida, pero podemos ayudarte a conseguir otro Allen-Bradley MicroLogix 1400 o una alternativa compatible bajo pedido. Consulta disponibilidad, precio y opciones para tu proyecto.") ,
   product("8", "Variador Mitsubishi 1HP", "Mitsubishi", "Variadores", "FR-D720-042-NA", 650000, "Variador de frecuencia Mitsubishi 1HP serie D720 para control de velocidad de motores."),
   product("9", "Gateway Industrial", "Moxa", "Comunicaciones", "S2E-100MD", 350000, "Gateway industrial Serial-Ethernet para conectar equipos legados a redes IP."),
   product("10", "Siemens SIMATIC IOT2040", "Siemens", "Comunicaciones", "SIMATIC IOT2040", 650000, "Gateway IoT industrial Siemens SIMATIC IOT2040 para conectividad y procesamiento en el borde."),
