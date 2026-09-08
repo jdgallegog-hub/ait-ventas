@@ -1,129 +1,37 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Target, Eye, Award } from "lucide-react";
+import { ArrowRight, CheckCircle2, Eye, Target, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import supportImg from "@/assets/service-support.jpg";
 
+const capabilities = [
+  "Identificación y selección de instrumentación industrial",
+  "Suministro de PLCs, transmisores, válvulas, variadores y repuestos",
+  "Calibración, diagnóstico y mantenimiento de equipos de proceso",
+  "Configuración, puesta en marcha y soporte de sistemas de control",
+  "Búsqueda de referencias específicas y alternativas compatibles",
+  "Atención de requerimientos industriales desde Bogotá para Colombia",
+];
+
 const values = [
-  { title: "Integridad", desc: "Trazabilidad y transparencia en cada intervención técnica." },
-  { title: "Excelencia", desc: "Estándares internacionales aplicados a todos nuestros procesos." },
-  { title: "Compromiso", desc: "Disponibilidad 24/7 para procesos de misión crítica." },
-  { title: "Innovación", desc: "Adoptamos tecnologías que aumentan la confiabilidad." },
+  { title: "Criterio técnico", desc: "Buscamos que la referencia seleccionada corresponda realmente con la aplicación y los requisitos del proceso." },
+  { title: "Transparencia", desc: "Diferenciamos disponibilidad, equipos bajo pedido y valores de referencia antes de formalizar una cotización." },
+  { title: "Respuesta", desc: "Facilitamos la identificación del equipo para que ingeniería y compras puedan avanzar sin perder tiempo." },
+  { title: "Continuidad", desc: "Cuando una referencia no está disponible, exploramos nueva disponibilidad o alternativas técnicamente compatibles." },
 ];
 
 const SobreNosotros = () => (
   <>
-    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-border/60 overflow-hidden">
-      <div className="absolute inset-0 grid-pattern opacity-40" />
-      <div className="absolute inset-0 bg-gradient-glow" />
-      <div className="container relative">
-        <span className="text-xs font-mono uppercase tracking-widest text-primary">
-          ✽ Quiénes somos
-        </span>
-        <h1 className="text-5xl lg:text-7xl font-bold mt-4 mb-6 max-w-4xl leading-[1.05]">
-          Más de una década resolviendo retos de{" "}
-          <span className="text-gradient-amber">automatización industrial</span>.
-        </h1>
-      </div>
-    </section>
+    <section className="relative overflow-hidden border-b border-border/60 pb-16 pt-24 lg:pb-24 lg:pt-32"><div className="absolute inset-0 grid-pattern opacity-40" /><div className="absolute inset-0 bg-gradient-glow" /><div className="container relative"><span className="text-xs font-mono uppercase tracking-widest text-primary">✽ Quiénes somos</span><h1 className="mt-4 max-w-4xl text-5xl font-bold leading-[1.05] lg:text-7xl">Un aliado técnico para sus <span className="text-gradient-amber">requerimientos industriales</span>.</h1><p className="mt-7 max-w-3xl text-lg leading-relaxed text-muted-foreground lg:text-xl">AIT Soluciones Automáticas integra suministro de equipos, instrumentación, automatización y soporte técnico para ayudar a empresas y profesionales a resolver requerimientos de planta.</p></div></section>
 
-    <section className="py-24 lg:py-32">
-      <div className="container grid lg:grid-cols-2 gap-16 items-center">
-        <div className="relative">
-          <img
-            src={supportImg}
-            alt="Ingeniero AIT realizando inspección técnica en planta industrial"
-            loading="lazy"
-            className="rounded-sm shadow-elegant w-full"
-            width={1024}
-            height={1024}
-          />
-          <div className="absolute -bottom-6 -right-6 hidden lg:block bg-gradient-amber p-6 rounded-sm shadow-amber max-w-xs">
-            <div className="text-4xl font-bold font-mono text-primary-foreground">15+</div>
-            <div className="text-sm text-primary-foreground/90 uppercase tracking-wider mt-1">
-              Años transformando la industria
-            </div>
-          </div>
-        </div>
-        <div>
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Ingeniería que mantiene operando lo que no puede detenerse.
-          </h2>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              AIT Soluciones Automáticas Industriales nace en Colombia con un
-              propósito claro: ofrecer a la industria de procesos un aliado
-              técnico de confianza para la instrumentación, el control y la
-              automatización de sus operaciones críticas.
-            </p>
-            <p>
-              Hemos acompañado a más de 200 plantas en sectores de petróleo y
-              gas, petroquímica, generación eléctrica, alimentos y tratamiento
-              de agua, entregando soluciones que combinan suministro técnico
-              con ejecución en sitio.
-            </p>
-            <p>
-              Nuestro equipo está conformado por ingenieros especializados con
-              certificaciones de fábrica de los principales OEM del sector.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section className="py-20 lg:py-28"><div className="container grid items-center gap-16 lg:grid-cols-2"><div className="relative"><img src={supportImg} alt="Soporte técnico de instrumentación industrial" loading="lazy" className="w-full rounded-sm shadow-elegant" width={1024} height={1024} /></div><div><span className="text-xs font-mono uppercase tracking-widest text-primary">Qué hacemos</span><h2 className="mb-6 mt-4 text-3xl font-bold lg:text-4xl">Resolvemos desde la referencia hasta la aplicación.</h2><div className="space-y-4 text-muted-foreground leading-relaxed"><p>Trabajamos alrededor de una necesidad concreta: identificar el equipo correcto, validar sus características, encontrar disponibilidad y acompañar el requerimiento técnico o de servicio.</p><p>El catálogo permite consultar referencias de automatización e instrumentación; cuando un equipo está agotado o ya fue vendido, también podemos recibir la solicitud para buscar otra unidad o una alternativa.</p><p>Para requerimientos de mayor complejidad, el canal de cotización permite compartir aplicación, cantidad, fecha requerida y datos de placa para realizar una validación antes de cotizar.</p></div></div></div></section>
 
-    <section className="py-24 border-y border-border/60 bg-secondary/30">
-      <div className="container grid md:grid-cols-3 gap-px bg-border rounded-sm overflow-hidden">
-        {[
-          { icon: Target, title: "Misión", text: "Garantizar la continuidad operativa de la industria mediante soluciones de instrumentación y automatización de clase mundial." },
-          { icon: Eye, title: "Visión", text: "Ser el aliado técnico de referencia en Latinoamérica para procesos industriales críticos hacia 2030." },
-          { icon: Award, title: "Compromiso", text: "Calidad certificada, seguridad sin concesiones y respuesta inmediata cuando la planta lo necesita." },
-        ].map((b) => (
-          <div key={b.title} className="bg-background p-10">
-            <b.icon className="h-10 w-10 text-primary mb-5" />
-            <h3 className="text-2xl font-bold mb-3">{b.title}</h3>
-            <p className="text-muted-foreground leading-relaxed">{b.text}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <section className="border-y border-border/60 bg-secondary/30 py-20 lg:py-24"><div className="container grid gap-6 lg:grid-cols-[.8fr_1.2fr] lg:items-start"><div><span className="text-xs font-mono uppercase tracking-widest text-primary">Capacidad técnica</span><h2 className="mt-4 text-4xl font-bold">En qué podemos ayudarle</h2><p className="mt-5 leading-relaxed text-muted-foreground">Si no conoce la referencia exacta, no es un problema: puede iniciar la solicitud con la información que tenga disponible.</p></div><ul className="grid gap-3 sm:grid-cols-2">{capabilities.map((item) => <li key={item} className="flex items-start gap-3 rounded-xl border border-border/70 bg-card/70 p-5 text-sm leading-relaxed"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />{item}</li>)}</ul></div></section>
 
-    <section className="py-24 lg:py-32">
-      <div className="container">
-        <div className="max-w-2xl mb-12">
-          <span className="text-xs font-mono uppercase tracking-widest text-primary">✽ Valores</span>
-          <h2 className="text-4xl lg:text-5xl font-bold mt-4">
-            Lo que define nuestra forma de trabajar.
-          </h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((v, i) => (
-            <div
-              key={v.title}
-              className="p-8 rounded-sm border border-border bg-card hover:border-primary/40 hover:-translate-y-1 transition-smooth"
-            >
-              <div className="text-5xl font-bold font-mono text-gradient-amber mb-4">
-                0{i + 1}
-              </div>
-              <h3 className="text-xl font-bold mb-2">{v.title}</h3>
-              <p className="text-sm text-muted-foreground">{v.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <section className="py-20 lg:py-28"><div className="container"><div className="mx-auto mb-12 max-w-3xl text-center"><span className="text-xs font-mono uppercase tracking-widest text-primary">Cómo trabajamos</span><h2 className="mt-4 text-4xl font-bold lg:text-5xl">Menos incertidumbre antes de comprar</h2></div><div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{values.map((v, i) => <div key={v.title} className="rounded-2xl border border-border bg-card p-7 transition-smooth hover:-translate-y-1 hover:border-primary/40"><div className="mb-4 text-4xl font-bold font-mono text-gradient-amber">0{i + 1}</div><h3 className="mb-2 text-xl font-bold">{v.title}</h3><p className="text-sm leading-relaxed text-muted-foreground">{v.desc}</p></div>)}</div></div></section>
 
-    <section className="py-24 border-t border-border/60">
-      <div className="container text-center">
-        <h2 className="text-3xl lg:text-5xl font-bold mb-6 max-w-3xl mx-auto">
-          Trabajemos juntos en su próximo proyecto.
-        </h2>
-        <Button asChild variant="hero" size="xl">
-          <Link to="/contacto">
-            Contactar al equipo
-            <ArrowRight />
-          </Link>
-        </Button>
-      </div>
-    </section>
+    <section className="border-t border-border/60 py-20"><div className="container grid gap-6 md:grid-cols-3"><div className="rounded-2xl border border-border bg-card p-7"><Target className="mb-5 h-9 w-9 text-primary" /><h3 className="text-xl font-bold">Misión</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Facilitar soluciones de instrumentación y automatización que respondan a necesidades técnicas reales de la industria.</p></div><div className="rounded-2xl border border-border bg-card p-7"><Eye className="mb-5 h-9 w-9 text-primary" /><h3 className="text-xl font-bold">Visión</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Construir relaciones comerciales basadas en conocimiento técnico, respuesta y cumplimiento de los requerimientos acordados.</p></div><div className="rounded-2xl border border-border bg-card p-7"><Wrench className="mb-5 h-9 w-9 text-primary" /><h3 className="text-xl font-bold">Enfoque</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Suministro, identificación y soporte: desde una referencia específica hasta el acompañamiento técnico necesario.</p></div></div></section>
+
+    <section className="border-t border-border/60 py-24"><div className="container text-center"><h2 className="mx-auto mb-6 max-w-3xl text-3xl font-bold lg:text-5xl">¿Tiene un requerimiento industrial?</h2><p className="mx-auto mb-8 max-w-2xl text-muted-foreground">Comparta la referencia, aplicación o fotografía del equipo y empecemos por identificar la solución adecuada.</p><Button asChild variant="hero" size="xl"><Link to="/contacto">Solicitar cotización <ArrowRight /></Link></Button></div></section>
   </>
 );
 
