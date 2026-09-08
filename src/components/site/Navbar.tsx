@@ -20,7 +20,7 @@ export const Navbar = () => {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -41,6 +41,9 @@ export const Navbar = () => {
             src={aitLogo}
             alt="AIT Soluciones Automáticas"
             className="h-10 md:h-12 w-auto object-contain"
+            width={101}
+            height={40}
+            decoding="async"
           />
         </Link>
 
