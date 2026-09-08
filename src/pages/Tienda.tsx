@@ -18,41 +18,44 @@ const getProcessVariable = (product: Product) => {
   return "Presión";
 };
 
-const ProductCard = ({ product }: { product: Product }) => (
-  <article className="group flex flex-col overflow-hidden rounded-2xl border border-border/80 bg-card/85 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-amber">
-    <div className="relative aspect-square overflow-hidden bg-[radial-gradient(circle_at_50%_25%,hsl(var(--primary)/.16),transparent_42%),linear-gradient(145deg,hsl(var(--secondary)),hsl(var(--background)))]">
-      <Link to={`/tienda/${encodeURIComponent(product.sku)}`} aria-label={`Ver detalles de ${product.name}`} className="block h-full w-full">
-        <img src={product.image} alt={`${product.imageLabel}: ${product.name}`} loading="lazy" className="h-full w-full object-contain p-8 transition-transform duration-500 group-hover:scale-105" />
-      </Link>
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/80 to-transparent" />
-      <span className="absolute left-4 top-4 rounded-full border border-border/70 bg-background/80 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-primary backdrop-blur">{product.brand}</span>
-      <span className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-primary-foreground">{product.sku === "S7-1500" ? "OFERTA · LIQUIDACIÓN" : "Consultar disponibilidad"}</span>
-      <span className="absolute bottom-4 left-4 text-[10px] font-mono uppercase tracking-[0.14em] text-foreground/60">{product.imageLabel.startsWith("Fotografía") ? "Foto del producto" : "Imagen de referencia"}</span>
-    </div>
-    <div className="flex flex-1 flex-col p-5">
-      <div className="mb-3 flex items-center justify-between gap-3 text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground"><span>{product.category}</span><span className="max-w-[58%] truncate" title={product.sku}>{product.sku}</span></div>
-      <h2 className="min-h-[3.25rem] text-lg font-semibold leading-tight text-foreground"><Link to={`/tienda/${encodeURIComponent(product.sku)}`} className="transition-colors hover:text-primary">{product.name}</Link></h2>
-      <p className="mt-3 min-h-[3rem] text-sm leading-relaxed text-muted-foreground">{product.description}</p>
-      <div className="mt-5 flex items-end justify-between gap-3 border-t border-border/70 pt-4">
-        <div>
-          {product.previousPrice && product.price !== null ? (
-            <>
-              <span className="block text-[10px] font-mono uppercase tracking-[0.14em] text-primary">Oferta de liquidación</span>
-              <span className="mt-1 block text-sm font-mono text-muted-foreground line-through">{formatCOP(product.previousPrice)}</span>
-              <span className="mt-0.5 block text-2xl font-bold font-mono text-gradient-amber">{formatCOP(product.price)}</span>
-            </>
-          ) : (
-            <><span className="block text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground">Precio de referencia</span><span className="mt-1 block text-xl font-bold font-mono text-gradient-amber">{product.price === null ? "Consultar" : formatCOP(product.price)}</span></>
-          )}
-        </div>
-        <PackageCheck className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+const ProductCard = ({ product }: { product: Product }) => {
+  const isSold = product.sku === "1766-L32BWA";
+  return (
+    <article className="group flex flex-col overflow-hidden rounded-2xl border border-border/80 bg-card/85 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-amber">
+      <div className="relative aspect-square overflow-hidden bg-[radial-gradient(circle_at_50%_25%,hsl(var(--primary)/.16),transparent_42%),linear-gradient(145deg,hsl(var(--secondary)),hsl(var(--background)))]">
+        <Link to={`/tienda/${encodeURIComponent(product.sku)}`} aria-label={`Ver detalles de ${product.name}`} className="block h-full w-full">
+          <img src={product.image} alt={`${product.imageLabel}: ${product.name}`} loading="lazy" className="h-full w-full object-contain p-8 transition-transform duration-500 group-hover:scale-105" />
+        </Link>
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/80 to-transparent" />
+        <span className="absolute left-4 top-4 rounded-full border border-border/70 bg-background/80 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-primary backdrop-blur">{product.brand}</span>
+        <span className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] text-primary-foreground">{isSold ? "VENDIDO · CONSIGUE EL TUYO" : product.sku === "S7-1500" ? "OFERTA · LIQUIDACIÓN" : "Consultar disponibilidad"}</span>
+        <span className="absolute bottom-4 left-4 text-[10px] font-mono uppercase tracking-[0.14em] text-foreground/60">{product.imageLabel.startsWith("Fotografía") ? "Foto del producto" : "Imagen de referencia"}</span>
       </div>
-      <Button asChild variant="outlineGlow" size="sm" className="mt-5 w-full"><Link to={`/tienda/${encodeURIComponent(product.sku)}`}>Ver producto <ArrowUpRight /></Link></Button>
-      <Button asChild variant="hero" size="sm" className="mt-3 w-full"><Link to={`/contacto?sku=${encodeURIComponent(product.sku)}&name=${encodeURIComponent(product.name)}&category=${encodeURIComponent(product.category)}`}>Solicitar cotización <ArrowRight /></Link></Button>
-      <div className="mt-3 flex items-center justify-center gap-2 text-[11px] font-mono uppercase tracking-wider text-muted-foreground"><FileText className="h-3.5 w-3.5" />Ficha técnica bajo solicitud</div>
-    </div>
-  </article>
-);
+      <div className="flex flex-1 flex-col p-5">
+        <div className="mb-3 flex items-center justify-between gap-3 text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground"><span>{product.category}</span><span className="max-w-[58%] truncate" title={product.sku}>{product.sku}</span></div>
+        <h2 className="min-h-[3.25rem] text-lg font-semibold leading-tight text-foreground"><Link to={`/tienda/${encodeURIComponent(product.sku)}`} className="transition-colors hover:text-primary">{product.name}</Link></h2>
+        <p className="mt-3 min-h-[3rem] text-sm leading-relaxed text-muted-foreground">{product.description}</p>
+        <div className="mt-5 flex items-end justify-between gap-3 border-t border-border/70 pt-4">
+          <div>
+            {product.previousPrice && product.price !== null ? (
+              <>
+                <span className="block text-[10px] font-mono uppercase tracking-[0.14em] text-primary">Oferta de liquidación</span>
+                <span className="mt-1 block text-sm font-mono text-muted-foreground line-through">{formatCOP(product.previousPrice)}</span>
+                <span className="mt-0.5 block text-2xl font-bold font-mono text-gradient-amber">{formatCOP(product.price)}</span>
+              </>
+            ) : (
+              <><span className="block text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground">{isSold ? "Disponible bajo pedido" : "Precio de referencia"}</span><span className="mt-1 block text-xl font-bold font-mono text-gradient-amber">{product.price === null ? "Consultar" : formatCOP(product.price)}</span></>
+            )}
+          </div>
+          <PackageCheck className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+        </div>
+        <Button asChild variant="outlineGlow" size="sm" className="mt-5 w-full"><Link to={`/tienda/${encodeURIComponent(product.sku)}`}>{isSold ? "Consultar disponibilidad" : "Ver producto"} <ArrowUpRight /></Link></Button>
+        <Button asChild variant="hero" size="sm" className="mt-3 w-full"><Link to={`/contacto?sku=${encodeURIComponent(product.sku)}&name=${encodeURIComponent(product.name)}&category=${encodeURIComponent(product.category)}`}>{isSold ? "Quiero conseguir este equipo" : "Solicitar cotización"} <ArrowRight /></Link></Button>
+        <div className="mt-3 flex items-center justify-center gap-2 text-[11px] font-mono uppercase tracking-wider text-muted-foreground"><FileText className="h-3.5 w-3.5" />Ficha técnica bajo solicitud</div>
+      </div>
+    </article>
+  );
+};
 
 const Tienda = () => {
   const [active, setActive] = useState("Todos");
