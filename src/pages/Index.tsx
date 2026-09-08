@@ -62,7 +62,7 @@ const Index = () => (
   <>
     <section className="relative flex min-h-[calc(100vh-5rem)] items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="Planta industrial con tableros e instrumentación de control" className="h-full w-full object-cover" width={1920} height={1280} />
+        <img src={heroImg} alt="Planta industrial con tableros e instrumentación de control" className="h-full w-full object-cover" width={1920} height={1280} fetchPriority="high" decoding="async" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--background)/.96),hsl(var(--background)/.78)_45%,hsl(var(--background)/.52))]" />
         <div className="absolute inset-0 bg-gradient-glow opacity-60" />
       </div>
