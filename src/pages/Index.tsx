@@ -97,7 +97,7 @@ const Index = () => (
       <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-background to-transparent" />
     </section>
 
-    <section id="soluciones" className="relative py-20 lg:py-28">
+    <section id="soluciones" className="relative py-20 lg:py-28" style={{ contentVisibility: "auto", containIntrinsicSize: "0 900px" }}>
       <div className="absolute inset-0 grid-pattern opacity-25" />
       <div className="container relative">
         <div className="mx-auto mb-14 max-w-3xl text-center">
@@ -125,7 +125,7 @@ const Index = () => (
       </div>
     </section>
 
-    <section className="border-y border-border/60 bg-secondary/30 py-20 lg:py-28">
+    <section className="border-y border-border/60 bg-secondary/30 py-20 lg:py-28" style={{ contentVisibility: "auto", containIntrinsicSize: "0 650px" }}>
       <div className="container">
         <div className="mx-auto mb-12 max-w-3xl text-center"><span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">Nuestra diferencia</span><h2 className="mt-4 text-4xl font-bold tracking-tight lg:text-5xl">¿Por qué elegir AIT Soluciones Automáticas?</h2></div>
         <div className="grid gap-5 sm:grid-cols-2">
@@ -134,13 +134,13 @@ const Index = () => (
       </div>
     </section>
 
-    <section className="relative overflow-hidden bg-foreground py-16 text-background lg:py-20">
-      <div className="absolute inset-0 opacity-20"><img src={sectorsBg} alt="" className="h-full w-full object-cover" loading="lazy" /></div>
+    <section className="relative overflow-hidden bg-foreground py-16 text-background lg:py-20" style={{ contentVisibility: "auto", containIntrinsicSize: "0 500px" }}>
+      <div className="absolute inset-0 opacity-20"><img src={sectorsBg} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" /></div>
       <div className="container relative"><div className="mx-auto mb-10 max-w-2xl text-center"><span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">Cobertura nacional</span><h2 className="mt-4 text-4xl font-bold">Industrias que atendemos</h2></div><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{sectors.map(({ icon: Icon, name }) => <div key={name} className="flex items-center gap-3 rounded-xl border border-background/15 bg-background/5 p-5"><Icon className="h-6 w-6 shrink-0 text-primary" /><span className="font-medium">{name}</span></div>)}</div></div>
     </section>
 
-    <section id="servicios" className="py-20 lg:py-28">
-      <div className="container"><div className="mx-auto mb-14 max-w-3xl text-center"><span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">Ingeniería aplicada</span><h2 className="mt-4 text-4xl font-bold tracking-tight lg:text-5xl">Servicios técnicos especializados</h2><p className="mt-5 text-lg leading-relaxed text-muted-foreground">Acompañamiento técnico para que sus equipos funcionen con precisión, seguridad y continuidad.</p></div><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{services.map(({ title, text, image, icon: Icon }) => <article key={title} className="overflow-hidden rounded-2xl border border-border/80 bg-card shadow-card"><div className="aspect-[4/3] overflow-hidden"><img src={image} alt={title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" /></div><div className="p-6"><div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary"><Icon className="h-5 w-5" /></div><h3 className="text-lg font-semibold">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></div></article>)}</div></div>
+    <section id="servicios" className="py-20 lg:py-28" style={{ contentVisibility: "auto", containIntrinsicSize: "0 700px" }}>
+      <div className="container"><div className="mx-auto mb-14 max-w-3xl text-center"><span className="text-xs font-mono uppercase tracking-[0.18em] text-primary">Ingeniería aplicada</span><h2 className="mt-4 text-4xl font-bold tracking-tight lg:text-5xl">Servicios técnicos especializados</h2><p className="mt-5 text-lg leading-relaxed text-muted-foreground">Acompañamiento técnico para que sus equipos funcionen con precisión, seguridad y continuidad.</p></div><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{services.map(({ title, text, image, icon: Icon }) => <article key={title} className="overflow-hidden rounded-2xl border border-border/80 bg-card shadow-card"><div className="aspect-[4/3] overflow-hidden"><img src={image} alt={title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" /></div><div className="p-6"><div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary"><Icon className="h-5 w-5" /></div><h3 className="text-lg font-semibold">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></div></article>)}</div></div>
     </section>
 
     <section className="border-t border-border/60 bg-primary py-12 text-primary-foreground lg:py-14">
