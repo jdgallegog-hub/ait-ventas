@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, FileText, PackageCheck, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -61,6 +61,65 @@ const Tienda = () => {
   const [active, setActive] = useState("Todos");
   const [process, setProcess] = useState("Todos");
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    const title = "Catálogo de instrumentación industrial | AIT Ventas";
+    const description = "Catálogo de PLCs, transmisores, variadores, válvulas y equipos de automatización industrial en Colombia. Consulte referencias, precios orientativos y cotización técnica.";
+    document.title = title;
+
+    const setMeta = (selector: string, attribute: "name" | "property", value: string) => {
+      let element = document.head.querySelector<HTMLMetaElement>(selector);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(attribute, selector.includes("property=") ? selector.split('"')[1] : selector.split('"')[1]);
+        document.head.appendChild(element);
+      }
+      element.content = value;
+    };
+
+    setMeta('meta[name="description"]', "name", description);
+    setMeta('meta[property="og:title"]', "property", title);
+    setMeta('meta[property="og:description"]', "property", description);
+    setMeta('meta[property="og:url"]', "property", "https://ait-ventas.vercel.app/tienda");
+
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = "https://ait-ventas.vercel.app/tienda";
+
+    let robots = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (!robots) {
+      robots = document.createElement("meta");
+      robots.name = "robots";
+      document.head.appendChild(robots);
+    }
+    robots.content = "index,follow,max-image-preview:large";
+
+    const existingSchema = document.head.querySelector<HTMLScriptElement>('script[data-seo="ait-tienda"]');
+    const schema = existingSchema ?? document.createElement("script");
+    schema.type = "application/ld+json";
+    schema.dataset.seo = "ait-tienda";
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: title,
+      description,
+      url: "https://ait-ventas.vercel.app/tienda",
+      isPartOf: { "@type": "WebSite", name: "AIT Soluciones", url: "https://ait-ventas.vercel.app/" },
+      numberOfItems: products.length,
+    });
+    if (!existingSchema) document.head.appendChild(schema);
+
+    return () => {
+      document.title = "AIT Soluciones — Instrumentación Industrial Colombia";
+      canonical?.remove();
+      schema.remove();
+    };
+  }, []);
+
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return products.filter((product) => {
