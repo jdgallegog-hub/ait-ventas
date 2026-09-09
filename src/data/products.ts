@@ -1,4 +1,5 @@
 import plcImage from "@/assets/product-plc.jpg";
+import mitsubishiFx5uImage from "@/assets/product-mitsubishi-fx5u";
 import positionerImage from "@/assets/product-positioner.jpg";
 import sensorImage from "@/assets/product-sensor.jpg";
 import transmitterImage from "@/assets/product-transmitter.jpg";
@@ -46,6 +47,7 @@ const categoryImages: Record<string, { image: string; label: string }> = {
 };
 
 const productImages: Partial<Record<string, { image: string; label: string }>> = {
+  "FX5U-32MR/ES": { image: mitsubishiFx5uImage, label: "Fotografía real del PLC Mitsubishi Electric iQ-F FX5U-32MR/ES disponible en AIT" },
   "E122-2BSB": { image: unitedElectricImage1, label: "Fotografía del termostato industrial United Electric" },
   "7ML5881-0AC01-0AD9-Z": { image: siemensLevelImage1, label: "Fotografía del transmisor de nivel Siemens SITRANS" },
   "7NG3136-0AC11": { image: siemensTemperatureImage1, label: "Fotografía del transmisor de temperatura Siemens SITRANS TF" },
