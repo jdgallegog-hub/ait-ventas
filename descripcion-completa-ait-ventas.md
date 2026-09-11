@@ -118,13 +118,13 @@ El buscador permite localizar productos por **marca, modelo, SKU o categoría**.
 
 ## 5. Inventario publicado
 
-Los precios son valores de referencia para equipos usados o de inventario y no constituyen una garantía de funcionamiento. El total aritmético actualizado de los 18 precios publicados es **$58.500.000 COP**, antes de considerar descuentos, transporte, impuestos, pruebas, calibración, comisiones o servicios adicionales.
+Los precios son valores de referencia para equipos usados o de inventario y no constituyen una garantía de funcionamiento. El total aritmético actualizado de los 18 precios publicados es **$58.850.000 COP**, antes de considerar descuentos, transporte, impuestos, pruebas, calibración, comisiones o servicios adicionales.
 
 | No. | Equipo | Marca | Categoría | SKU / referencia | Precio de referencia |
 |---:|---|---|---|---|---:|
 | 1 | PLC S7-1500 Compacto con módulos | Siemens | PLC | `S7-1500` | $5.800.000 |
 | 2 | PLC Allen-Bradley 1400 | Allen-Bradley | PLC | `1766-L32BWA` | $1.650.000 |
-| 3 | Variador Mitsubishi 1HP | Mitsubishi | Variadores | `FR-D720-042-NA` | $650.000 |
+| 3 | PLC Mitsubishi iQ-F FX5U-32MR/ES | Mitsubishi Electric | PLC | `FX5U-32MR/ES` | $1.000.000 |
 | 4 | Gateway Industrial | Moxa | Comunicaciones | `S2E-100MD` | $350.000 |
 | 5 | Siemens SIMATIC IOT2040 | Siemens | Comunicaciones | `SIMATIC IOT2040` | $650.000 |
 | 6 | Arrancador Suave Siemens SIRIUS | Siemens | Variadores | `3RW3014-1BB14` | $550.000 |

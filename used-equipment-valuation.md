@@ -10,7 +10,7 @@ Se revisaron las 18 referencias actualmente visibles en el catálogo de AIT Vent
 
 Para convertir precios internacionales se utilizó una TRM de **$3.081,67 COP/USD** publicada para el 26 de agosto de 2026 [1]. La condición se estimó únicamente a partir de las fotografías del inventario y de las notas del proyecto: equipo usado o de inventario, con prueba funcional, configuración, accesorios y calibración pendientes salvo que se indique lo contrario. En consecuencia, los precios publicados en el sitio son valores orientativos y deben confirmarse antes de prometer desempeño o garantía.
 
-El valor publicado recomendado para las 18 referencias era **$28.650.000 COP** antes de la actualización comercial posterior indicada por el usuario. Con los ocho precios actualmente solicitados para publicación, el valor aritmético vigente del catálogo era **$53.100.000 COP**; con los ajustes posteriores del Rosemount 3300 y del SITRANS P DS III, asciende a **$58.500.000 COP**. Esta cifra es un total de precios de salida, no una tasación certificada ni una garantía de venta; la condición, configuración, prueba, accesorios y calibración deben confirmarse antes de cotizar.
+El valor publicado recomendado para las 18 referencias era **$28.650.000 COP** antes de la actualización comercial posterior indicada por el usuario. Con los ocho precios actualmente solicitados para publicación, el valor aritmético vigente del catálogo era **$53.100.000 COP**; con los ajustes posteriores del Rosemount 3300, del SITRANS P DS III y del PLC Mitsubishi FX5U, asciende a **$58.850.000 COP**. Esta cifra es un total de precios de salida, no una tasación certificada ni una garantía de venta; la condición, configuración, prueba, accesorios y calibración deben confirmarse antes de cotizar.
 
 ## Valores recomendados para publicación
 
@@ -18,7 +18,7 @@ El valor publicado recomendado para las 18 referencias era **$28.650.000 COP** a
 |---|---|---:|---:|---:|---|---|
 | S7-1500 | PLC Siemens S7-1500 compacto con módulos | $2.850.000 | **$5.800.000** | +104% | Conjunto usado; CPU, módulos, memoria, fuente y prueba pendientes | Media |
 | 1766-L32BWA | PLC Allen-Bradley MicroLogix 1400 | $1.950.000 | **$1.650.000** | -15% | Usado; prueba, firmware y accesorios pendientes | Alta |
-| FR-D720-042-NA | Variador Mitsubishi 1 HP | $550.000 | **$650.000** | +18% | Usado; prueba y datos eléctricos finales pendientes | Alta |
+| FX5U-32MR/ES | PLC Mitsubishi Electric iQ-F FX5U-32MR/ES | No comparado en esta revisión | **$1.000.000** | Nueva publicación | Usado; prueba, configuración y accesorios pendientes | Media |
 | S2E-100MD | Gateway industrial Moxa | $300.000 | **$350.000** | +17% | Usado; protocolo, alimentación y prueba pendientes | Baja |
 | SIMATIC IOT2040 | Siemens SIMATIC IOT2040 | $1.500.000 | **$650.000** | -57% | Usado; accesorios y prueba pendientes | Media |
 | 3RW3014-1BB14 | Arrancador suave Siemens SIRIUS | $500.000 | **$550.000** | +10% | Usado; prueba de arranque pendiente | Alta |
@@ -49,8 +49,9 @@ Por instrucción del usuario, se actualizaron ocho nombres, descripciones y prec
 | `91MC27289` | $4.200.000 |
 | `E122-2BSB` | $1.650.000 |
 | `3300` | $10.000.000 |
+| `FX5U-32MR/ES` | $1.000.000 |
 
-El total aritmético actualizado de las 18 referencias era **$53.100.000 COP** antes de los ajustes finales del Rosemount 3300 y del SITRANS P DS III. Con ambos nuevos precios, el total asciende a **$58.500.000 COP**. Los valores solicitados deben tratarse como precios de publicación sujetos a confirmación, no como precios de transacción cerrada. En particular, las denominaciones **SITRANS LG250**, **transmisor de temperatura de campo**, **HART**, **a prueba de explosión**, **Clase I Div 1**, **display local**, **IP67** y **radar de onda guiada** deben coincidir con la placa, el modelo completo y la documentación del equipo antes de comunicarse como especificaciones garantizadas.
+El total aritmético actualizado de las 18 referencias era **$53.100.000 COP** antes de los ajustes finales del Rosemount 3300, del SITRANS P DS III y del PLC Mitsubishi FX5U. Con esos nuevos precios, el total asciende a **$58.850.000 COP**. Los valores solicitados deben tratarse como precios de publicación sujetos a confirmación, no como precios de transacción cerrada. En particular, las denominaciones **SITRANS LG250**, **transmisor de temperatura de campo**, **HART**, **a prueba de explosión**, **Clase I Div 1**, **display local**, **IP67** y **radar de onda guiada** deben coincidir con la placa, el modelo completo y la documentación del equipo antes de comunicarse como especificaciones garantizadas.
 
 ## Lectura de los ajustes principales
 
@@ -116,7 +117,7 @@ La tienda pública `https://ait-ventas.vercel.app/tienda` cargó correctamente d
 
 ## Resultado de producción
 
-La tienda pública `https://ait-ventas.vercel.app/tienda?version=ed31853` cargó correctamente después de la publicación. Se verificó que muestra 18 referencias, la etiqueta `Precios orientativos de segunda mano en COP · validar estado`, la nota de consulta en el catálogo y valores actualizados como $5.800.000 para el conjunto S7-1500, $1.650.000 para el MicroLogix 1400, $650.000 para el variador Mitsubishi, $1.500.000 para el SITRANS P DS III, $1.200.000 para el Yokogawa EJA110A y $3.800.000 para el transmisor de nivel Siemens.
+La tienda pública `https://ait-ventas.vercel.app/tienda?version=ed31853` cargó correctamente después de la publicación. Se verificó que muestra 18 referencias, la etiqueta `Precios orientativos de segunda mano en COP · validar estado`, la nota de consulta en el catálogo y valores actualizados como $5.800.000 para el conjunto S7-1500, $1.650.000 para el MicroLogix 1400, $1.000.000 para el PLC Mitsubishi Electric FX5U-32MR/ES, $10.000.000 para el SITRANS P DS III, $4.200.000 para el Yokogawa EJA110A y $11.500.000 para el radar de onda guiada Siemens.
 
 ## Revisión específica posterior
 

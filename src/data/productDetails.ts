@@ -6,7 +6,7 @@ import s71500ModulesImage from "@/assets/product-s7-1500-modules.webp";
 import s71500PairImage from "@/assets/product-s7-1500-pair.webp";
 import softStarterSiriusFrontImage from "@/assets/product-soft-starter-sirius-front.webp";
 import softStarterSiriusAngleImage from "@/assets/product-soft-starter-sirius-angle.webp";
-import mitsubishiFrD720Image from "@/assets/product-mitsubishi-fr-d720.webp";
+import mitsubishiFx5uImage from "@/assets/product-mitsubishi-fx5u-32mr-es.webp";
 import comm6es7541Image1 from "@/assets/product-comm-6es7541-1.webp";
 import comm6es7541Image2 from "@/assets/product-comm-6es7541-2.webp";
 import comm6es7541Image3 from "@/assets/product-comm-6es7541-3.webp";
@@ -141,10 +141,10 @@ export const productGalleries: Record<string, ProductGalleryImage[]> = {
       alt: "Arrancador suave Siemens SIRIUS 3RW3014-1BB14 en vista lateral",
     },
   ],
-  "FR-D720-042-NA": [
+  "FX5U-32MR/ES": [
     {
-      src: mitsubishiFrD720Image,
-      alt: "Variador Mitsubishi FR-D720 de 1 HP en vista frontal",
+      src: mitsubishiFx5uImage,
+      alt: "PLC Mitsubishi Electric iQ-F FX5U-32MR/ES en vista frontal",
     },
   ],
   "6ES7541-1AB00-0AB0": [
@@ -241,11 +241,14 @@ export const productCharacteristics: Record<string, string[]> = {
     "Entrada de control de 110–230 V",
     "Ajuste de tiempo de arranque y tensión inicial",
   ],
-  "FR-D720-042-NA": [
-    "Variador de frecuencia Mitsubishi serie D700",
-    "Referencia de catálogo: FR-D720-042-NA",
-    "Alimentación y potencia final sujetas a validación técnica",
-    "Control de velocidad para aplicaciones con motores eléctricos",
+  "FX5U-32MR/ES": [
+    "PLC Mitsubishi Electric serie iQ-F FX5U-32MR/ES",
+    "32 puntos de E/S: 16 entradas 24 VDC y 16 salidas a relé",
+    "Ethernet integrado para programación y comunicación Modbus TCP",
+    "RS485 para redes industriales y comunicación con variadores",
+    "Ranura para tarjeta SD para registro y respaldo",
+    "Capacidad de control de movimiento y alimentación 100-240 V AC",
+    "Unidad en excelente estado; disponibilidad y configuración deben confirmarse antes de cotizar",
   ],
   "6ES7541-1AB00-0AB0": [
     "Módulo de comunicación Siemens PtP",

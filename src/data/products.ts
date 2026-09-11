@@ -6,7 +6,7 @@ import transmitterImage from "@/assets/product-transmitter.jpg";
 import valveImage from "@/assets/product-valve.jpg";
 import allenBradley1400Image from "@/assets/product-allen-bradley-1400.webp";
 import s71500Image from "@/assets/product-s7-1500.webp";
-import mitsubishiFrD720Image from "@/assets/product-mitsubishi-fr-d720.webp";
+import mitsubishiFx5uImage from "@/assets/product-mitsubishi-fx5u-32mr-es.webp";
 import softStarterSiriusFrontImage from "@/assets/product-soft-starter-sirius-front.webp";
 import comm6es7541Image from "@/assets/product-comm-6es7541-1.webp";
 import iot2040Image from "@/assets/product-iot2040-1.webp";
@@ -57,7 +57,7 @@ const productImages: Partial<Record<string, { image: string; label: string }>> =
   "S7-1500": { image: s71500Image, label: "Fotografía del PLC Siemens SIMATIC S7-1500" },
   "1766-L32BWA": { image: allenBradley1400Image, label: "Fotografía del PLC Allen-Bradley MicroLogix 1400" },
   "3RW3014-1BB14": { image: softStarterSiriusFrontImage, label: "Fotografía del arrancador suave Siemens SIRIUS" },
-  "FR-D720-042-NA": { image: mitsubishiFrD720Image, label: "Fotografía del variador Mitsubishi FR-D720" },
+  "FX5U-32MR/ES": { image: mitsubishiFx5uImage, label: "Fotografía del PLC Mitsubishi Electric iQ-F FX5U-32MR/ES" },
   "6ES7541-1AB00-0AB0": { image: comm6es7541Image, label: "Fotografía del módulo de comunicación Siemens 6ES7541" },
   "SIMATIC IOT2040": { image: iot2040Image, label: "Fotografía del Siemens SIMATIC IOT2040" },
   "S2E-100MD": { image: gatewayS2eImage, label: "Fotografía del Gateway Industrial S2E-100MD" },
@@ -83,10 +83,9 @@ const product = (
 };
 
 export const products: Product[] = [
-  product("28", "PLC Mitsubishi iQ-F FX5U-32MR/ES", "Mitsubishi Electric", "PLC", "FX5U-32MR/ES", null, "PLC Mitsubishi Electric serie iQ-F, unidad en excelente estado. 32 puntos de E/S: 16 entradas 24 VDC y 16 salidas a relé. Incluye Ethernet integrado para programación y comunicación Modbus TCP, RS485 para redes industriales y comunicación con variadores, ranura para tarjeta SD para registro y respaldo, capacidad de control de movimiento y alimentación 100-240 V AC. Ideal para modernización y automatización industrial. Consulte disponibilidad y cotice esta referencia."),
   product("5", "PLC S7-1500 Compacto con módulos", "Siemens", "PLC", "S7-1500", 4000000, "Controlador lógico programable Siemens SIMATIC S7-1500 compacto de alto desempeño para automatización industrial. Unidad de liquidación, usada y probada funcionalmente, sin caja original.", 5800000),
   product("6", "PLC Allen-Bradley 1400", "Allen-Bradley", "PLC", "1766-L32BWA", null, "🔥 ¡Equipo vendido! Esta unidad ya fue vendida, pero podemos ayudarte a conseguir otro Allen-Bradley MicroLogix 1400 o una alternativa compatible bajo pedido. Consulta disponibilidad, precio y opciones para tu proyecto."),
-  product("8", "Variador Mitsubishi 1HP", "Mitsubishi", "Variadores", "FR-D720-042-NA", 650000, "Variador de frecuencia Mitsubishi 1HP serie D720 para control de velocidad de motores."),
+  product("8", "PLC Mitsubishi iQ-F FX5U-32MR/ES", "Mitsubishi Electric", "PLC", "FX5U-32MR/ES", 1000000, "PLC Mitsubishi Electric serie iQ-F FX5U-32MR/ES, unidad en excelente estado. 32 puntos de E/S: 16 entradas 24 VDC y 16 salidas a relé. Incluye Ethernet integrado para programación y comunicación Modbus TCP, RS485 para redes industriales y comunicación con variadores, ranura para tarjeta SD para registro y respaldo, capacidad de control de movimiento y alimentación 100-240 V AC. Ideal para modernización y automatización industrial. Consulte disponibilidad y cotice esta referencia."),
   product("9", "Gateway Industrial", "Moxa", "Comunicaciones", "S2E-100MD", 350000, "Gateway industrial Serial-Ethernet para conectar equipos legados a redes IP."),
   product("10", "Siemens SIMATIC IOT2040", "Siemens", "Comunicaciones", "SIMATIC IOT2040", 650000, "Gateway IoT industrial Siemens SIMATIC IOT2040 para conectividad y procesamiento en el borde."),
   product("11", "Arrancador Suave Siemens SIRIUS", "Siemens", "Variadores", "3RW3014-1BB14", 550000, "Arrancador suave Siemens SIRIUS 3RW30 para arranque controlado de motores trifásicos."),
