@@ -118,7 +118,7 @@ El buscador permite localizar productos por **marca, modelo, SKU o categoría**.
 
 ## 5. Inventario publicado
 
-Los precios son valores de referencia para equipos usados o de inventario y no constituyen una garantía de funcionamiento. El total aritmético actualizado de los 18 precios publicados es **$58.850.000 COP**, antes de considerar descuentos, transporte, impuestos, pruebas, calibración, comisiones o servicios adicionales.
+Los precios son valores de referencia para equipos usados o de inventario y no constituyen una garantía de funcionamiento. El total aritmético actualizado de los 18 precios publicados es **$59.200.000 COP**, antes de considerar descuentos, transporte, impuestos, pruebas, calibración, comisiones o servicios adicionales.
 
 | No. | Equipo | Marca | Categoría | SKU / referencia | Precio de referencia |
 |---:|---|---|---|---|---:|
@@ -126,7 +126,7 @@ Los precios son valores de referencia para equipos usados o de inventario y no c
 | 2 | PLC Allen-Bradley 1400 | Allen-Bradley | PLC | `1766-L32BWA` | $1.650.000 |
 | 3 | PLC Mitsubishi iQ-F FX5U-32MR/ES | Mitsubishi Electric | PLC | `FX5U-32MR/ES` | $1.000.000 |
 | 4 | Gateway Industrial | Moxa | Comunicaciones | `S2E-100MD` | $350.000 |
-| 5 | Siemens SIMATIC IOT2040 | Siemens | Comunicaciones | `SIMATIC IOT2040` | $650.000 |
+| 5 | Siemens SIMATIC IOT2040 | Siemens | Comunicaciones | `SIMATIC IOT2040` | $1.000.000 |
 | 6 | Arrancador Suave Siemens SIRIUS | Siemens | Variadores | `3RW3014-1BB14` | $550.000 |
 | 7 | Módulo de Comunicación Siemens | Siemens | Comunicaciones | `6ES7541-1AB00-0AB0` | $1.700.000 |
 | 8 | Válvula Solenoide ASCO 3/4” NPT 24VDC | ASCO | Válvulas | `ASCO-3/4-24VDC` | $500.000 |
