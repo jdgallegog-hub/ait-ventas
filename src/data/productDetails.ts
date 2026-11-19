@@ -42,9 +42,6 @@ import siemensTemperatureImage3 from "@/assets/product-siemens-temperature-03.jp
 import siemensTemperatureImage4 from "@/assets/product-siemens-temperature-04.jpeg";
 import siemensTemperatureImage5 from "@/assets/product-siemens-temperature-05.jpeg";
 import siemensTemperatureImage6 from "@/assets/product-siemens-temperature-06.jpeg";
-import siemensP220Image1 from "@/assets/product-siemens-p220-01.jpeg";
-import siemensP220Image2 from "@/assets/product-siemens-p220-02.jpeg";
-import siemensP220Image3 from "@/assets/product-siemens-p220-03.jpeg";
 import siemensDifferentialImage1 from "@/assets/product-siemens-differential-01.jpeg";
 import siemensDifferentialImage2 from "@/assets/product-siemens-differential-02.jpeg";
 import siemensDifferentialImage3 from "@/assets/product-siemens-differential-03.jpeg";
@@ -83,11 +80,6 @@ export const productGalleries: Record<string, ProductGalleryImage[]> = {
     { src: siemensTemperatureImage4, alt: "Transmisor de Temperatura de Campo SITRANS TF en vista frontal" },
     { src: siemensTemperatureImage5, alt: "Transmisor de Temperatura de Campo SITRANS TF en vista posterior" },
     { src: siemensTemperatureImage6, alt: "Transmisor de Temperatura de Campo SITRANS TF en vista adicional" },
-  ],
-  "7MF1567-3CA00-5BA1": [
-    { src: siemensP220Image1, alt: "Transmisor de presión SITRANS P220 de 0-10 Bar en vista frontal" },
-    { src: siemensP220Image2, alt: "Transmisor de presión SITRANS P220 de 0-10 Bar en vista frontal alternativa" },
-    { src: siemensP220Image3, alt: "Transmisor de presión SITRANS P220 de 0-10 Bar en vista lateral" },
   ],
   "7MF44331EY221AC1-Z": [
     { src: siemensDifferentialImage1, alt: "Transmisor Diferencial SITRANS P DS III HART en vista de placa" },
